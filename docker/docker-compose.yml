@@ -4,5 +4,8 @@ services:
     build: .
     ports:
       - "8080:80"
+      - "9000:9000"
     volumes:
       - ../app:/var/www/html
+    environment:
+      XDEBUG_CONFIG: remote_host=127.0.0.1

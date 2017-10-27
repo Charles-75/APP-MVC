@@ -1,6 +1,73 @@
 <?php
 
-require_once('../config/config.php');
-echo TEST;
+use \Vendors\Container\Container;
 
-?>
+require_once('../config/config.php');
+require_once('../config/router.php');
+
+/**
+ * Charge une classe en utilisant son Namespace comme structure de dossier
+ *
+ * @param $classname
+ * @throws Error
+ *
+ */
+function __autoload($classname)
+{
+    $path = '../' . str_replace('\\', DIRECTORY_SEPARATOR, $classname) . '.php';
+    if (!file_exists($path)) {
+        throw new Error("File does not exist : $path");
+    }
+    require_once($path);
+}
+
+// Récupérer la route depuis l'URL
+// URL Rewrite doit être activé
+$route = '/' . $_GET['q'];
+
+// Récupère le nom du controlle à instancier
+try {
+    // Si aucun controller n'est spécifié pour la route donnée : 404
+    if (!isset($routes[$route][0])) {
+        throw new Error("No controller specified for route : '" . $route . "'");
+    } else {
+        // Récupérer le nom de classe du controller
+        /** @var \Core\Controller $controllerClass */
+        $controllerClass = $routes[$route][0];
+    }
+} catch (Error $e) {
+    // @TODO : Gérer les erreurs avec une page d'erreur
+    echo "<pre>";
+    echo $e;
+    echo "</pre>";
+    // On peut récupérer la trace avec $e->getTrace();
+    die();
+}
+
+// Récupérer la liste des dépendences
+$dependencies = $controllerClass::$dependencies;
+// Injecter les dépendences dans un noveau Container
+$container = new Container();
+foreach($dependencies as $key => $dependency) {
+    $container->add($key, new $dependency());
+}
+
+// Instancier le controller. Peut lancer une erreur si le fichier n'existe pas
+$controller = new $controllerClass($container);
+
+// Appeler la méthode correspondant
+try {
+    $methode = $routes[$route][1] . 'Action';
+    if (!method_exists($controller, $methode)) {
+        throw new Error("Cound not find action for route : $route");
+    } else {
+        echo $controller->$methode();
+    }
+
+} catch (Error $e) {
+    // @TODO : Gérer les erreurs avec une page d'erreur
+    echo "<pre>";
+    echo $e;
+    echo "</pre>";
+    die();
+}
