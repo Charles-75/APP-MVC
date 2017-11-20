@@ -1,7 +1,5 @@
 <?php
 
-use \Vendors\Container\Container;
-
 require_once('../config/config.php');
 require_once('../config/router.php');
 
@@ -18,12 +16,15 @@ function __autoload($classname)
     if (!file_exists($path)) {
         throw new Error("File does not exist : $path");
     }
-    require_once($path);
+    require_once(__DIR__.'/'.$path);
 }
+
 
 // Récupérer la route depuis l'URL
 // URL Rewrite doit être activé
 $route = '/' . $_GET['q'];
+
+
 
 // Récupère le nom du controlle à instancier
 try {
@@ -44,16 +45,8 @@ try {
     die();
 }
 
-// Récupérer la liste des dépendences
-$dependencies = $controllerClass::$dependencies;
-// Injecter les dépendences dans un noveau Container
-$container = new Container();
-foreach($dependencies as $key => $dependency) {
-    $container->add($key, new $dependency());
-}
-
 // Instancier le controller. Peut lancer une erreur si le fichier n'existe pas
-$controller = new $controllerClass($container);
+$controller = new $controllerClass();
 
 // Appeler la méthode correspondant
 try {
