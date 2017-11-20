@@ -10,7 +10,6 @@ class Users {
 
     /**
      * Users constructor.
-     * @param $bdd
      */
     public function __construct()
     {
@@ -27,6 +26,9 @@ class Users {
             return $req->fetchAll(PDO::FETCH_ASSOC);
         }
         catch(\PDOException $e) {
+            return [];
+        }
+        catch(Error $e) {
             return [];
         }
     }
