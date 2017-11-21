@@ -13,7 +13,7 @@ class Users {
      */
     public function __construct()
     {
-        $this->bdd = new PDO('mysql:host=mysql;dbname=app', DB_USER, DB_PASSWORD);
+        $this->bdd = new PDO('mysql:host='.DB_HOST.';dbname=app', DB_USER, DB_PASSWORD);
         $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 

@@ -22,7 +22,13 @@ function __autoload($classname)
 
 // Récupérer la route depuis l'URL
 // URL Rewrite doit être activé
-$route = '/' . $_GET['q'];
+if (isset($_GET['q'])) {
+    $route = '/' . $_GET['q'];
+}
+else {
+    $route = '/';
+}
+
 
 
 
