@@ -39,11 +39,31 @@ class Users {
      */
     public function getUserByEmail(string $email) {
         try {
-            $res = $this->bdd
-                ->prepare("SELECT * FROM user WHERE email=:email")
-                ->bindParam('email', $email)
-                ->execute()
-                ->fetchAll(PDO::FETCH_ASSOC);
+            $req = $this->bdd->prepare("SELECT * FROM user WHERE email = :email");
+            $req->execute([
+                ':email' => $email
+            ]);
+            $res = $req->fetchAll(PDO::FETCH_ASSOC);
+            if(sizeof($res) == 1) return $res[0];
+            else return null;
+        }
+        catch(\PDOException $e) {
+            return null;
+        }
+
+    }
+
+    /**
+     * @param int $id
+     * @return User
+     */
+    public function getUserById(string $id) {
+        try {
+            $req = $this->bdd->prepare("SELECT * FROM user WHERE id = :id");
+            $req->execute([
+                ':id' => $id
+            ]);
+            $res = $req->fetchAll(PDO::FETCH_ASSOC);
             if(sizeof($res) == 1) return $res[0];
             else return null;
         }
