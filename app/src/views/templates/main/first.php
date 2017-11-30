@@ -5,6 +5,3 @@
     <title>Test</title>
 </head>
 <body>
-
-</body>
-</html>

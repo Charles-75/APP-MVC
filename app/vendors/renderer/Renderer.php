@@ -19,10 +19,11 @@ class Renderer
      * @param array $data
      * @return string
      */
-    public function renderTemplate(string $path, array $data): string {
+    public function renderTemplate(string $path, array $data, string $template="main"): string {
         ob_start();
-
+        require(__DIR__.'/../../src/views/templates/'.$template.'/first.php');
         require(__DIR__.'/../../src/views/'.$path);
+        require(__DIR__.'/../../src/views/templates/'.$template.'/last.php');
         return ob_get_clean();
     }
 
