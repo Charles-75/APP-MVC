@@ -18,9 +18,9 @@ class Manager {
     }
 
 
-    ##################
-    # COMMANDES manager #
-    ##################
+    #####################
+    # COMMANDES MANAGER #
+    #####################
 
     /**
      *
@@ -68,7 +68,7 @@ class Manager {
      * @param int $id
      * @return manager
      */
-    public function getManagerById(string $id) {
+    public function getManagerById(int $id) {
         try {
             $req = $this->bdd->prepare("SELECT * FROM manager WHERE id = :id");
             $req->execute([
@@ -88,14 +88,14 @@ class Manager {
     }
 
     /**
-     * @param string $surname
+     * @param string $username
      * @return array|null
      */
-    public function getManagerBySurname(string $surname){
+    public function getManagerByUsername(string $userName){
         try {
-            $req = $this->bdd->prepare("SELECT * FROM manager WHERE surname = :surname");
+            $req = $this->bdd->prepare("SELECT * FROM manager WHERE userName = :userName");
             $req->execute([
-                ':surname' => $surname
+                ':userName' => $userName
             ]);
             $res = $req->fetchALL(PDO::FETCH_ASSOC);
             return $res;
@@ -107,6 +107,8 @@ class Manager {
             return null;
         }
     }
+
+
 }
 
 ?>
