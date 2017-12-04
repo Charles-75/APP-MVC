@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Home ISEP</title>
+    <link rel="stylesheet" href="ressources/css/main.css">
 </head>
 <body>
