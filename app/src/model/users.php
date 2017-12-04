@@ -65,6 +65,30 @@ class Users {
     }
 
     /**
+     * @param string $usernameOrEmail
+     * @param string $password
+     * @return User
+     */
+    public function getUserByCredentials(string $usernameOrEmail, string $password) {
+        try {
+            $req = $this->bdd->prepare("SELECT * FROM user WHERE (email = :usernameOrEmail OR username = :usernameOrEmail) AND password = :password");
+            $req->execute(([
+                ':usernameOrEmail' => $usernameOrEmail,
+                ':password' => $password
+            ]));
+            $res = $req->fetchAll(PDO::FETCH_ASSOC);
+            if(sizeof($res) == 1) return $res[0];
+            else return null;
+        }
+        catch(\PDOException $e) {
+            return null;
+        }
+        catch(\Exception $e) {
+            return null;
+        }
+    }
+
+    /**
      * @param int $id
      * @return User
      */
