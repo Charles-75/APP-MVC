@@ -3,17 +3,17 @@
     <form action="/loginpost" method="POST">
 
         <div class="input">
-            <label for="userEmail"> Username : </label>
-            <input id="userEmail" type="email" placeholder="sophie@example.com" name="userEmail" class="op">
+            <label for="email"> Username : </label>
+            <input id="email" type="email" name="email">
         </div>
 
         <div class="input">
-            <label for="userPassword"> Password : </label>
-            <input id="userPassword" type="password" autocomplete="current-password" name="userPassword" class="op">
+            <label for="password"> Password : </label>
+            <input id="password" type="password" name="password">
         </div>
 
         <div class="checkbox">
-            <input type="checkbox" name="rememberMe" id="rememberMe" class="remember">
+            <input type="checkbox" name="rememberMe" id="rememberMe">
             <label for="rememberMe">Remember me ?</label>
         </div>
         <input type="submit" value="Connection" id="submit" class="bouton">

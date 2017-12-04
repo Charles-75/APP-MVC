@@ -16,7 +16,6 @@ class UserController extends Controller
     {
         $this->renderer = new Renderer();
         $this->users = new Users();
-        $this->users = new \Src\Model\Users();
     }
 
     public function loginAction($params) {
@@ -28,12 +27,15 @@ class UserController extends Controller
     }
 
     public function loginpostAction($params) {
-        $username = $_POST['username'];
-        $user = $this->users->getUserByEmail($username);
-        if(sizeof($user) !== null) { // Email existe
-
-        } else { // Email existe pas
-
+        $username = $_POST['email'];
+        $password = $_POST['password'];
+        $user = $this->users->getUserByCredentials($username, $password);
+        if($user !== null) { // Email existe
+            $_SESSION['username'] = $user['email'];
+            $_SESSION['password'] = $user['password'];
+            header('Location: /homes');
+        } else {
+            header('Location: /login');
         }
     }
 }

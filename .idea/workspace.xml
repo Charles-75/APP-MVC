@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e336476-5a56-4f7d-b072-9e2e0705bb7b" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/controllers/HomeController.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/config/router.php" afterPath="$PROJECT_DIR$/app/config/router.php" />
       <change beforePath="$PROJECT_DIR$/app/src/controllers/UserController.php" afterPath="$PROJECT_DIR$/app/src/controllers/UserController.php" />
+      <change beforePath="$PROJECT_DIR$/app/src/model/users.php" afterPath="$PROJECT_DIR$/app/src/model/users.php" />
       <change beforePath="$PROJECT_DIR$/app/src/views/user/login.php" afterPath="$PROJECT_DIR$/app/src/views/user/login.php" />
+      <change beforePath="$PROJECT_DIR$/app/www/index.php" afterPath="$PROJECT_DIR$/app/www/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +21,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/www/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="59" lean-forward="false" selection-start-line="42" selection-start-column="59" selection-end-line="42" selection-end-column="59" />
+            <state relative-caret-position="30">
+              <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -36,21 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/views/user/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+            <state relative-caret-position="225">
+              <caret line="15" column="68" lean-forward="false" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -76,6 +68,22 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="users.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/model/users.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+              <folding>
+                <marker date="1512400684245" expanded="true" signature="540:558" ph="SELECT * FRO... user" />
+                <marker date="1512400684245" expanded="true" signature="968:1007" ph="SELECT * FRO... user" />
+                <marker date="1512400684245" expanded="true" signature="1611:1675" ph="SELECT * FRO... user" />
+                <marker date="1512400684245" expanded="true" signature="2245:2278" ph="SELECT * FRO... user" />
+                <marker date="1512400684245" expanded="true" signature="2822:2865" ph="SELECT * FRO... user" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="router.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/router.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -89,8 +97,18 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+            <state relative-caret-position="450">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/controllers/HomeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -135,9 +153,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/config/config.php" />
         <option value="$PROJECT_DIR$/app/vendors/Http/Request.php" />
-        <option value="$PROJECT_DIR$/app/www/index.php" />
         <option value="$PROJECT_DIR$/app/src/controllers/IndexController.php" />
-        <option value="$PROJECT_DIR$/app/src/model/users.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/www/.htaccess" />
         <option value="$PROJECT_DIR$/app/src/views/templates/main/last.php" />
@@ -147,8 +163,11 @@
         <option value="$PROJECT_DIR$/app/vendors/renderer/Renderer.php" />
         <option value="$PROJECT_DIR$/app/src/views/templates/main/first.php" />
         <option value="$PROJECT_DIR$/app/www/ressources/css/main.css" />
-        <option value="$PROJECT_DIR$/app/src/views/user/login.php" />
         <option value="$PROJECT_DIR$/app/config/router.php" />
+        <option value="$PROJECT_DIR$/app/src/controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/app/www/index.php" />
+        <option value="$PROJECT_DIR$/app/src/views/user/login.php" />
+        <option value="$PROJECT_DIR$/app/src/model/users.php" />
         <option value="$PROJECT_DIR$/app/src/controllers/UserController.php" />
       </list>
     </option>
@@ -337,8 +356,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/www/ressources/css" />
       <recent name="$PROJECT_DIR$/app/src/controllers" />
+      <recent name="$PROJECT_DIR$/app/www/ressources/css" />
       <recent name="$PROJECT_DIR$/app/src/views/user" />
       <recent name="$PROJECT_DIR$/app/src/views/templates/main" />
       <recent name="$PROJECT_DIR$/app/config" />
@@ -386,7 +405,7 @@
       <workItem from="1512032879259" duration="985000" />
       <workItem from="1512037323116" duration="232000" />
       <workItem from="1512037593837" duration="510000" />
-      <workItem from="1512396337071" duration="1873000" />
+      <workItem from="1512396337071" duration="3726000" />
     </task>
     <task id="LOCAL-00001" summary="Bases de la structure MVC&#10;Début de communication BDD&#10;Début de gestion de template">
       <created>1511210544984</created>
@@ -458,11 +477,25 @@
       <option name="project" value="LOCAL" />
       <updated>1512397942744</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Roots for login treatment">
+      <created>1512398819257</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1512398819257</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Credentials no username">
+      <created>1512400319967</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1512400319967</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30605000" />
+    <option name="totallyTimeSpent" value="32458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -505,21 +538,15 @@
     <MESSAGE value="Controller &amp; routes for login &amp; register" />
     <MESSAGE value="Form styling examples&#10;Link CSS in first.php template" />
     <MESSAGE value="Style for login.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Style for login.php" />
+    <MESSAGE value="Roots for login treatment" />
+    <MESSAGE value="Credentials no username" />
+    <option name="LAST_COMMIT_MESSAGE" value="Credentials no username" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/www/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/router.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -761,20 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/model/users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding>
-            <marker date="1511522007565" expanded="true" signature="454:472" ph="SELECT * FRO... user" />
-            <marker date="1511522007565" expanded="true" signature="454:474" ph="SELECT * FRO... user" />
-            <marker date="1511522007565" expanded="true" signature="676:735" ph="/** * @param... " />
-            <marker date="1511522007565" expanded="true" signature="842:881" ph="SELECT * FRO... user" />
-            <marker date="1511522007565" expanded="true" signature="1342:1375" ph="SELECT * FRO... user" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/views/templates/main/last.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -803,14 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="64" lean-forward="false" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/www/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="59" lean-forward="false" selection-start-line="42" selection-start-column="59" selection-end-line="42" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -847,11 +852,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/views/user/login.php">
+    <entry file="file://$PROJECT_DIR$/app/www/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/views/user/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="68" lean-forward="false" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/model/users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="75" column="29" lean-forward="false" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+          <folding>
+            <marker date="1512400684245" expanded="true" signature="540:558" ph="SELECT * FRO... user" />
+            <marker date="1512400684245" expanded="true" signature="968:1007" ph="SELECT * FRO... user" />
+            <marker date="1512400684245" expanded="true" signature="1611:1675" ph="SELECT * FRO... user" />
+            <marker date="1512400684245" expanded="true" signature="2245:2278" ph="SELECT * FRO... user" />
+            <marker date="1512400684245" expanded="true" signature="2822:2865" ph="SELECT * FRO... user" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -863,10 +890,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+        <state relative-caret-position="450">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>

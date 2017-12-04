@@ -73,7 +73,7 @@ class Users {
         try {
             $req = $this->bdd->prepare("SELECT * FROM user WHERE email = :email AND password = :password");
             $req->execute(([
-                ':email' => email,
+                ':email' => $email,
                 ':password' => $password
             ]));
             $res = $req->fetchAll(PDO::FETCH_ASSOC);
