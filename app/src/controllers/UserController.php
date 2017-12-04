@@ -26,4 +26,14 @@ class UserController extends Controller
     public function registerAction($params) {
         return $this->renderer->renderTemplate('user/register.php');
     }
+
+    public function loginpostAction($params) {
+        $username = $_POST['username'];
+        $user = $this->users->getUserByEmail($username);
+        if(sizeof($user) !== null) { // Email existe
+
+        } else { // Email existe pas
+
+        }
+    }
 }

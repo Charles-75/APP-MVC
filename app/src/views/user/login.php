@@ -1,6 +1,6 @@
 <div class="container">
 
-    <form action="" method="POST">
+    <form action="/loginpost" method="POST">
 
         <div class="input">
             <label for="userEmail"> Username : </label>
