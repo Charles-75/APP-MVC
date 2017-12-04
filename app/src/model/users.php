@@ -17,18 +17,26 @@ class Users {
         $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
+
+    ##################
+    # COMMANDES USER #
+    ##################
+
     /**
+     *
+     *
      * @return User[]
      */
+
     public function getAllUsers(){
         try {
             $req = $this->bdd->query("SELECT * FROM user");
-            return $req->fetchAll(PDO::FETCH_ASSOC);
+            return $req->fetchAll(PDO::FETCH_ASSOC); // récupérer que la partie associative
         }
         catch(\PDOException $e) {
             return [];
         }
-        catch(Error $e) {
+        catch(\Error $e) {
             return [];
         }
     }
@@ -48,6 +56,9 @@ class Users {
             else return null;
         }
         catch(\PDOException $e) {
+            return null;
+        }
+        catch (\Exception $e){
             return null;
         }
 
@@ -70,11 +81,34 @@ class Users {
         catch(\PDOException $e) {
             return null;
         }
+        catch (\Exception $e){
+            return null;
+        }
 
+    }
+
+    /**
+     * @param string $surname
+     * @return array|null
+     */
+    public function getUserBySurname(string $surname){
+        try {
+            $req = $this->bdd->prepare("SELECT * FROM user WHERE surname = :surname");
+            $req->execute([
+                ':surname' => $surname
+            ]);
+            $res = $req->fetchALL(PDO::FETCH_ASSOC);
+            return $res;
+        }
+        catch (\PDOException $e) {
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
     }
 
 
 }
-
 
 ?>
