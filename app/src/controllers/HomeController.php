@@ -19,6 +19,7 @@ class HomeController extends Controller
     }
 
     public function myhomesAction($params) {
-
+        $data = $_SESSION;
+        return $this->renderer->renderTemplate('home/myhomes.php', $data);
     }
 }
