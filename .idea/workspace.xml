@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e336476-5a56-4f7d-b072-9e2e0705bb7b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/www/ressources/css/login.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/www/ressources/css/main.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/www/ressources/css/register.css" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/views/templates/main/first.php" afterPath="$PROJECT_DIR$/app/src/views/templates/main/first.php" />
       <change beforePath="$PROJECT_DIR$/app/src/views/user/login.php" afterPath="$PROJECT_DIR$/app/src/views/user/login.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/views/user/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="18" selection-end-column="12" />
+            <state relative-caret-position="345">
+              <caret line="23" column="14" lean-forward="false" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -58,7 +54,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/www/ressources/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
@@ -139,9 +135,9 @@
         <option value="$PROJECT_DIR$/app/src/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/app/vendors/renderer/Renderer.php" />
         <option value="$PROJECT_DIR$/app/config/router.php" />
-        <option value="$PROJECT_DIR$/app/src/views/user/login.php" />
         <option value="$PROJECT_DIR$/app/src/views/templates/main/first.php" />
         <option value="$PROJECT_DIR$/app/www/ressources/css/main.css" />
+        <option value="$PROJECT_DIR$/app/src/views/user/login.php" />
       </list>
     </option>
   </component>
@@ -378,7 +374,7 @@
       <workItem from="1512032879259" duration="985000" />
       <workItem from="1512037323116" duration="232000" />
       <workItem from="1512037593837" duration="510000" />
-      <workItem from="1512396337071" duration="1226000" />
+      <workItem from="1512396337071" duration="1442000" />
     </task>
     <task id="LOCAL-00001" summary="Bases de la structure MVC&#10;Début de communication BDD&#10;Début de gestion de template">
       <created>1511210544984</created>
@@ -436,11 +432,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512397083569</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Form styling examples&#10;Link CSS in first.php template">
+      <created>1512397737485</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1512397737485</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29958000" />
+    <option name="totallyTimeSpent" value="30174000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -481,7 +484,8 @@
     <MESSAGE value="Rendering update" />
     <MESSAGE value="Views for login and register" />
     <MESSAGE value="Controller &amp; routes for login &amp; register" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controller &amp; routes for login &amp; register" />
+    <MESSAGE value="Form styling examples&#10;Link CSS in first.php template" />
+    <option name="LAST_COMMIT_MESSAGE" value="Form styling examples&#10;Link CSS in first.php template" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -807,26 +811,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/views/user/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="18" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/views/templates/main/first.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/www/ressources/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-112">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -839,10 +827,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/www/ressources/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/www/ressources/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/views/user/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="14" lean-forward="false" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
           <folding />
         </state>
       </provider>

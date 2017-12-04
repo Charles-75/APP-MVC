@@ -18,11 +18,21 @@
         </div>
         <input type="submit" value="Connection" id="submit" class="bouton">
 
+        <div class="liens">
+            <a href="/resetpassword">Forgotten password?</a>
+            <a href="/register">Need an account?</a>
+        </div>
+
     </form>
 
-    <div class="liens">
-        <a href="/resetpassword">Forgotten password?</a>
-        <a href="/register">Need an account?</a>
-    </div>
-
 </div>
+
+
+<style>
+    form {
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+    }
+</style>
