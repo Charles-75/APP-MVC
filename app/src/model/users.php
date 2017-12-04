@@ -69,11 +69,11 @@ class Users {
      * @param string $password
      * @return User
      */
-    public function getUserByCredentials(string $usernameOrEmail, string $password) {
+    public function getUserByCredentials(string $email, string $password) {
         try {
-            $req = $this->bdd->prepare("SELECT * FROM user WHERE (email = :usernameOrEmail OR username = :usernameOrEmail) AND password = :password");
+            $req = $this->bdd->prepare("SELECT * FROM user WHERE email = :email AND password = :password");
             $req->execute(([
-                ':usernameOrEmail' => $usernameOrEmail,
+                ':email' => email,
                 ':password' => $password
             ]));
             $res = $req->fetchAll(PDO::FETCH_ASSOC);
