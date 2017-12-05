@@ -53,7 +53,7 @@ class UserController extends Controller
         $password = $_POST['password'];
         $user = $this->users->getUserByCredentials($username, $password);
         if($user !== null) { // Email existe
-            $_SESSION['username'] = $user['email'];
+            $_SESSION['email'] = $user['email'];
             $_SESSION['password'] = $user['password'];
             header('Location: /homes');
         } else {
