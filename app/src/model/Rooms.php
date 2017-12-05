@@ -46,21 +46,19 @@ class Rooms {
     }
 
 
-    public function addRooms($roomName, $homeId){
-        try{
+    public function addRooms($roomName, $homeId){   //retourne rien
+        try {
             $req = $this->bdd->prepare("INSERT INTO room(name, homeId) VALUES(:name, :homeId)");
             $req->execute([
                 ':name' => $roomName,
                 ':homeId' => $homeId
             ]);
-            $res = $req->fetchAll(PDO::FETCH_ASSOC);
-            return $res;
         }
         catch(\PDOException $e) {
-            return [];
+            return null;
         }
         catch(\Error $e) {
-            return [];
+            return null;
         }
     }
 
