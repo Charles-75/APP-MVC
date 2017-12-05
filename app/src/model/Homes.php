@@ -19,6 +19,13 @@ class Homes
     }
 
 
+
+    ###################
+    # COMMANDES HOMES #
+    ###################
+
+
+
     public function getHomesByUserEmail($email)
     {
         $req = $this->bdd->prepare("
@@ -30,17 +37,8 @@ class Homes
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getRoomsByHomeId($homeId)
-    {
-        $req = $this->bdd->prepare("SELECT * FROM room WHERE apartmentId = :id");
-        $req->execute([':id' => $homeId]);
-        $res = $req->fetchAll(PDO::FETCH_ASSOC);
-        return $res;
-    }
 
-        ###################
-        # COMMANDES HOMES #
-        ###################
+
 
         public
         function getAllHomes()
@@ -56,11 +54,10 @@ class Homes
         }
 
 
-        public function getUserHomesOrdered()
-        {    //Donne les homes d'un user particulier repéré par son id, triée par code postal, et rue.
+        public function getUserHomesOrdered($userId){    //Donne les homes d'un user particulier repéré par son id, triée par code postal, et rue.
             try {
                 $req = $this->bdd->prepare("SELECT * FROM apartment ORDER BY zipCode, street WHERE userId = :userId");  // Pas avec le nom et prénom car 2 clampins peuvent s'appeler pareil...
-                $req->execute("':userId' => $userId");
+                $req->execute([':userId' => $userId]);
                 $res = $req->fetchALL(PDO::FETCH_ASSOC);
                 return $res;
             } catch (\PDOException $e) {
@@ -71,19 +68,19 @@ class Homes
         }
 
 
-        public function getManagerHomesOrdered(){    //Donne les homes d'un user particulier repéré par son id, triée par code postal, et rue.
-        try {
-            $req = $this->bdd->prepare("SELECT * FROM apartment ORDER BY zipCode, street WHERE managerId = :managerId");  // Pas avec le nom et prénom car 2 clampins peuvent s'appeler pareil...
-            $req->execute("':managerId' => $managerId");
-            $res = $req->fetchALL(PDO::FETCH_ASSOC);
-            return $res;
+        public function getManagerHomesOrdered($managerId){    //Donne les homes d'un user particulier repéré par son id, triée par code postal, et rue.
+            try {
+                $req = $this->bdd->prepare("SELECT * FROM apartment ORDER BY zipCode, street WHERE managerId = :managerId");  // Pas avec le nom et prénom car 2 clampins peuvent s'appeler pareil...
+                $req->execute([':managerId' => $managerId]);
+                $res = $req->fetchALL(PDO::FETCH_ASSOC);
+                return $res;
+            }
+            catch (\PDOException $e) {
+                return null;
+            }
+            catch (\Exception $e){
+                return null;
+            }
         }
-        catch (\PDOException $e) {
-            return null;
-        }
-        catch (\Exception $e){
-            return null;
-        }
-    }
 
 }
