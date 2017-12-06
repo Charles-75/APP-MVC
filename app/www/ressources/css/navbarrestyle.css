@@ -1,60 +1,62 @@
+*{
+    margin: 0;
+}
 body{
+    width: 100%;
     color: rgb(25,128,194);
 }
-.notif{
-    width: 40px;
-    height: 40px;
-    margin-right:10px;
+.block{
+    background-color: #4195DA;
 }
-.user{
+.color{
+    width: 100%;
+    height: 10%;
+}
+.image{
     width: 40px;
     height: 40px;
 }
-.log{
-    width: 40px;
-    height: 40px;
-    margin-left:16px;
+.lien1{
+    margin-right: 20%;
+}
+.lien2{
+    margin-top: 1%;
+    margin-right: 15%;
 }
 .domisep img{
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+}
+.domisep{
+    margin-top: 1%;
+    margin-left: 1%;
 }
 .body{
-    display:flex;
-    justify-content: space-between;
-    
+    display: flex;
 }
-.home{
-    margin-left: 4px;
-    margin-right: 4px;
+.lien{
+    margin-left: 4%;
 }
-.apart{
-    margin-left: 4px;
-    margin-right: 1px;
-}
-.contact{
-    margin-left: 4px;
-    margin-right: 6px;
-    padding-left: 5px;
-}
-.us{
-    
-    margin-left: 8px;
-    margin-right: 4px;
-}   
 .nav a:link{
     text-decoration: none;
 }
+a:hover{
+    color: white;
+}
 .text{
     display: flex;
-    justify-content: space-between;
-    margin-left:91.5%;
-    font-size: 0.7em;
+    font-size: 95%;
+    margin-left: 89.5%;
+    padding-bottom: 1%;
 }
 .nav{
-    margin-top:15px;
-    font-size:1.3em;
+    width: 100%;
+    margin-top: 2%;
+    margin-left: 25%;
+    font-size: 130%;
 }
 .icon{
-    margin-top:10px;
+    display: flex;
+    margin-top: 1%;
+    margin-right: 7%;
 }
