@@ -45,7 +45,7 @@ class Users {
      * @param string $email
      * @return User
      */
-    public function getUserByEmail(string $email) {
+    public function getUserByEmail($email) {
         try {
             $req = $this->bdd->prepare("SELECT * FROM user WHERE email = :email");
             $req->execute([
@@ -69,7 +69,7 @@ class Users {
      * @param string $password
      * @return User
      */
-    public function getUserByCredentials(string $email, string $password) {
+    public function getUserByCredentials($email, $password) {
         try {
             $req = $this->bdd->prepare("SELECT * FROM user WHERE email = :email AND password = :password");
             $req->execute(([
@@ -92,7 +92,7 @@ class Users {
      * @param int $id
      * @return User
      */
-    public function getUserById(string $id) {
+    public function getUserById($id) {
         try {
             $req = $this->bdd->prepare("SELECT * FROM user WHERE id = :id");
             $req->execute([
@@ -115,7 +115,7 @@ class Users {
      * @param string $surname
      * @return array|null
      */
-    public function getUserBySurname(string $surname){
+    public function getUserBySurname($surname){
         try {
             $req = $this->bdd->prepare("SELECT * FROM user WHERE surname = :surname");
             $req->execute([
@@ -131,6 +131,26 @@ class Users {
             return null;
         }
     }
+
+    public function insertUser($firstname, $surname, $email, $password, $phone){
+        try{
+            $req = $this->bdd->prepare("INSERT INTO user(firstName, surname, email, password, phoneNumber) VALUES(:firstname, :surname, :email, :password, :phone)");
+            $req->execute([
+                'firstname' => $firstname,
+                'surname' => $surname,
+                'email' => $email,
+                'password' => $password,
+                'phone' => $phone
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
+
 
 
 }
