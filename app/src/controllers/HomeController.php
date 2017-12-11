@@ -37,7 +37,7 @@ class HomeController extends Controller
                 $street = $_POST['street'];
                 $number = $_POST['number'];
                 $zipCode = $_POST['zipCode'];
-                $idUser = $_SESSION['idUser'];
+                $idUser = $_SESSION['id'];
 
                 $this->homes->insertHome($town, $street, $number, $zipCode, $idUser);
                 header('Location: /homes');
