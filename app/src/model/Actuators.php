@@ -30,7 +30,7 @@ class Actuators
     }
 
     public function getActuatorValue($actuatorId){
-        $req = $this->bdd->prepare("SELECT id, type, reference ,value, FROM actuator WHERE sensorId = :actuatorId ");
+        $req = $this->bdd->prepare("SELECT value, FROM actuator WHERE sensorId = :actuatorId ");
         $req->execute([
             ':actuatorId' => $actuatorId
         ]);
