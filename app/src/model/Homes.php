@@ -33,6 +33,7 @@ class Homes {
         $req->execute([':id' => $homeId]);
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
+    }
 
     ###################
     # COMMANDES HOMES #
