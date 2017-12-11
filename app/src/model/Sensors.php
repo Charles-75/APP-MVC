@@ -54,5 +54,4 @@ class Sensors
             'cemacId' => $cemacId
         ]);
     }
-
 }
