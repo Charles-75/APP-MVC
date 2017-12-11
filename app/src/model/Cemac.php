@@ -39,9 +39,12 @@ class Cemac {
     }
 
     public function getCemacByApartment($ApartmentId){
-        $req = $this->bdd->prepare('SELECT * FROM cemac INNER JOIN  roomId = :roomId');
-        $req->execute()
-
+        $req = $this->bdd->prepare('SELECT cemac.* FROM cemac INNER JOIN room ON cemac.roomId = room.id 
+                                              INNER JOIN apartment ON apartment.id = room.apartmentId WHERE apartment.id = :id ');
+        $req->execute(
+            [':id' => $apartmentId ]);
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
     }
 
 
