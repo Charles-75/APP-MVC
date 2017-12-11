@@ -84,4 +84,23 @@ class Homes
             }
         }
 
+    public function insertHome($town, $street, $number, $zipCode, $idUser){
+        try{
+            $req = $this->bdd->prepare("INSERT INTO apartment(town, street, number, zipCode, idUser) VALUES(:town, :street, :number, :zipCode, :idUser)");
+            $req->execute([
+                'town' => $town,
+                'street' => $street,
+                'number' => $number,
+                'zipCode' => $zipCode,
+                'idUser' => $idUser,
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
+
 }

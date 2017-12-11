@@ -55,7 +55,8 @@ class UserController extends Controller
         if($user !== null) { // Email existe
             $_SESSION['email'] = $user['email'];
             $_SESSION['password'] = $user['password'];
-            header('Location: /homes');
+            $_SESSION['id'] = $user['id'];
+            header('Location: /addhome');
         } else {
             header('Location: /login');
         }
