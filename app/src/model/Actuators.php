@@ -44,7 +44,7 @@ class Actuators
             ':type' => $actuatorType,
             ':reference' => $actuatorReference,
             ':state' => null,
-            ':value' => 0,
+            ':value' => null,
             ':cemacId' => $cemacId
         ]);
     }
