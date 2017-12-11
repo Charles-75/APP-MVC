@@ -27,8 +27,6 @@ class Rooms {
      *
      * @return Rooms
      */
-
-
     public function getRoomsByHomeId($homeId)
     {
         try {

@@ -37,30 +37,27 @@ class Homes
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
-<<<<<<< HEAD
+
     public function getRoomsByHomeId($homeId) {
         $req = $this->bdd->prepare("SELECT * FROM room WHERE apartmentId = :id");
         $req->execute([':id' => $homeId]);
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
-=======
->>>>>>> 02a27725a79b1248d68fc2fe9aaa9c185e6bbdab
 
 
 
-        public
-        function getAllHomes()
-        {
-            try {
-                $req = $this->bdd->query("SELECT * FROM user");
-                return $req->fetchAll(PDO::FETCH_ASSOC); // récupérer que la partie associative
-            } catch (\PDOException $e) {
-                return [];
-            } catch (\Error $e) {
-                return [];
-            }
+    public function getAllHomes()
+    {
+        try {
+            $req = $this->bdd->query("SELECT * FROM user");
+            return $req->fetchAll(PDO::FETCH_ASSOC); // récupérer que la partie associative
+        } catch (\PDOException $e) {
+            return [];
+        } catch (\Error $e) {
+            return [];
         }
+    }
 
 
         public function getUserHomesOrdered($userId){    //Donne les homes d'un user particulier repéré par son id, triée par code postal, et rue.
