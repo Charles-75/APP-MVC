@@ -65,7 +65,7 @@ class Users {
     }
 
     /**
-     * @param string $usernameOrEmail
+     * @param string $email
      * @param string $password
      * @return User
      */

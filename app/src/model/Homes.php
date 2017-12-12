@@ -10,7 +10,7 @@ class Homes
     private $bdd;
 
     /**
-     * Manager constructor.
+     * Homes constructor.
      */
     public function __construct()
     {

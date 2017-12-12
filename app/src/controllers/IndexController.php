@@ -16,17 +16,31 @@ class IndexController extends Controller
     {
         $this->renderer = new Renderer();
         $this->users = new Users();
-        $this->users = new \Src\Model\Users();
     }
 
     public function indexAction($params) {
-        $users = $this->users->getAllUsers();
-        $data = [
-            'title' => "Hello World",
-            'users' => $users,
-            'params' => $params
-        ];
-        return $this->renderer->renderTemplate('index/index.php', $data);
+        // Si l'utilisateur n'est pas connecté
+        if(!isset($_SESSION['id']) || !isset($_SESSION['email']) || !isset($_SESSION['password'])) {
+            header('Location: /login');
+            return "Please login <a href='/login'>Here</a>";
+        }
+
+        // Si l'utilisateur a des identifiants en session
+        $email = $_SESSION['email'];
+        $password = $_SESSION['password'];
+        $user = $this->users->getUserByCredentials($email, $password);
+
+        if($user == null) {
+            // Le combo email / mdp stocké en session est faux
+            unset($_SESSION['id']);
+            unset($_SESSION['email']);
+            unset($_SESSION['password']);
+            header('Location: /login');
+            return "Please login <a href='/login'>Here</a>";
+        }
+
+        header('Location: /myhomes');
+
     }
 
     public function contactAction($params) {
