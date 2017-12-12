@@ -1,1 +1,1 @@
-<pre><?php var_dump($data); ?></pre>
+<pre><?php print_r($data); ?></pre>
