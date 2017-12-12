@@ -28,8 +28,24 @@ class HomeController extends Controller
     }
 
     public function myHomesAction($params) {
-        $homes = $this->homes->getHomesByUserEmail($_SESSION['id']);
-        return $this->renderer->renderTemplate('home/myhomes.php', ['homes' => $homes]);
+        $homes = $this->homes->getUserHomesOrdered($_SESSION['id']);
+        $data = array();
+        foreach ($homes as $home){
+            $id = $home['id'];
+            $town = $home['town'];
+            $street = $home['street'];
+            $number = $home['number'];
+            $zipCode = $home['zipCode'];
+            array_push($data, [
+                'id' => $id,
+                'town' => $town,
+                'street' => $street,
+                'number' => $number,
+                'zipCode' => $zipCode,
+            ]);
+        };
+
+        return $this->renderer->renderTemplate('home/myhomes.php', $data);
     }
 
     public function addHomeAction($parmas){
@@ -47,8 +63,7 @@ class HomeController extends Controller
 
                 $this->homes->insertHome($town, $street, $number, $zipCode, $idUser);
 
-                $data = ['town' => $town, 'street' => $street, 'number' => $number, 'zipCode' => $zipCode];
-                return $this->renderer->renderTemplate('home/myhomes.php', $data);
+                header('Location: /myhomes');
         }
     }
 

@@ -1,10 +1,15 @@
 <h1>My Homes</h1>
 
-<ul>
-    <li>Town : <?php echo $data['town']?></li>
-    <li>Street : <?php echo $data['street']?></li>
-    <li>Number : <?php echo $data['number']?></li>
-    <li>Zip code : <?php echo $data['zipCode']?></li>
-</ul>
+<?php foreach ($data as $value): ?>
+    <ul>
+        <p>Appartment n°<?php echo $value['id']; ?></p>
+        <li>Town : <?php echo $value['town']; ?></li>
+        <li>Street : <?php echo $value['street']; ?></li>
+        <li>Number : <?php echo $value['number']; ?></li>
+        <li>Zip code : <?php echo $value['zipCode']; ?></li>
+    </ul>
+<?php endforeach; ?>
+
+
 
 
