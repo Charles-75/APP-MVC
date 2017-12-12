@@ -27,8 +27,8 @@ class HomeController extends Controller
         $this->sensors = new Sensors();
     }
 
-    public function myhomesAction($params) {
-        $homes = $this->homes->getHomesByUserEmail($_SESSION['email']);
+    public function myHomesAction($params) {
+        $homes = $this->homes->getHomesByUserEmail($_SESSION['id']);
         return $this->renderer->renderTemplate('home/myhomes.php', ['homes' => $homes]);
     }
 
@@ -46,7 +46,9 @@ class HomeController extends Controller
                 $idUser = $_SESSION['id'];
 
                 $this->homes->insertHome($town, $street, $number, $zipCode, $idUser);
-                header('Location: /homes');
+
+                $data = ['town' => $town, 'street' => $street, 'number' => $number, 'zipCode' => $zipCode];
+                return $this->renderer->renderTemplate('home/myhomes.php', $data);
         }
     }
 
