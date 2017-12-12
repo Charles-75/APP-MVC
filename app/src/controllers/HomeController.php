@@ -43,6 +43,13 @@ class HomeController extends Controller
                 header('Location: /homes');
         }
     }
+
+    public function getRoomsByNameAction($params){
+
+        $apartementId = $params['id'];
+        $this-> getRoomsByHomeId($apartementId);
+
+    }
 }
 
 

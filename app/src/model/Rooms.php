@@ -61,6 +61,19 @@ class Rooms {
     }
 
 
+    public function getRoomsByUserId($userId){
+        $req = $this->bdd->prepare("SELECT room.* FROM room INNER JOIN apartement 
+                                              WHERE apartment.id = room.apartmentId WHERE apartent.idUser = :userId");
+        $req->execute([
+            ':userId' => $userId
+        ]);
+
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+
+
 }
 
 ?>

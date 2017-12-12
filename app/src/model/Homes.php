@@ -40,8 +40,6 @@ class Homes
 
 
 
-
-
     public function getAllHomes()
     {
         try {
@@ -102,5 +100,17 @@ class Homes
             return null;
         }
     }
+
+
+    /*public function getHomesByUserId($userId){
+        $req = $this->bdd->prepare("SELECT room.* FROM apartment INNER JOIN apartement
+                                              WHERE apartment.id = room.apartmentId WHERE apartent.idUser = :userId");
+        $req->execute([
+            ':userId' => $userId
+        ]);
+
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }*/
 
 }
