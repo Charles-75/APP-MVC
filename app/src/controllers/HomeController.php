@@ -64,7 +64,7 @@ class HomeController extends Controller
                'sensors' => $sensors
             ]);
         }
-        $this->renderer->renderTemplate('home/home', $data);
+        return $this->renderer->renderTemplate('home/home.php', $data);
 
     }
 }

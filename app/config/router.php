@@ -14,5 +14,5 @@ $routes = [
     ['/\/addhomepost/', ['\Src\Controllers\HomeController', 'addhomepost']],
     ['/\/myhomes/', ['\Src\Controllers\HomeController', 'myhomes']],
     ['/\/addhomepost/', ['\Src\Controllers\HomeController', 'addhomepost']],
-    ['/\/apartment\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'apartment']]
+    ['/\/home\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'home']]
 ];

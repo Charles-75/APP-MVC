@@ -23,9 +23,8 @@ class Rooms {
     ##################
 
     /**
-     *
-     *
-     * @return Rooms
+     * @param $homeId int
+     * @return Room[]
      */
     public function getRoomsByHomeId($homeId)
     {
