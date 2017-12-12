@@ -12,7 +12,7 @@ $routes = [
     ['/\/loginpost/', ['\Src\Controllers\UserController', 'loginpost']],
     ['/\/addhome/', ['\Src\Controllers\HomeController', 'addhome']],
     ['/\/addhomepost/', ['\Src\Controllers\HomeController', 'addhomepost']],
-    ['/\/myhomes/', ['\Src\Controllers\HomeController', 'myhomes']]
+    ['/\/myhomes/', ['\Src\Controllers\HomeController', 'myhomes']],
     ['/\/addhomepost/', ['\Src\Controllers\HomeController', 'addhomepost']],
-    ['/\/apartment\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'apartment']],
+    ['/\/apartment\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'apartment']]
 ];
