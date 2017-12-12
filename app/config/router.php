@@ -11,5 +11,6 @@ $routes = [
     ['/\/registerpost/', ['\Src\Controllers\UserController', 'registerpost']],
     ['/\/loginpost/', ['\Src\Controllers\UserController', 'loginpost']],
     ['/\/addhome/', ['\Src\Controllers\HomeController', 'addhome']],
-    ['/\/addhomepost/', ['\Src\Controllers\HomeController', 'addhomepost']]
+    ['/\/addhomepost/', ['\Src\Controllers\HomeController', 'addhomepost']],
+    ['/\/myhomes/', ['\Src\Controllers\HomeController', 'myhomes']]
 ];

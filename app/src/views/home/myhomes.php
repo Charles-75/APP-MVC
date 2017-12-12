@@ -1,10 +1,10 @@
-<h1>My homes</h1>
-<pre><?php var_dump($data); ?></pre>
+<h1>My Homes</h1>
 
-<?php foreach ($data['homes'] as $home): ?>
+<ul>
+    <li>Town : <?php echo $data['town']?></li>
+    <li>Street : <?php echo $data['street']?></li>
+    <li>Number : <?php echo $data['number']?></li>
+    <li>Zip code : <?php echo $data['zipCode']?></li>
+</ul>
 
-<div class="appartement">
-    <?php echo $home[''] ?>
-</div>
 
-<?php endforeach; ?>
