@@ -10,7 +10,8 @@
         <input id="confirmation" type="password" name="confirmation" class="op" required placeholder="Répétez le mot de passe">
         <input id="phone" type="tel" name="phone" class="op" required placeholder="Numéro de téléphone">
 
-        <input type="submit" value="Confirmer" class="bouton"></div>
+        <input type="submit" value="Confirmer" class="bouton">
+        <a href="/login">Connexion</a>
     </form>
 
 </div>
