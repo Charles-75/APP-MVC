@@ -3,17 +3,33 @@ body {
     font-family: Roboto, "Times New Roman", serif;
 }
 
+.container-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 .card {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%; /* A modifier pour faire un système de grilles */
+    padding: 20px;
+    background-color: #fff;
+    display: block;
+    margin-bottom: 40px;
+
+}
+
+.card-full {
+    width: 100%;
+}
+.card-half {
+
 }
 
 .unique-card {
     width: 400px;
-    background-color: #fff;
-    padding: 15px;
     margin-top: 40px;
+    display: block;
 }
 
 /*
@@ -29,10 +45,10 @@ a, a:visited {
     color: #1980c2;
     text-decoration: none;
 
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
+    -webkit-transition: color 0.30s ease-in-out;
+    -moz-transition: color 0.30s ease-in-out;
+    -ms-transition: color 0.30s ease-in-out;
+    -o-transition: color 0.30s ease-in-out;
 }
 a:hover {
     text-decoration: underline;
@@ -45,7 +61,7 @@ a:hover {
  */
 
 
-input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"] {
     display: block;
     width: 100%;
     height: 20px;
@@ -55,12 +71,12 @@ input[type="text"], input[type="password"], input[type="email"], input[type="tel
     border: 1px solid #ddd;
     outline: none;
 
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
+    -webkit-transition: box-shadow 0.30s ease-in-out;
+    -moz-transition: box-shadow 0.30s ease-in-out;
+    -ms-transition: box-shadow 0.30s ease-in-out;
+    -o-transition: box-shadow 0.30s ease-in-out;
 }
-input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="number"]:focus {
     box-shadow: 0 0 5px #1980c2;
     border: 1px solid #1980c2;
 }
@@ -82,10 +98,10 @@ label {
     color: #fff;
     cursor: pointer;
 
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
+    -webkit-transition: background-color 0.30s ease-in-out;
+    -moz-transition: background-color 0.30s ease-in-out;
+    -ms-transition: background-color 0.30s ease-in-out;
+    -o-transition: background-color 0.30s ease-in-out;
 }
 .bouton:hover {
     background-color: #1966a8;

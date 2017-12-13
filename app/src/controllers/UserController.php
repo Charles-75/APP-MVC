@@ -51,14 +51,16 @@ class UserController extends Controller
                 $phone = $_POST['phone'];
 
                 $this->users->insertUser($firstname, $surname, $email, $password, $phone);
-                return '<p>Votre inscription à été accepté, vous pouvez dorénavant vous connecter en cliquant ci-dessous :</p><p><a href="/login">Se connecter</a></p>';
+                header('Location: /login');
             }
             else{
-                return '<p>Veuillez confirmer correctement votre mot de passe</p>';
+                header('Location: /register');
+                //return '<p>Veuillez confirmer correctement votre mot de passe</p>';
             }
         }
         else{
-            return '<p>Vous devez remplir tous les champs du formulaire</p>';
+            header('Location: /register');
+            //return '<p>Vous devez remplir tous les champs du formulaire</p>';
         }
     }
 
