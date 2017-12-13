@@ -1,5 +1,5 @@
 <h1>My Homes</h1>
-
+<a href="/logout">Logout</a>
 <?php foreach ($data as $value): ?>
     <ul>
         <p>Appartment n°<?php echo $value['id']; ?></p>

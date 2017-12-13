@@ -22,6 +22,20 @@ class UserController extends Controller
         return $this->renderer->renderTemplate('user/login.php');
     }
 
+    public function loginpostAction($params) {
+        $username = $_POST['email'];
+        $password = $_POST['password'];
+        $user = $this->users->getUserByCredentials($username, $password);
+        if($user !== null) { // Email existe
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['password'] = $user['password'];
+            $_SESSION['id'] = $user['id'];
+            header('Location: /myhomes');
+        } else {
+            header('Location: /login');
+        }
+    }
+
     public function registerAction($params) {
         return $this->renderer->renderTemplate('user/register.php');
     }
@@ -48,17 +62,10 @@ class UserController extends Controller
         }
     }
 
-    public function loginpostAction($params) {
-        $username = $_POST['email'];
-        $password = $_POST['password'];
-        $user = $this->users->getUserByCredentials($username, $password);
-        if($user !== null) { // Email existe
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['password'] = $user['password'];
-            $_SESSION['id'] = $user['id'];
-            header('Location: /addhome');
-        } else {
-            header('Location: /login');
-        }
+    public function logoutAction($params) {
+        unset($_SESSION['id']);
+        unset($_SESSION['email']);
+        unset($_SESSION['password']);
+        header('Location: /login');
     }
 }

@@ -7,6 +7,7 @@ $routes = [
     ['/\/contact/', ['\Src\Controllers\IndexController', 'contact']],
     ['/\/member\/(?<id>[0-9]+)/', ['\Src\Controllers\IndexController', 'member']],
     ['/\/login/', ['\Src\Controllers\UserController', 'login']],
+    ['/\/logout/', ['\Src\Controllers\UserController', 'logout']],
     ['/\/register/', ['\Src\Controllers\UserController', 'register']],
     ['/\/registerpost/', ['\Src\Controllers\UserController', 'registerpost']],
     ['/\/loginpost/', ['\Src\Controllers\UserController', 'loginpost']],

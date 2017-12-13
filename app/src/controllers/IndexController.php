@@ -32,10 +32,7 @@ class IndexController extends Controller
 
         if($user == null) {
             // Le combo email / mdp stocké en session est faux
-            unset($_SESSION['id']);
-            unset($_SESSION['email']);
-            unset($_SESSION['password']);
-            header('Location: /login');
+            header('Location: /logout');
             return "Please login <a href='/login'>Here</a>";
         }
 
