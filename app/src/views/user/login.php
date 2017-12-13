@@ -1,16 +1,10 @@
-<div class="container">
+<div class="card unique-card">
 
     <form action="/loginpost" method="POST">
 
-        <div class="input">
-            <label for="email"> Username : </label>
-            <input id="email" type="email" name="email">
-        </div>
+        <input id="email" type="email" name="email" placeholder="Adresse e-mail">
 
-        <div class="input">
-            <label for="password"> Password : </label>
-            <input id="password" type="password" name="password">
-        </div>
+        <input id="password" type="password" name="password" placeholder="Mot de passe">
 
         <div class="checkbox">
             <input type="checkbox" name="rememberMe" id="rememberMe">
@@ -26,13 +20,3 @@
     </form>
 
 </div>
-
-
-<style>
-    form {
-        width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: white;
-    }
-</style>

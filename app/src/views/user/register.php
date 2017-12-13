@@ -1,16 +1,16 @@
-<div class="h1"><h1>Registration</h1></div>
+<div class="card unique-card">
 
-<form action="/registerpost" method="POST">
-	<div class="login">
-        <fieldset>
-            <legend>Register</legend>
-            <div class="input"><label for="firstname" class="lab">First name : </label><input id="firstname" type="text" name="firstname" class="op" required></div>
-            <div class="input"><label for="surname" class="lab">Surname : </label><input id="surname" type="text" name="surname" class="op" required></div>
-            <div class="input"><label for="email" class="lab">Email : </label><input id="email" type="email" name="email" class="op" required></div>
-            <div class="input"><label for="password" class="lab">Password : </label><input id="password" type="password" name="password" class="op" required></div>
-            <div class="input"><label for="confirmation" class="lab">Confirmation : </label><input id="confirmation" type="password" name="confirmation" class="op" required></div>
-            <div class="input"><label for="phone" class="lab">Phone : </label><input id="phone" type="tel" name="phone" class="op" required></div>
-            <div class="input"><input type="submit" name="submit" value="Confirm" id="submit"></div>
-        </fieldset>
-	</div>
-</form>
+    <h1>Créer un compte</h1>
+
+    <form action="/registerpost" method="POST">
+        <input id="firstname" type="text" name="firstname" class="op" required placeholder="Prénom">
+        <input id="surname" type="text" name="surname" class="op" required placeholder="Nom de famille">
+        <input id="email" type="email" name="email" class="op" required placeholder="Adresse e-mail">
+        <input id="password" type="password" name="password" class="op" required placeholder="Mot de passe">
+        <input id="confirmation" type="password" name="confirmation" class="op" required placeholder="Répétez le mot de passe">
+        <input id="phone" type="tel" name="phone" class="op" required placeholder="Numéro de téléphone">
+
+        <input type="submit" value="Confirmer" class="bouton"></div>
+    </form>
+
+</div>

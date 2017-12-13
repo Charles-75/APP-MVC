@@ -1,7 +1,42 @@
-.container {
+body {
+    background-color: #1980c2;
+    font-family: Roboto, "Times New Roman", serif;
+}
+
+.card {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.unique-card {
+    width: 400px;
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/*
+ * Polices
+ */
+
+h1 {
+    color: #1966a8;
+    text-align: center;
+}
+
+a, a:visited {
+    color: #1980c2;
+    text-decoration: none;
+
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+a:hover {
+    text-decoration: underline;
+    color: #1966a8;
 }
 
 
@@ -9,15 +44,49 @@
  * Formulaire
  */
 
-.input {
-    margin-bottom: 10px;
+
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+    display: block;
+    width: 100%;
+    height: 20px;
+    margin-bottom: 20px;
+    padding: 2px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    outline: none;
+
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
+    box-shadow: 0 0 5px #1980c2;
+    border: 1px solid #1980c2;
 }
 
-.input label {
-    display: block;
-    font-weight: bold;
+label {
+    color: #000;
+    cursor: pointer;
 }
-.input input {
-    width: 150px;
-    height: 20px;
+
+.checkbox {
+    margin-bottom: 20px;
+}
+
+.bouton {
+    display: block;
+    padding: 10px;
+    background-color: #1980c2;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+.bouton:hover {
+    background-color: #1966a8;
 }
