@@ -1,3 +1,8 @@
+<div class="alignBox">
+<div id="logo">
+    <img src="/img/Domisep.png" height="50%" width="50%">
+</div>
+
 <div class="card unique-card">
 
     <form action="/loginpost" method="POST">
@@ -19,4 +24,5 @@
 
     </form>
 
+</div>
 </div>
