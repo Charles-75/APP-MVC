@@ -1,4 +1,4 @@
-<style>
+﻿<style>
     body {
         background: linear-gradient(130deg,rgb(83, 131, 219), rgb(215, 226, 247));
         background-repeat: no-repeat;
@@ -248,7 +248,7 @@
     <?php include('_DIR_. "/../main/navbar.php"') ?>
 
         <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'Apartment')">Apartment name</button>
+                <button class="tablinks active" onclick="openCity(event, 'Apartment')">Apartment name</button>
                 <button class="tablinks" onclick="openCity(event, 'room1')">room 1</button>
                 <div class="searchbar">
                     <form id="search">
