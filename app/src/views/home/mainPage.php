@@ -237,7 +237,6 @@
 
 <!DOCTYPE html>
 <html>
-    <div id="background" item-height="800", item-width="100%">
   <head>
     <meta charset="utf-8">
     <title>My home</title>
@@ -245,6 +244,8 @@
 
   </head>
   <body>
+
+    <?php include('_DIR_. "/../main/navbar.php"') ?>
 
         <div class="tab">
                 <button class="tablinks" onclick="openCity(event, 'Apartment')">Apartment name</button>
@@ -328,7 +329,7 @@ actuator4
                     <div class="anActuator" id = "actuator1">
                         <table class="tableActuator">
                             <tr class="actuatorName">
-                                <td colspan="2">&nbsp; ActuatorName &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <img src="img/edit_pencil.png" width="20" height="20" /></td>
+                                <td colspan="2">&nbsp; ActuatorName &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <img src="img/edit_pencil.png" width="20" height="20" /></td>
                             </tr>
                             <tr class="content">
                                 <td class = "imageActuator">
@@ -409,5 +410,4 @@ actuator4
 
   </script>
   </body>
-</div>
 </html>
