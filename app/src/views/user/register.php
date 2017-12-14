@@ -1,22 +1,17 @@
 <div class="card unique-card" id="registerCard">
 
-    <div id="logoRegister">
-        <img src="/img/Domisep.png" height="50%" width="50%">
-    </div>
-
-
-    <h1>Créer un compte</h1>
+    <h1>Create an account</h1>
 
     <form action="/registerpost" method="POST">
-        <input id="firstname" type="text" name="firstname" class="op" required placeholder="Prénom">
-        <input id="surname" type="text" name="surname" class="op" required placeholder="Nom de famille">
-        <input id="email" type="email" name="email" class="op" required placeholder="Adresse e-mail">
-        <input id="password" type="password" name="password" class="op" required placeholder="Mot de passe">
-        <input id="confirmation" type="password" name="confirmation" class="op" required placeholder="Répétez le mot de passe">
-        <input id="phone" type="tel" name="phone" class="op" required placeholder="Numéro de téléphone">
+        <input id="firstname" type="text" name="firstname" class="op" required placeholder="Firstname">
+        <input id="surname" type="text" name="surname" class="op" required placeholder="Lastname">
+        <input id="email" type="email" name="email" class="op" required placeholder="E-mail">
+        <input id="password" type="password" name="password" class="op" required placeholder="Password">
+        <input id="confirmation" type="password" name="confirmation" class="op" required placeholder="Confirm password">
+        <input id="phone" type="tel" name="phone" class="op" required placeholder="Phone number">
 
-        <input type="submit" value="Confirmer" class="bouton">
-        <a href="/login">Connexion</a>
+        <input type="submit" value="Confirm" class="bouton">
+        <a href="/login">Log in</a>
     </form>
 
 </div>

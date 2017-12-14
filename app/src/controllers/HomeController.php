@@ -39,7 +39,7 @@ class HomeController extends Controller
 
     public function addHomePostAction($params){
         if (!empty($_POST['town']) && !empty($_POST['street']) && !empty($_POST['number']) && !empty($_POST['zipCode'])){
-
+            if ($_POST['number'] > 1){
                 $town = $_POST['town'];
                 $street = $_POST['street'];
                 $number = $_POST['number'];
@@ -49,6 +49,10 @@ class HomeController extends Controller
                 $this->homes->insertHome($town, $street, $number, $zipCode, $idUser);
 
                 header('Location: /myhomes');
+            }
+            else{
+                header('Location: /addhome');
+            }
         }
     }
 
