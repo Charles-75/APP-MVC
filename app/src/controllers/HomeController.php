@@ -28,22 +28,7 @@ class HomeController extends Controller
     }
 
     public function myHomesAction($params) {
-        $homes = $this->homes->getUserHomesOrdered($_SESSION['id']);
-        $data = array();
-        foreach ($homes as $home){
-            $id = $home['id'];
-            $town = $home['town'];
-            $street = $home['street'];
-            $number = $home['number'];
-            $zipCode = $home['zipCode'];
-            array_push($data, [
-                'id' => $id,
-                'town' => $town,
-                'street' => $street,
-                'number' => $number,
-                'zipCode' => $zipCode,
-            ]);
-        };
+        $data = $this->homes->getUserHomesOrdered($_SESSION['id']);
 
         return $this->renderer->renderTemplate('home/myhomes.php', $data);
     }
@@ -67,10 +52,16 @@ class HomeController extends Controller
         }
     }
 
+    public function deleteHomeAction($params){
+        $apartmentId = $params['id'];
+        $this->homes->deleteHome($apartmentId);
+        header('Location: /myhomes');
+    }
+
     public function homeAction($params){
 
-        $apartementId = $params['id'];
-        $rooms = $this->rooms->getRoomsByHomeId($apartementId);
+        $apartmentId = $params['id'];
+        $rooms = $this->rooms->getRoomsByHomeId($apartmentId);
         $data = array();
         foreach ($rooms as $room) {
             $sensors = $this->sensors->getSensorsByRooms($room['id']);

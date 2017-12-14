@@ -43,7 +43,7 @@ class Homes
     public function getAllHomes()
     {
         try {
-            $req = $this->bdd->query("SELECT * FROM user");
+            $req = $this->bdd->query("SELECT * FROM apartment");
             return $req->fetchAll(PDO::FETCH_ASSOC); // récupérer que la partie associative
         } catch (\PDOException $e) {
             return [];
@@ -55,9 +55,9 @@ class Homes
 
     public function getUserHomesOrdered($userId){    //Donne les homes d'un user particulier repéré par son id, triée par code postal, et rue.
         try {
-            $req = $this->bdd->prepare("SELECT * FROM apartment WHERE idUser = :userId ORDER BY zipCode, street");  // Pas avec le nom et prénom car 2 clampins peuvent s'appeler pareil...
+            $req = $this->bdd->prepare("SELECT * FROM apartment WHERE idUser = :userId ORDER BY id");  // Pas avec le nom et prénom car 2 clampins peuvent s'appeler pareil...
             $req->execute([':userId' => $userId]);
-            $res = $req->fetchALL(PDO::FETCH_ASSOC);
+            $res = $req->fetchAll(PDO::FETCH_ASSOC);
             return $res;
         } catch (\PDOException $e) {
             return null;
@@ -91,6 +91,21 @@ class Homes
                 'number' => $number,
                 'zipCode' => $zipCode,
                 'idUser' => $idUser,
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
+
+    public function deleteHome($id){
+        try{
+            $req = $this->bdd->prepare("DELETE FROM apartment WHERE id = :id");
+            $req->execute([
+                'id' => $id
             ]);
         }
         catch (\PDOException $e){
