@@ -14,9 +14,21 @@
                 <li>Street : <?php echo $value['street']; ?></li>
                 <li>Number : <?php echo $value['number']; ?></li>
                 <li>Zip code : <?php echo $value['zipCode']; ?></li>
-                <a href="/deletehome/<?php echo $value['id']?>/">Delete</a>
             </ul>
+            <a href="/rooms" class="bouton" style="margin-left: 2%">Select</a>
+            <button onclick="delete_confirm(<?php echo $value['id']?>)" class="bouton" style="margin-left: 2%">Delete</button>
         </div>
     <?php endforeach; ?>
 
 </div>
+
+<script>
+    function delete_confirm(id)
+    {
+        if(confirm("Do you really want to delete this home?"))
+        {
+            document.location.href="deletehome/"+id+"/";
+        }
+        return false;
+    }
+</script>

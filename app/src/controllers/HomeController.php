@@ -62,6 +62,10 @@ class HomeController extends Controller
         header('Location: /myhomes');
     }
 
+    public function roomsAction($params){
+        return $this->renderer->renderTemplate('home/mainPage.php');
+    }
+
     public function homeAction($params){
 
         $apartmentId = $params['id'];
