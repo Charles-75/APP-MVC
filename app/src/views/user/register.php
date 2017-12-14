@@ -1,5 +1,10 @@
 <div class="card unique-card">
 
+    <div id="logoRegister">
+        <img src="/img/Domisep.png" height="50%" width="50%">
+    </div>
+
+
     <h1>Créer un compte</h1>
 
     <form action="/registerpost" method="POST">

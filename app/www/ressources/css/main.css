@@ -1,5 +1,6 @@
+
 body {
-    background-color: #1980c2;
+    background: linear-gradient(130deg, rgb(83, 131, 219), rgb(215, 226, 247)) fixed no-repeat;
     font-family: Roboto, "Times New Roman", serif;
 }
 
@@ -16,22 +17,42 @@ body {
     background-color: #fff;
     display: block;
     margin-bottom: 40px;
+    background-color: rgba(215, 226, 247, 0.5);
 
 }
 
 .card-full {
     width: 100%;
 }
+
 .card-half {
 
 }
 
 .unique-card {
-    margin-left: auto;
-    margin-right: auto;
     width: 400px;
     margin-top: 40px;
     display: block;
+    align-items: center;
+    align-content: center;
+}
+
+.alignBox{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+#logo{
+
+    margin-left: 20% ;
+    margin-top : 10%;
+
+}
+
+#logoRegister{
+    margin-left: 33%;
 }
 
 /*
