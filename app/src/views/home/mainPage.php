@@ -247,8 +247,9 @@
 
   </head>
   <body>
-
-    <?php include('/templates/main/navbar.php"') ?>
+    <header>
+        <?php include("/main/navbar.php") ?>
+    </header>
 
         <div class="tab">
                 <button class="tablinks active" onclick="openCity(event, 'Apartment')">Apartment name</button>
@@ -277,7 +278,7 @@
                     </div>
 
                     <div class="order">
-allumer ta lampe
+                        allumer ta lampe
 </div>
                     <div class="neworder">
                         <form>
@@ -288,20 +289,20 @@ allumer ta lampe
                 </div>
                 <div class="down">
                      <div clas="title">
-    capteurs
+                        capteurs
                      </div>
                      <div class="actuatorbox">
                          <div >
-actuator1
+                            actuator1
                          </div>
                          <div >
-actuator2
+                            actuator2
                          </div>
                          <div >
-actuator3
+                            actuator3
                          </div>
                          <div >
-actuator4
+                            actuator4
                          </div>
                      </div>
                 </div>
@@ -371,24 +372,6 @@ actuator4
                 </div>
 
 
-
-
-
-                <p>List of sensors below.</p>
-                <div id="sensor1">
-    This is data from sensor1.
-                <div>
-
-              <h4>Actuators</h4>
-                <p>List of actuators below.</p>
-
-              </div>
-
-              <div id="room2" class="tabcontent">
-                <h3>room2</h3>
-                <p>Tokyo is the capital of Japan.</p>
-              </div>
-            </div>
   <script>
       function openCity(evt, cityName) {
           // Declare all variables
