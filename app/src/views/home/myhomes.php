@@ -9,14 +9,16 @@
         <?php $position = array_search($value, $data) + 1 ?>
         <div class="card card-half">
             <ul>
-                <li>Appartment n°<?php echo $position; ?></li>
+                <p>Appartment n°<?php echo $position; ?></p>
                 <li>Town : <?php echo $value['town']; ?></li>
                 <li>Street : <?php echo $value['street']; ?></li>
                 <li>Number : <?php echo $value['number']; ?></li>
                 <li>Zip code : <?php echo $value['zipCode']; ?></li>
             </ul>
-            <a href="/rooms" class="bouton" style="margin-left: 2%">Select</a>
-            <button onclick="delete_confirm(<?php echo $value['id']?>)" class="bouton" style="margin-left: 2%">Delete</button>
+            <div style="display: flex">
+                <div style="margin-left: 2%"><button onclick="roomsRedirection()" class="bouton">Select</button></div>
+                <div style="margin-left: 2%"><button onclick="delete_confirm(<?php echo $value['id']?>)" class="bouton">Delete</button></div>
+            </div>
         </div>
     <?php endforeach; ?>
 
@@ -30,5 +32,8 @@
             document.location.href="deletehome/"+id+"/";
         }
         return false;
+    }
+    function roomsRedirection(){
+        document.location.href="rooms";
     }
 </script>
