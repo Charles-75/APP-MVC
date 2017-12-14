@@ -10,7 +10,7 @@
             <input type="checkbox" name="rememberMe" id="rememberMe">
             <label for="rememberMe">Remember me ?</label>
         </div>
-        <input type="submit" value="Connection" id="submit" class="bouton">
+        <input type="submit" value="Connexion" id="submit" class="bouton">
 
         <div class="liens">
             <a href="/resetpassword">Forgotten password?</a>

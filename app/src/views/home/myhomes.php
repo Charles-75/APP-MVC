@@ -1,8 +1,8 @@
 <div class="container-flex">
 
     <div class="card card-full">
-        <h1>Mes maisons</h1>
-        <a href="/logout">Déconnexion</a> | <a href="/addhome">Ajouter une maison</a>
+        <h1>My Homes</h1>
+        <a href="/logout">Log out</a> | <a href="/addhome">Add home</a>
     </div>
 
     <?php foreach ($data as $value): ?>
@@ -14,7 +14,7 @@
                 <li>Street : <?php echo $value['street']; ?></li>
                 <li>Number : <?php echo $value['number']; ?></li>
                 <li>Zip code : <?php echo $value['zipCode']; ?></li>
-                <a href="/deletehome/<?php echo $value['id']?>/">Supprimer</a>
+                <a href="/deletehome/<?php echo $value['id']?>/">Delete</a>
             </ul>
         </div>
     <?php endforeach; ?>
