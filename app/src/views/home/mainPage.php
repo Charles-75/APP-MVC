@@ -34,7 +34,7 @@
     }
     .neworder input[type="submit"]{
         margin-top:100%;
-        margin-left:0%;
+        margin-left:0;
 
 
     }
@@ -50,7 +50,7 @@
     /* Style the tab */
     .tab {
         overflow: hidden;
-        background-color: rgba(255, 255, 255, 0.568);
+        background-color: rgba(255, 255, 255, 0.42);
 
 
 
@@ -70,12 +70,12 @@
 
     /* Change background color of buttons on hover */
     .tab button:hover {
-        background-color: rgb(213, 231, 236);
+        background-color: rgb(190, 213, 233);
     }
 
     /* Create an active/current tablink class */
     .tab button.active {
-        background-color: rgb(190, 213, 233);
+        background-color: rgb(248, 243, 255);
     }
 
     /* Style the tab content */
@@ -174,6 +174,9 @@
         width:20px;
     }
 
+    #searchIcon{
+    }
+
 
 
     /* SENSORS */
@@ -245,7 +248,7 @@
   </head>
   <body>
 
-    <?php include('_DIR_. "/../main/navbar.php"') ?>
+    <?php include('/templates/main/navbar.php"') ?>
 
         <div class="tab">
                 <button class="tablinks active" onclick="openCity(event, 'Apartment')">Apartment name</button>
@@ -253,7 +256,7 @@
                 <div class="searchbar">
                     <form id="search">
                         <div><input class="search" type="text" placeholder="Search.."></div>
-                        <div><button type="submit" href="#"><img src="img/test.png"></button></div>
+                        <div id="searchIcon"><button type="submit" href="#"><img src="img/search.png"></button></div>
                     </form>
                 </div>
 
