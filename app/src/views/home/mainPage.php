@@ -164,10 +164,12 @@
         cursor: pointer;
     }
     .tab .searchbar{
-        float:right;
-
-
+        float: right;
     }
+    .tab .searchbar #search{
+        display: flex;
+    }
+
     .tab .searchbar img{
         width:20px;
     }
@@ -248,9 +250,9 @@
                 <button class="tablinks" onclick="openCity(event, 'Apartment')">Apartment name</button>
                 <button class="tablinks" onclick="openCity(event, 'room1')">room 1</button>
                 <div class="searchbar">
-                    <form>
-                        <input class="search" type="text" placeholder="Search..">
-                        <button type="submit" href="#"><img src="img/test.png"></button>
+                    <form id="search">
+                        <div><input class="search" type="text" placeholder="Search.."></div>
+                        <div><button type="submit" href="#"><img src="img/test.png"></button></div>
                     </form>
                 </div>
 
