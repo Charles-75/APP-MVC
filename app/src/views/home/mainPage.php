@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>My home</title>
-    <link rel="stylesheet" href="mainPage.css">
+    <link rel="stylesheet" href="ressource/css/mainPage.css">
 
   </head>
   <body>

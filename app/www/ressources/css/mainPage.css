@@ -15,8 +15,8 @@ body {
 }
 
 .order{
-    margin-left:10%;
-    margin-right: 0%;
+    margin-left:10% ;
+    margin-right: 0% ;
     padding : 5%;
     border : 1px solid black;
 }
@@ -197,7 +197,7 @@ table{
 
 .sensorName{
 
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000000;
     font-size: 150%;
     color : rgb(204, 219, 231);
     background-color: rgb(12, 83, 165);
