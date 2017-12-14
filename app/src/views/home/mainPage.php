@@ -248,7 +248,7 @@
   </head>
   <body>
     <header>
-        <?php include("/main/navbar.php") ?>
+        <?php include(__DIR__."../templates/main/navbar.php") ?>
     </header>
 
         <div class="tab">
