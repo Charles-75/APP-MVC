@@ -283,7 +283,7 @@
                     </div>
 
                     <div class="order">
-                      <img src="https://il6.picdn.net/shutterstock/videos/6441422/thumb/1.jpg" height="256" width="256">
+                      <img src="img/lightoff.png" alt ="img_luminosite" height="100" width="100">
                         <label class="switch">
                           <input type="checkbox">
                           <span class="slider round"></span>
@@ -298,12 +298,12 @@
 
                 </div>
                 <div class="down">
-                     <div clas="title">
-                        capteurs
+                     <div class="title">
+                        Actuators
                      </div>
                      <div class="actuatorbox">
                          <div >
-                           <img src="https://icon-icons.com/icons2/67/PNG/512/moisture_13524.png" height="256" width="256">
+                           <img src="img/humidity.png" alt="img_humid" height="100" width="100">
                             <label class="switch">
                               <input type="checkbox">
                               <span class="slider round"></span>
@@ -311,7 +311,7 @@
                             actuator1
                          </div>
                          <div >
-                           <img src="https://icon-icons.com/icons2/67/PNG/512/moisture_13524.png" height="256" width="256">
+                           <img src="img/humidity.png" alt="img_humid" height="100" width="100">
                            <label class="switch">
                              <input type="checkbox">
                              <span class="slider round"></span>
@@ -319,7 +319,7 @@
                             actuator2
                          </div>
                          <div >
-                           <img src="https://icon-icons.com/icons2/67/PNG/512/moisture_13524.png" height="256" width="256">
+                           <img src="img/humidity.png" alt="img_humid" height="100" width="100">
                            <label class="switch">
                              <input type="checkbox">
                              <span class="slider round"></span>
@@ -327,7 +327,7 @@
                             actuator3
                          </div>
                          <div >
-                           <img src="https://icon-icons.com/icons2/67/PNG/512/moisture_13524.png" height="256" width="256">
+                           <img src="img/humidity.png" alt="img_humid" height="100" width="100">
                            <label class="switch">
                              <input type="checkbox">
                              <span class="slider round"></span>
