@@ -1,4 +1,9 @@
+<?php include(__DIR__."/../templates/main/navbar.php") ?>
+
+
 <div class="container-flex">
+
+
 
     <div class="card card-full">
         <h1>My Homes</h1>

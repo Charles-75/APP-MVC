@@ -5,7 +5,7 @@
         </div>
 
         <div class='nav'>
-            <a class='lien' href='/mainPage'>My Home</a>
+            <a class='lien' href='/rooms'>My Home</a>
             <a class='lien' href='/myHome' >My appartments</a>
             <a class='lien' href='#'>Contact</a>
             <a class='lien' href='#'>What about us?</a>
@@ -20,7 +20,7 @@
 
     <div class='text'>
         <div class="lien2"><a href='#'>Profile</a></div>
-        <div class="lien2"><a href='#'>Log out</a></div>
+        <div class="lien2"><a href='/login'>Log out</a></div>
     </div>
 </div>
 

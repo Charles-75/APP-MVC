@@ -254,9 +254,7 @@
 
   </head>
   <body>
-    <header>
         <?php include(__DIR__."/../templates/main/navbar.php") ?>
-    </header>
 
         <div class="tab">
                 <button class="tablinks active" onclick="openCity(event, 'Apartment')">Apartment name</button>
