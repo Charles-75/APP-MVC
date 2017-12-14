@@ -324,7 +324,7 @@
                                     <img src = "img/lighton.png" alt ="img_luminosite" width="100" height="100"/>
                                 </td>
                                 <td class = "dataSensor">
-70%
+                                    70%
                                 </td>
                             </tr>
                         </table>
@@ -363,7 +363,7 @@
                                     <img src = "img/humidity.png" alt = "humidite" width="100" height="100"/>
                                 </td>
                                 <td class = "dataSensor">
-60%
+                                    60%
                                 </td>
                             </tr>
                         </table>
