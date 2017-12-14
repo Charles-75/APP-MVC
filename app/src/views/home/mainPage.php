@@ -320,7 +320,7 @@ actuator4
                             </tr>
                             <tr class = "content">
                                 <td class = "imageSensor">
-                                    <img src = "img/image_luminosite3.png" alt ="img_luminosite" />
+                                    <img src = "img/lighton.png" alt ="img_luminosite" width="100" height="100"/>
                                 </td>
                                 <td class = "dataSensor">
 70%
@@ -336,7 +336,7 @@ actuator4
                             </tr>
                             <tr class="content">
                                 <td class = "imageActuator">
-                                    <img src = "img/image_luminosite3.png" alt="img_light" />
+                                    <img src = "img/lightoff.png" alt="img_light" width="100" height="100"/>
                                 </td>
                                 <td class "actuatorState">
                                     <p>
@@ -359,7 +359,7 @@ actuator4
 
                             <tr class = "content">
                                 <td class = "imageSensor">
-                                    <img src = "img/goutte_deau2.png" alt = "humidite" />
+                                    <img src = "img/humidity.png" alt = "humidite" width="100" height="100"/>
                                 </td>
                                 <td class = "dataSensor">
 60%
