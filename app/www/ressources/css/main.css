@@ -32,6 +32,9 @@ body {
 .unique-card {
     width: 400px;
     display: block;
+}
+
+#registerCard{
     margin-left: 33%;
     margin-top : 5%;
 }

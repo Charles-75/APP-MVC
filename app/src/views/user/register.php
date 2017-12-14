@@ -1,4 +1,4 @@
-<div class="card unique-card">
+<div class="card unique-card" id="registerCard">
 
     <div id="logoRegister">
         <img src="/img/Domisep.png" height="50%" width="50%">
