@@ -76,10 +76,11 @@ a, a:visited {
     -o-transition: color 0.30s ease-in-out;
 }
 a:hover {
-    text-decoration: underline;
     color: #1966a8;
 }
-
+.hover:hover {
+    opacity: 0.7;
+}
 
 /*
  * Formulaire
@@ -119,7 +120,22 @@ label {
     display: block;
     padding: 10px;
     background-color: #1980c2;
-    border: none;
+    border: 1px solid #1966a8 ;
+    border-radius: 8%;
+    color: #fff;
+    cursor: pointer;
+
+    -webkit-transition: background-color 0.30s ease-in-out;
+    -moz-transition: background-color 0.30s ease-in-out;
+    -ms-transition: background-color 0.30s ease-in-out;
+    -o-transition: background-color 0.30s ease-in-out;
+}
+.boutonDelete{
+    display: block;
+    padding: 10px;
+    background-color: #DC1114;
+    border: 1px solid #C81113;
+    border-radius: 8%;
     color: #fff;
     cursor: pointer;
 
@@ -130,6 +146,9 @@ label {
 }
 .bouton:hover {
     background-color: #1966a8;
+}
+.boutonDelete:hover{
+    background-color: #C81113;
 }
 
 

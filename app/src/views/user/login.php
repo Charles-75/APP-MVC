@@ -17,8 +17,8 @@
         </div>
         <input type="submit" value="Connexion" id="submit" class="bouton">
 
-        <div class="liens">
-            <a href="/resetpassword">Forgotten password?</a>
+        <div class="liens" style="margin-top: 3%">
+            <a href="/resetpassword" style="margin-right: 6%">Forgotten password?</a>
             <a href="/register">Need an account?</a>
         </div>
 
