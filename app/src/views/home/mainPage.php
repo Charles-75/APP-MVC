@@ -83,6 +83,7 @@
         display: none;
         padding: 6px 12px;
         border-top: none;
+        color : #ebebeb;
     }
     .switch {
         position: relative;
@@ -179,6 +180,7 @@
 
 
 
+
     /* SENSORS */
 
 
@@ -194,11 +196,16 @@
     }
 
 
+    .allSensors{
+        color : #ffffff;
+    }
+
 
 
     .sensors{
         display: flex;
         justify-content: space-around;
+
     }
 
     .sensorName{

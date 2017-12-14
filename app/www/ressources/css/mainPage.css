@@ -175,6 +175,10 @@ input:checked + .slider:before {
 
 /* SENSORS */
 
+.allSensors{
+
+}
+
 
 table{
     border: 1px solid rgb(12, 83, 165);
@@ -206,6 +210,7 @@ table{
 
 .dataSensor{
     font-size: 40px;
+    background-color : #ffffff;
     padding-top : 2%;
 }
 
