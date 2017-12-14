@@ -80,7 +80,7 @@
 
     /* Style the tab content */
     .tabcontent {
-        display: none;
+
         padding: 6px 12px;
         border-top: none;
         color : #ebebeb;
@@ -337,7 +337,7 @@
                      </div>
                 </div>
         </div>
-        <div id="room1" class="tabcontent">
+        <div id="room1" class="tabcontent" style="display:none">
                 <h3>Room 1</h3>
             <p>Room 1 of your apartment.</p>
 
