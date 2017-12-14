@@ -274,18 +274,23 @@
                     <div class="type">
                         <table class="table">
                             <tr>
-                                <td>temparature : 21 °C </td>
+                                <td>Temperature : 21 °C </td>
                                 <td><form><input  type="submit" value="details" href="#"></form></td>
                             </tr>
                             <tr>
-                                <td>temparature : 21 °C </td>
+                                <td>Temperature : 21 °C </td>
                                 <td><form><input  type="submit" value="details" href="#"></form></td>
                             </tr>
                         </table>
                     </div>
 
                     <div class="order">
-                        allumer ta lampe
+                      <img src="https://il6.picdn.net/shutterstock/videos/6441422/thumb/1.jpg" height="256" width="256">
+                        <label class="switch">
+                          <input type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                        Allumer la lampe
 </div>
                     <div class="neworder">
                         <form>
@@ -300,15 +305,35 @@
                      </div>
                      <div class="actuatorbox">
                          <div >
+                           <img src="https://icon-icons.com/icons2/67/PNG/512/moisture_13524.png" height="256" width="256">
+                            <label class="switch">
+                              <input type="checkbox">
+                              <span class="slider round"></span>
+                            </label>
                             actuator1
                          </div>
                          <div >
+                           <img src="https://icon-icons.com/icons2/67/PNG/512/moisture_13524.png" height="256" width="256">
+                           <label class="switch">
+                             <input type="checkbox">
+                             <span class="slider round"></span>
+                           </label>
                             actuator2
                          </div>
                          <div >
+                           <img src="https://icon-icons.com/icons2/67/PNG/512/moisture_13524.png" height="256" width="256">
+                           <label class="switch">
+                             <input type="checkbox">
+                             <span class="slider round"></span>
+                           </label>
                             actuator3
                          </div>
                          <div >
+                           <img src="https://icon-icons.com/icons2/67/PNG/512/moisture_13524.png" height="256" width="256">
+                           <label class="switch">
+                             <input type="checkbox">
+                             <span class="slider round"></span>
+                           </label>
                             actuator4
                          </div>
                      </div>
