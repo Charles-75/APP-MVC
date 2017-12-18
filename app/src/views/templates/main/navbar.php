@@ -5,7 +5,7 @@
         </div>
 
         <div class='nav'>
-            <a class='lien' href='/rooms'>Ma Maison</a>
+            <a class='lien' href='/rooms'>Ma maison</a>
             <a class='lien' href='/myHome' >Mes appartements</a>
             <a class='lien' href='#'>Contact</a>
             <a class='lien' href='#'>A propos de nous</a>

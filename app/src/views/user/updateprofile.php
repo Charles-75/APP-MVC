@@ -2,7 +2,7 @@
 
 <div class="container-flex">
     <div class="card card-full" style="text-align: center">
-        <h1>Informations générales</h1>
+        <h1>Mon compte</h1>
         <div style="margin-top: 4%;">
             <form action="/updateprofilepost" method="POST">
                 <div style="margin-bottom: 1%">
@@ -22,7 +22,7 @@
                     <input type="text" style="display: inline-block; width: 250px;" value="<?php echo $data['phoneNumber'];?>" id="phoneNumber" name="phone" required>
                 </div>
 
-                <div style="display: inline-block; margin-top: 3%"><input type="submit" value="Enregistrer les informations" class="bouton" id="submit"></div>
+                <div style="display: inline-block; margin-top: 3%"><input type="submit" value="Enregistrer" class="bouton" id="submit"></div>
             </form>
         </div>
     </div>
