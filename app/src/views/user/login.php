@@ -19,7 +19,7 @@
 
         <div class="liens" style="margin-top: 3%">
             <a href="/resetpassword" style="margin-right: 6%">Forgotten password?</a>
-            <a href="/register">Need an account?</a>
+            <a href="/register">Inscription</a>
         </div>
 
     </form>
