@@ -5,10 +5,10 @@
         </div>
 
         <div class='nav'>
-            <a class='lien' href='/rooms'>My Home</a>
-            <a class='lien' href='/myHome' >My appartments</a>
+            <a class='lien' href='/rooms'>Ma Maison</a>
+            <a class='lien' href='/myHome' >Mes appartements</a>
             <a class='lien' href='#'>Contact</a>
-            <a class='lien' href='#'>What about us?</a>
+            <a class='lien' href='#'>A propos de nous</a>
         </div>
 
         <div class='icon'>
@@ -19,9 +19,7 @@
     </div>
 
     <div class='text'>
-        <div class="lien2"><a href='#'>Profile</a></div>
-        <div class="lien2"><a href='/login'>Log out</a></div>
+        <div class="lien2"><a href='#'>Profil</a></div>
+        <div class="lien2"><a href='/login'>Deconnexion</a></div>
     </div>
 </div>
-
-
