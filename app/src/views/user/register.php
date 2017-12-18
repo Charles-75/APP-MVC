@@ -13,6 +13,9 @@
         <input id="password" type="password" name="password" class="op" required placeholder="Password">
         <input id="confirmation" type="password" name="confirmation" class="op" required placeholder="Confirm password">
         <input id="phone" type="tel" name="phone" class="op" required placeholder="Phone number">
+        <input id="cgu" type="checkbox" name="cgu" class="op" required><label for="cgu"> <span class="op" style = "color: rgb(34, 117, 194)">J'accepte les CGU</span></label>
+        <br/>
+        <br/>
 
         <input type="submit" value="Confirm" class="bouton" style="margin-bottom: 4%">
         <a href="/login">Log in</a>
