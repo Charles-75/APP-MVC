@@ -29,7 +29,6 @@ class HomeController extends Controller
 
     public function myHomesAction($params) {
         $data = $this->homes->getUserHomesOrdered($_SESSION['id']);
-
         return $this->renderer->renderTemplate('home/myhomes.php', $data);
     }
 
@@ -39,7 +38,7 @@ class HomeController extends Controller
 
     public function addHomePostAction($params){
         if (!empty($_POST['town']) && !empty($_POST['street']) && !empty($_POST['number']) && !empty($_POST['zipCode'])){
-            if ($_POST['number'] > 1){
+            if ($_POST['number'] >= 1){
                 $town = $_POST['town'];
                 $street = $_POST['street'];
                 $number = $_POST['number'];
@@ -63,23 +62,44 @@ class HomeController extends Controller
     }
 
     public function roomsAction($params){
-        return $this->renderer->renderTemplate('home/mainPage.php');
+        $data = $this->rooms->getRoomsByHomeId(36);
+        return $this->renderer->renderTemplate('home/mainPage.php', $data);
+    }
+
+    public function addRoomAction($params){
+        return $this->renderer->renderTemplate('home/addRoom.php');
+    }
+
+    public function addRoomPostAction($params){
+        if (!empty($_POST['name'])){
+            $name = $_POST['name'];
+            $this->rooms->insertRoom($name, 36);
+            header('Location: /rooms');
+        }
+        else{
+            header('Location: /addroom');
+        }
     }
 
     public function homeAction($params){
-
         $apartmentId = $params['id'];
-        $rooms = $this->rooms->getRoomsByHomeId($apartmentId);
+        $data = $this->rooms->getRoomsByHomeId($apartmentId);
+        return $this->renderer->renderTemplate('home/mainPage.php', $data);
+
+
+
+
+
+        /*$rooms = $this->rooms->getRoomsByHomeId($apartmentId);
         $data = array();
         foreach ($rooms as $room) {
             $sensors = $this->sensors->getSensorsByRooms($room['id']);
             array_push($data, [
-               'room' => $room,
-               'sensors' => $sensors
+                'room' => $room,
+                'sensors' => $sensors
             ]);
         }
-        return $this->renderer->renderTemplate('home/home.php', $data);
-
+        return $this->renderer->renderTemplate('home/home.php', $data);*/
     }
 }
 

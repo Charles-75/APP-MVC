@@ -13,13 +13,13 @@
 
         <div class='icon'>
             <div class="lien1"><a href='#'><img class='image' src='img/notification.png'></a></div>
-            <div class="lien1"><a href='#'><img class='image' src='img/profil.png'></a></div>
+            <div class="lien1"><a href='/profile'><img class='image' src='img/profil.png'></a></div>
             <div class="lien1"><a href='/login'><img class='image' src='img/logout.png'></a></div>
         </div>
     </div>
 
     <div class='text'>
-        <div class="lien2"><a href='#'>Profil</a></div>
+        <div class="lien2"><a href='/profile'>Profil</a></div>
         <div class="lien2"><a href='/login'>Deconnexion</a></div>
     </div>
 </div>

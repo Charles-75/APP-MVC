@@ -29,7 +29,7 @@ class Rooms {
     public function getRoomsByHomeId($homeId)
     {
         try {
-            $req = $this->bdd->prepare("SELECT * FROM room WHERE apartmentId = :id");
+            $req = $this->bdd->prepare("SELECT name FROM room WHERE apartmentId = :id");
             $req->execute([':id' => $homeId]);
             $res = $req->fetchAll(PDO::FETCH_ASSOC);
             return $res;
@@ -43,7 +43,7 @@ class Rooms {
     }
 
 
-    public function addRooms($roomName, $homeId){   //retourne rien
+    public function addRoom($roomName, $homeId){   //retourne rien
         try {
             $req = $this->bdd->prepare("INSERT INTO room(name, homeId) VALUES(:name, :homeId)");
             $req->execute([
@@ -69,6 +69,22 @@ class Rooms {
 
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
+    }
+
+    public function insertRoom($name, $apartmentId){
+        try{
+            $req = $this->bdd->prepare("INSERT INTO room(name, apartmentId) VALUES(:name, :apartmentId)");
+            $req->execute([
+                'name' => $name,
+                'apartmentId' => $apartmentId,
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
     }
 
 

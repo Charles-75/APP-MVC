@@ -1,6 +1,7 @@
 <div class="alignBox">
 <div id="logo">
     <img src="/img/Domisep.png" height="50%" width="50%">
+    <div style="margin-right: 50%"><h1>Home'Isep</h1></div>
 </div>
 
 <div class="card unique-card">
@@ -13,12 +14,12 @@
 
         <div class="checkbox">
             <input type="checkbox" name="rememberMe" id="rememberMe">
-            <label for="rememberMe">Remember me ?</label>
+            <label for="rememberMe">Se souvenir de moi?</label>
         </div>
         <input type="submit" value="Connexion" id="submit" class="bouton">
 
         <div class="liens" style="margin-top: 3%">
-            <a href="/resetpassword" style="margin-right: 6%">Forgotten password?</a>
+            <a href="/resetpassword" style="margin-right: 6%">Mot de passe oublié?</a>
             <a href="/register">Inscription</a>
         </div>
 

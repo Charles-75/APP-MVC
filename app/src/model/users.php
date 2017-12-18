@@ -151,6 +151,25 @@ class Users {
         }
     }
 
+    public function updateUserById($firstname, $surname, $email, $phone, $id){
+        try{
+            $req = $this->bdd->prepare("UPDATE user SET firstName = :firstname, surname = :surname, email = :email, phoneNumber = :phone WHERE id = :id");
+            $req->execute([
+                'firstname' => $firstname,
+                'surname' => $surname,
+                'email' => $email,
+                'phone' => $phone,
+                'id' => $id,
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
+
 
 
 }

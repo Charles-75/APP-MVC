@@ -70,4 +70,22 @@ class UserController extends Controller
         unset($_SESSION['password']);
         header('Location: /login');
     }
+
+    public function profileAction($params){
+        $data = $this->users->getUserById($_SESSION['id']);
+        return $this->renderer->renderTemplate('user/profile.php', $data);
+    }
+
+    public function updateProfileAction($params){
+        $data = $this->users->getUserById($_SESSION['id']);
+        return $this->renderer->renderTemplate('user/updateprofile.php', $data);
+    }
+
+    public function updateProfilePostAction($params){
+        if (!empty($_POST['firstname']) && !empty($_POST['surname']) && !empty($_POST['email'])&& !empty($_POST['phone'])){
+
+            $this->users->updateUserById($_POST['firstname'], $_POST['surname'], $_POST['email'], $_POST['phone'], $_SESSION['id']);
+            header('Location: /profile');
+        }
+    }
 }

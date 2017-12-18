@@ -11,10 +11,16 @@ $routes = [
     ['/\/register/', ['\Src\Controllers\UserController', 'register']],
     ['/\/registerpost/', ['\Src\Controllers\UserController', 'registerpost']],
     ['/\/loginpost/', ['\Src\Controllers\UserController', 'loginpost']],
+    ['/\/profile/', ['\Src\Controllers\UserController', 'profile']],
+    ['/\/updateprofile/', ['\Src\Controllers\UserController', 'updateprofile']],
+    ['/\/updateprofilepost/', ['\Src\Controllers\UserController', 'updateprofilepost']],
     ['/\/addhome/', ['\Src\Controllers\HomeController', 'addhome']],
     ['/\/addhomepost/', ['\Src\Controllers\HomeController', 'addhomepost']],
     ['/\/deletehome\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'deletehome']],
     ['/\/myhomes/', ['\Src\Controllers\HomeController', 'myhomes']],
     ['/\/home\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'home']],
     ['/\/rooms/', ['\Src\Controllers\HomeController', 'rooms']],
+    ['/\/addroom/', ['\Src\Controllers\HomeController', 'addroom']],
+    ['/\/addroompost/', ['\Src\Controllers\HomeController', 'addroompost']],
+
 ];

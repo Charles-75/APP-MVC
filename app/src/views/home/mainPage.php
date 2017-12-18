@@ -257,11 +257,15 @@
         <?php include(__DIR__."/../templates/main/navbar.php") ?>
 
         <div class="tab">
-                <button class="tablinks active" onclick="openCity(event, 'Apartment')">Apartment name</button>
-                <button class="tablinks" onclick="openCity(event, 'room1')">room 1</button>
+
+                <button class="tablinks active" onclick="openCity(event, 'Apartment')">Nom de l'appartement</button>
+                <?php foreach ($data as $value): ?>
+                <button class="tablinks" onclick="openCity(event, 'room')"><?php echo $value['name']; ?></button>
+                <?php endforeach; ?>
+                <button><a href="/addroom">Ajouter une pièce</a></button>
                 <div class="searchbar">
                     <form id="search">
-                        <div><input class="search" type="text" placeholder="Search.."></div>
+                        <div><input class="search" type="text" placeholder="Rechercher.."></div>
                         <div id="searchIcon"><button type="submit" href="#"><img src="img/search.png"></button></div>
                     </form>
                 </div>
@@ -272,11 +276,11 @@
                     <div class="type">
                         <table class="table">
                             <tr>
-                                <td>Temperature : 21 °C </td>
+                                <td>Température : 21 °C </td>
                                 <td><form><input  type="submit" value="details" href="#"></form></td>
                             </tr>
                             <tr>
-                                <td>Temperature : 21 °C </td>
+                                <td>Humidité : 4 %</td>
                                 <td><form><input  type="submit" value="details" href="#"></form></td>
                             </tr>
                         </table>
@@ -292,14 +296,14 @@
 </div>
                     <div class="neworder">
                         <form>
-                            <input   type="submit" value="Add a new order">
+                            <input   type="submit" value="Ajouter un nouvel ordre">
                         </form>
                     </div>
 
                 </div>
                 <div class="down">
                      <div class="title">
-                        Actuators
+                        Actionneurs
                      </div>
                      <div class="actuatorbox">
                          <div >
@@ -308,7 +312,7 @@
                               <input type="checkbox">
                               <span class="slider round"></span>
                             </label>
-                            actuator1
+                            actionneur 1
                          </div>
                          <div >
                            <img src="img/humidity.png" alt="img_humid" height="100" width="100">
@@ -316,7 +320,7 @@
                              <input type="checkbox">
                              <span class="slider round"></span>
                            </label>
-                            actuator2
+                            actionneur 2
                          </div>
                          <div >
                            <img src="img/humidity.png" alt="img_humid" height="100" width="100">
@@ -324,7 +328,7 @@
                              <input type="checkbox">
                              <span class="slider round"></span>
                            </label>
-                            actuator3
+                            actionneur 3
                          </div>
                          <div >
                            <img src="img/humidity.png" alt="img_humid" height="100" width="100">
@@ -332,14 +336,13 @@
                              <input type="checkbox">
                              <span class="slider round"></span>
                            </label>
-                            actuator4
+                            actionneur 4
                          </div>
                      </div>
                 </div>
         </div>
-        <div id="room1" class="tabcontent" style="display:none">
-                <h3>Room 1</h3>
-            <p>Room 1 of your apartment.</p>
+        <div id="room" class="tabcontent" style="display:none">
+                <h3>Pièce 1</h3>
 
 
             <div class="allSensors">
@@ -347,7 +350,7 @@
                     <div class="aSensor" id = "sensor 1">
                         <table class = "tableSensor">
                             <tr class = "sensorName">
-                                <td colspan="2">&nbsp; Brightness</td>
+                                <td colspan="2">Luminosité</td>
                             </tr>
                             <tr class = "content">
                                 <td class = "imageSensor">
@@ -363,7 +366,7 @@
                     <div class="anActuator" id = "actuator1">
                         <table class="tableActuator">
                             <tr class="actuatorName">
-                                <td colspan="2">&nbsp; ActuatorName &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <img src="img/edit_pencil.png" width="20" height="20" /></td>
+                                <td colspan="2">&nbsp; Activer la lumière &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <img src="img/edit_pencil.png" width="20" height="20" /></td>
                             </tr>
                             <tr class="content">
                                 <td class = "imageActuator">
@@ -385,7 +388,7 @@
                     <div class = "aSensor" id = "sensor2">
                         <table class="tableSensor">
                             <tr class = "sensorName">
-                                <td colspan="2">&nbsp; Humidity</td>
+                                <td colspan="2">&nbsp; Humidité</td>
                             </tr>
 
                             <tr class = "content">
