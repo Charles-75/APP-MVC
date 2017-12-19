@@ -251,10 +251,10 @@
         <div class="tab">
 
                 <button class="tablinks active" onclick="openCity(event, 'Apartment')">Nom de l'appartement</button>
-                <?php foreach ($data as $value): ?>
+                <?php foreach ($data['apartmentData'] as $value): ?>
                 <button class="tablinks" onclick="openCity(event, 'room')"><?php echo $value['name']; ?></button>
                 <?php endforeach; ?>
-                <button><a href="/addroom">Ajouter une pièce</a></button>
+                <button><a href="/addroom/<?php echo $data['apartmentId']; ?>">Ajouter une pièce</a></button>
                 <div class="searchbar">
                     <form id="search">
                         <div><input class="search" type="text" placeholder="Rechercher.."></div>

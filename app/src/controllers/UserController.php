@@ -68,6 +68,7 @@ class UserController extends Controller
         unset($_SESSION['id']);
         unset($_SESSION['email']);
         unset($_SESSION['password']);
+        unset($_SESSION['apartmentId']);
         header('Location: /login');
     }
 

@@ -19,7 +19,7 @@
                 </div>
             </ul>
             <div style="display: flex; margin-top: 2%">
-                <div style="margin-left: 2%"><button onclick="roomsRedirection()" class="bouton">Choisir</button></div>
+                <div style="margin-left: 2%"><button onclick="roomsRedirection(<?php echo $value['id']?>)" class="bouton">Choisir</button></div>
                 <div style="margin-left: 2%"><button onclick="delete_confirm(<?php echo $value['id']?>)" class="boutonDelete">Supprimer</button></div>
             </div>
         </div>
@@ -39,7 +39,7 @@
         }
         return false;
     }
-    function roomsRedirection(){
-        document.location.href="rooms";
+    function roomsRedirection(id){
+        document.location.href="rooms/"+id+"/";
     }
 </script>

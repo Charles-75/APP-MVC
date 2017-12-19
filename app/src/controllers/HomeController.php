@@ -28,6 +28,7 @@ class HomeController extends Controller
     }
 
     public function myHomesAction($params) {
+        unset($_SESSION['apartmentId']);
         $data = $this->homes->getUserHomesOrdered($_SESSION['id']);
         return $this->renderer->renderTemplate('home/myhomes.php', $data);
     }
@@ -62,7 +63,11 @@ class HomeController extends Controller
     }
 
     public function roomsAction($params){
-        $data = $this->rooms->getRoomsByHomeId(36);
+        $_SESSION['apartmentId'] = $params['id'];
+        $data = [
+            'apartmentId' => $params['id'],
+            'apartmentData' => $this->rooms->getRoomsByHomeId($_SESSION['apartmentId'])
+        ];
         return $this->renderer->renderTemplate('home/mainPage.php', $data);
     }
 
@@ -72,9 +77,10 @@ class HomeController extends Controller
 
     public function addRoomPostAction($params){
         if (!empty($_POST['name'])){
+            die($_SESSION['apartmentId']);
             $name = $_POST['name'];
-            $this->rooms->insertRoom($name, 36);
-            header('Location: /rooms');
+            $this->rooms->insertRoom($name, $_SESSION['apartmentId']);
+            header('Location: /rooms/'.$_SESSION['apartmentId']);
         }
         else{
             header('Location: /addroom');
