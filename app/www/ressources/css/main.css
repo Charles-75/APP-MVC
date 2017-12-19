@@ -25,37 +25,26 @@ body {
     width: 100%;
 }
 
-.card-half {
-
-}
 
 .unique-card {
     width: 400px;
     display: block;
 }
 
-#registerCard{
-    margin-left: 33%;
-    margin-top : 5%;
-}
 
 .alignBox{
     display: flex;
     flex-direction: column;
-    align-content: center;
     align-items: center;
 }
 
 #logo{
-    margin-left: 16%;
     margin-top : 10%;
     margin-bottom : 3%;
-
+    text-align: center;
 }
 
-#logoRegister{
-    margin-left: 33%;
-}
+
 
 /*
  * Polices
@@ -81,6 +70,7 @@ a:hover {
 .hover:hover {
     opacity: 0.7;
 }
+
 
 /*
  * Formulaire
