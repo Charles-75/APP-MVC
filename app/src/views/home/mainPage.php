@@ -240,20 +240,12 @@
     .actuatorState{
         padding-top : 2%;
     }
+
 </style>
 
 
 
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My home</title>
-    <link rel="stylesheet" href="css/mainPage.css">
-
-  </head>
-  <body>
         <?php include(__DIR__."/../templates/main/navbar.php") ?>
 
         <div class="tab">
@@ -428,5 +420,3 @@
 }
 
   </script>
-  </body>
-</html>
