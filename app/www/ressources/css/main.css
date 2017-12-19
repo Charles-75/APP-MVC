@@ -61,7 +61,7 @@ body {
  * Polices
  */
 
-h1, .titleLogin{
+h1 {
     color: #1966a8;
     text-align: center;
 }
@@ -94,7 +94,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="tel
     margin-bottom: 20px;
     padding: 2px;
     border-radius: 2px;
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
     outline: none;
 
     -webkit-transition: box-shadow 0.30s ease-in-out;
