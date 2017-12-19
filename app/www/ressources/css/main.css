@@ -94,7 +94,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="tel
     margin-bottom: 20px;
     padding: 2px;
     border-radius: 2px;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
     outline: none;
 
     -webkit-transition: box-shadow 0.30s ease-in-out;
@@ -230,13 +230,13 @@ a:hover{
  */
 
 footer{
-    position: absolute;
-    border-top : 2px solid white;
+    position : relative;
+    border-top : 2px solid rgb(252, 251, 255);
     color : black;
     background-color : #5787d0;
-    bottom : 0;
     width : 100%;
-    height: 100px ;
+    height: 100px;
+    vertical-align: bottom;
 }
 
 .infoSite{
@@ -244,5 +244,19 @@ footer{
     justify-content: space-around;
     height: 100%;
     align-items: center;
+    color : white;
 
+}
+
+a[class = "footerLinks"], a[class = "footerLinks"]:visited{
+    text-decoration: none;
+    color: white;
+    -webkit-transition: color 0.30s ease-in-out;
+    -moz-transition: color 0.30s ease-in-out;
+    -ms-transition: color 0.30s ease-in-out;
+    -o-transition: color 0.30s ease-in-out;
+}
+
+a[class = "footerLinks"]:hover{
+    color: #1966a8;
 }
