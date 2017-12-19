@@ -28,8 +28,8 @@ class HomeController extends Controller
     }
 
     public function myHomesAction($params) {
-        unset($_SESSION['apartmentId']);
-        $data = $this->homes->getUserHomesOrdered($_SESSION['id']);
+        $idUser = $_SESSION['id'];
+        $data = $this->homes->getUserHomesOrdered($idUser);
         return $this->renderer->renderTemplate('home/myhomes.php', $data);
     }
 
@@ -63,31 +63,34 @@ class HomeController extends Controller
     }
 
     public function roomsAction($params){
-        $_SESSION['apartmentId'] = $params['id'];
+        $apartmentId = $params['id'];
+        $_SESSION['apartmentId'] = $apartmentId;
         $data = [
-            'apartmentId' => $params['id'],
-            'apartmentData' => $this->rooms->getRoomsByHomeId($_SESSION['apartmentId'])
+            'apartmentId' => $apartmentId,
+            'apartmentData' => $this->rooms->getRoomsByHomeId($apartmentId)
         ];
         return $this->renderer->renderTemplate('home/mainPage.php', $data);
     }
 
     public function addRoomAction($params){
-        return $this->renderer->renderTemplate('home/addRoom.php');
+        $apartmentId = $params['id'];
+        $data = ['apartmentId' => $apartmentId];
+        return $this->renderer->renderTemplate('home/addRoom.php', $data);
     }
 
     public function addRoomPostAction($params){
+        $apartmentId = $params['id'];
         if (!empty($_POST['name'])){
-            die($_SESSION['apartmentId']);
             $name = $_POST['name'];
-            $this->rooms->insertRoom($name, $_SESSION['apartmentId']);
-            header('Location: /rooms/'.$_SESSION['apartmentId']);
+            $this->rooms->insertRoom($name, $apartmentId);
+            header('Location: /rooms/'.$apartmentId);
         }
         else{
-            header('Location: /addroom');
+            header('Location: /addroom/'.$apartmentId);
         }
     }
 
-    public function homeAction($params){
+    /*public function homeAction($params){
         $apartmentId = $params['id'];
         $data = $this->rooms->getRoomsByHomeId($apartmentId);
         return $this->renderer->renderTemplate('home/mainPage.php', $data);
@@ -96,7 +99,7 @@ class HomeController extends Controller
 
 
 
-        /*$rooms = $this->rooms->getRoomsByHomeId($apartmentId);
+        $rooms = $this->rooms->getRoomsByHomeId($apartmentId);
         $data = array();
         foreach ($rooms as $room) {
             $sensors = $this->sensors->getSensorsByRooms($room['id']);
@@ -105,8 +108,8 @@ class HomeController extends Controller
                 'sensors' => $sensors
             ]);
         }
-        return $this->renderer->renderTemplate('home/home.php', $data);*/
-    }
+        return $this->renderer->renderTemplate('home/home.php', $data);
+    }*/
 }
 
 

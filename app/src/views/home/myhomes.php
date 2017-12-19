@@ -19,8 +19,16 @@
                 </div>
             </ul>
             <div style="display: flex; margin-top: 2%">
-                <div style="margin-left: 2%"><button onclick="roomsRedirection(<?php echo $value['id']?>)" class="bouton">Choisir</button></div>
+                <div style="margin-left: 2%"><button onclick="roomsRedirection(<?php echo $value['id'];?>)" class="bouton">Choisir</button></div>
                 <div style="margin-left: 2%"><button onclick="delete_confirm(<?php echo $value['id']?>)" class="boutonDelete">Supprimer</button></div>
+                <div style="margin-left: 2%"><?php
+                if ($value['id'] == $_SESSION['apartmentId']){
+                    ?>
+                    <img src="/img/checked.png" width="40px" height="40px">
+                    <?php
+                }
+                    ?>
+                </div>
             </div>
         </div>
     <?php endforeach; ?>

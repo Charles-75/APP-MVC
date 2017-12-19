@@ -3,6 +3,7 @@
 namespace Src\Controllers;
 
 use \Core\Controller;
+use Src\Model\Homes;
 use Src\Model\Users;
 use Vendors\Renderer\Renderer;
 
@@ -16,6 +17,7 @@ class UserController extends Controller
     {
         $this->renderer = new Renderer();
         $this->users = new Users();
+        $this->homes = new Homes();
     }
 
     public function loginAction($params) {
@@ -26,10 +28,14 @@ class UserController extends Controller
         $username = $_POST['email'];
         $password = $_POST['password'];
         $user = $this->users->getUserByCredentials($username, $password);
+        $homes = $this->homes->getUserHomesOrdered($user['id']);
+        $home = $homes[0];
         if($user !== null) { // Email existe
             $_SESSION['email'] = $user['email'];
             $_SESSION['password'] = $user['password'];
             $_SESSION['id'] = $user['id'];
+            $_SESSION['apartmentId'] = $home['id'];
+
             header('Location: /myhomes');
         } else {
             header('Location: /login');

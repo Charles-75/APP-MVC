@@ -258,7 +258,7 @@
                 <div class="searchbar">
                     <form id="search">
                         <div><input class="search" type="text" placeholder="Rechercher.."></div>
-                        <div id="searchIcon"><button type="submit" href="#"><img src="img/search.png"></button></div>
+                        <div id="searchIcon"><button type="submit" href="#"><img src="/img/search.png"></button></div>
                     </form>
                 </div>
 
@@ -279,7 +279,7 @@
                     </div>
 
                     <div class="order">
-                      <img src="img/lightoff.png" alt ="img_luminosite" height="100" width="100">
+                      <img src="/img/lightoff.png" alt ="img_luminosite" height="100" width="100">
                         <label class="switch">
                           <input type="checkbox">
                           <span class="slider round"></span>
@@ -299,7 +299,7 @@
                      </div>
                      <div class="actuatorbox">
                          <div >
-                           <img src="img/humidity.png" alt="img_humid" height="100" width="100">
+                           <img src="/img/humidity.png" alt="img_humid" height="100" width="100">
                             <label class="switch">
                               <input type="checkbox">
                               <span class="slider round"></span>
@@ -307,7 +307,7 @@
                             actionneur 1
                          </div>
                          <div >
-                           <img src="img/humidity.png" alt="img_humid" height="100" width="100">
+                           <img src="/img/humidity.png" alt="img_humid" height="100" width="100">
                            <label class="switch">
                              <input type="checkbox">
                              <span class="slider round"></span>
@@ -315,7 +315,7 @@
                             actionneur 2
                          </div>
                          <div >
-                           <img src="img/humidity.png" alt="img_humid" height="100" width="100">
+                           <img src="/img/humidity.png" alt="img_humid" height="100" width="100">
                            <label class="switch">
                              <input type="checkbox">
                              <span class="slider round"></span>
@@ -323,7 +323,7 @@
                             actionneur 3
                          </div>
                          <div >
-                           <img src="img/humidity.png" alt="img_humid" height="100" width="100">
+                           <img src="/img/humidity.png" alt="img_humid" height="100" width="100">
                            <label class="switch">
                              <input type="checkbox">
                              <span class="slider round"></span>
@@ -346,7 +346,7 @@
                             </tr>
                             <tr class = "content">
                                 <td class = "imageSensor">
-                                    <img src = "img/lighton.png" alt ="img_luminosite" width="100" height="100"/>
+                                    <img src = "/img/lighton.png" alt ="img_luminosite" width="100" height="100"/>
                                 </td>
                                 <td class = "dataSensor">
                                     70%
@@ -358,11 +358,11 @@
                     <div class="anActuator" id = "actuator1">
                         <table class="tableActuator">
                             <tr class="actuatorName">
-                                <td colspan="2">&nbsp; Activer la lumière &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <img src="img/edit_pencil.png" width="20" height="20" /></td>
+                                <td colspan="2">&nbsp; Activer la lumière &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <img src="/img/edit_pencil.png" width="20" height="20" /></td>
                             </tr>
                             <tr class="content">
                                 <td class = "imageActuator">
-                                    <img src = "img/lightoff.png" alt="img_light" width="100" height="100"/>
+                                    <img src = "/img/lightoff.png" alt="img_light" width="100" height="100"/>
                                 </td>
                                 <td class "actuatorState">
                                     <p>
@@ -385,7 +385,7 @@
 
                             <tr class = "content">
                                 <td class = "imageSensor">
-                                    <img src = "img/humidity.png" alt = "humidite" width="100" height="100"/>
+                                    <img src = "/img/humidity.png" alt = "humidite" width="100" height="100"/>
                                 </td>
                                 <td class = "dataSensor">
                                     60%
