@@ -2,6 +2,7 @@
 <div id="logo">
     <img src="/img/Domisep.png" height="50%" width="50%">
     <div style="margin-right: 50%"><h1>Home'Isep</h1></div>
+    <div style ="margin-right: 30%"><h2 class="titleLogin">par Domisep</h2></div>
 </div>
 
 <div class="card unique-card">

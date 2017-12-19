@@ -61,7 +61,7 @@ body {
  * Polices
  */
 
-h1 {
+h1, .titleLogin{
     color: #1966a8;
     text-align: center;
 }
