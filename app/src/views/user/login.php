@@ -1,8 +1,9 @@
 <div class="alignBox">
 <div id="logo">
     <img src="/img/Domisep.png" height="50%" width="50%">
-    <div style="margin-right: 50%"><h1>Home'Isep</h1></div>
-    <div style ="margin-right: 30%"><h2 class="titleLogin">par Domisep</h2></div>
+    <div><h1>Home'Isep</h1></div>
+    <div><h2 style = "color : #e4e4e4"><i>Feel at home everywhere !</i></h2></div>
+    <div><h3 class="titleLogin">par Domisep</h3></div>
 </div>
 
 <div class="card unique-card">
