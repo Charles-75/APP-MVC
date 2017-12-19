@@ -230,7 +230,6 @@ a:hover{
  */
 
 footer{
-    position : relative;
     border-top : 2px solid rgb(252, 251, 255);
     color : black;
     background-color : #5787d0;
@@ -259,4 +258,8 @@ a[class = "footerLinks"], a[class = "footerLinks"]:visited{
 
 a[class = "footerLinks"]:hover{
     color: #1966a8;
+}
+
+.container {
+    min-height: calc(100vh - 100px);
 }

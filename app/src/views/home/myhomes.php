@@ -1,20 +1,16 @@
 <?php include(__DIR__."/../templates/main/navbar.php") ?>
 
 
-<div class="container-flex">
+<div class="container">
 
 
+    <h1>Mes maisons</h1>
 
-    <div class="card card-full">
-        <h1>Mes maisons</h1>
-    </div>
-    <div style="margin-right: 80%; margin-bottom: 2%" class="hover"><a href="/addhome" style="font-size: 150%"><img src="img/addHome.png" width="35px" height="35px" style="margin-top: 10px">  Ajouter une maison</a></div>
+    <div class="hover"><a href="/addhome" style="font-size: 150%"><img src="img/addHome.png" width="35px" height="35px" style="margin-top: 10px">  Ajouter une maison</a></div>
 
     <?php foreach ($data as $value): ?>
-        <?php $position = array_search($value, $data) + 1 ?>
         <div class="card card-half">
             <ul>
-                <p><strong>Appartement n°<?php echo $position; ?></strong></p>
                 <div style="margin-top: 2%">
                     <li>Ville : <?php echo $value['town']; ?></li>
                     <li>Rue : <?php echo $value['street']; ?></li>
@@ -30,6 +26,9 @@
     <?php endforeach; ?>
 
 </div>
+
+
+
 
 <script>
     function delete_confirm(id)
