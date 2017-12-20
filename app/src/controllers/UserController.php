@@ -24,20 +24,31 @@ class UserController extends Controller
         return $this->renderer->renderTemplate('user/login.php');
     }
 
+    /**
+     * @param $params
+     */
     public function loginpostAction($params) {
         $username = $_POST['email'];
         $password = $_POST['password'];
         $user = $this->users->getUserByCredentials($username, $password);
-        $homes = $this->homes->getUserHomesOrdered($user['id']);
-        $home = $homes[0];
+
         if($user !== null) { // Email existe
             $_SESSION['email'] = $user['email'];
             $_SESSION['password'] = $user['password'];
             $_SESSION['id'] = $user['id'];
-            $_SESSION['apartmentId'] = $home['id'];
-
+            if (isset($_POST['rememberMe'])){
+                setcookie('email', $_SESSION['email'], time() + 365*24*3600);
+                setcookie('password', $_SESSION['password'], time() + 365*24*3600);
+                setcookie('checked', 'checked', time() + 365*24*3600);
+            }
+            else{
+                setcookie('checked', '', time() + 1);
+                setcookie('email', $_SESSION['email'], time() + 1);
+                setcookie('password', $_SESSION['password'], time() + 1);
+            }
             header('Location: /myhomes');
-        } else {
+        }
+        else {
             header('Location: /login');
         }
     }
