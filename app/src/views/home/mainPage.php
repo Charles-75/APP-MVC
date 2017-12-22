@@ -160,12 +160,12 @@
         function opencity(a,b){
 
 
-            $(a).hide(1000);
-            $(b).show('slow');
+            $(a).hide(1);
+            $(b).show(1);
         }
     function closecity(a,b){
-        $(a).hide(1000);
-        $(b).show('slow');
+        $(a).hide(1);
+        $(b).show(1);
     }
 
 
