@@ -1,422 +1,177 @@
-﻿<style>
-    body {
+﻿
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Home'ISEP</title>
+
+
+</head>
+<body>
+<style>
+    body{
         background: linear-gradient(130deg,rgb(83, 131, 219), rgb(215, 226, 247));
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
-
-
-    #Apartment{
-
-    }
-
-    .up{
-        display:flex;
+    .row{
+        display : flex;
         justify-content: space-around;
-    }
-
-    .order{
-        margin-left:10% ;
-        margin-right: 0% ;
-        padding : 5%;
-        border : 1px solid black;
-    }
-    ul{
-        list-style-type: none;
-    }
-    .actuatorbox{
-        display:flex;
-        justify-content: space-around;
-    }
-    .actuatorbox div{
-        border:1px solid black;
-        padding : 3%;
-    }
-    .neworder input[type="submit"]{
-        margin-top:100%;
-        margin-left:0;
-
 
     }
-    input[type="submit"]{
-        border-radius:10px;
+
+    .column1{
+        height:600px;
+        overflow:auto;
+        width:30%;
         border: 1px solid black;
-    }
-
-    .inputop{
-        margin-bottom:10%;
-        margin-top:30%;
-    }
-    /* Style the tab */
-    .tab {
-        overflow: hidden;
-        background-color: rgba(255, 255, 255, 0.42);
-
-
+        border-radius:2%;
+        background-color: rgba(243, 183, 183, 0.671);
 
     }
+    .column2{
+        width:30%;
+        overflow: auto;
+        border: 1px solid black;
+        border-radius:2%;
+        background-color: rgba(144, 238, 144, 0.486);
 
-    /* Style the buttons inside the tab */
-    .tab button {
-        background-color: inherit;
-        float: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        color: rgb(25,128,194)
     }
-
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-        background-color: rgb(190, 213, 233);
-    }
-
-    /* Create an active/current tablink class */
-    .tab button.active {
-        background-color: rgb(248, 243, 255);
-    }
-
-    /* Style the tab content */
-    .tabcontent {
-
-        padding: 6px 12px;
-        border-top: none;
-        color : #ebebeb;
-    }
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-    }
-
-    /* Hide default HTML checkbox */
-    .switch input {display:none;}
-
-    /* The slider */
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-
-    input:checked + .slider {
-        background-color: rgb(33, 107, 243);
-    }
-
-    input:focus + .slider {
-        box-shadow: 0 0 1px #2196F3;
-    }
-
-    input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-    }
-
-    /* Rounded sliders */
-    .slider.round {
-        border-radius: 34px;
-    }
-
-    .slider.round:before {
-        border-radius: 50%;
-    }
-
-    /* Style the search box inside the navigation bar */
-    .search{
-
-        padding: 6px;
-        border: none;
-        margin-top: 8px;
-        margin-right: 16px;
-        font-size: 17px;
-        border: 1px solid grey;
-    }
-
-    .tab .searchbar button {
+    .ajout{
+        height:7%;
+        width:7%;
         float:right;
-        padding: 6px 10px;
-        margin-top: 8px;
-        margin-right: 16px;
-
-        font-size: 17px;
-        border: none;
-        cursor: pointer;
+        margin-right:2%;
     }
-    .tab .searchbar{
-        float: right;
-    }
-    .tab .searchbar #search{
+    .column3{
+        width:30%;
         display: flex;
+        flex-direction: column;
     }
-
-    .tab .searchbar img{
-        width:20px;
+    .haut{
+        border: 1px solid black;
+        height:50%;
+        background-color: rgba(224, 255, 255, 0.534);
+        border-radius:2%;
+        overflow: auto;
     }
-
-    #searchIcon{
+    .bas{
+        border: 1px solid black;
+        height:50%;
+        margin-top:2%;
+        background-color: rgba(224, 255, 255, 0.534);
+        border-radius:2%;
+        overflow: auto;
     }
-
-
-
-
-    /* SENSORS */
-
-
-    table{
-        border: 1px solid rgb(12, 83, 165);
-        height: 100px;
-        width: 300px;
-
+    .titre{
+        text-align: center;
+        border-bottom: 1px solid grey;
     }
+    button{
 
-    .tableSensor{
-        WIDTH: 300px;
-    }
-
-
-    .allSensors{
-        color : #ffffff;
-    }
-
-
-
-    .sensors{
-        display: flex;
-        justify-content: space-around;
+        border-radius:3px;
+        border:1px solid black;
+        margin-left:2%;
 
     }
-
-    .sensorName{
-
-        border-bottom: 1px solid #000000;
-        font-size: 150%;
-        color : rgb(204, 219, 231);
-        background-color: rgb(12, 83, 165);
+    .ecriture{
+        font-size: 1.3em;
     }
 
+    .petit{
+        margin:1%;
 
-    .dataSensor{
-        font-size: 40px;
-        padding-top : 2%;
     }
-
-
-    /* Actuator */
-
-    .actuatorName{
-
-        border-bottom: 1px solid black;
-        font-size: 150%;
-        color : rgb(204, 219, 231);
-        background-color: rgb(12, 83, 165);
+    .capteur_pression{
+        margin-top:2%;
+        margin-left: 1%;
     }
-
-    .tableActuator{
-        WIDTH: 300px;
+    .capteur_temperature{
+        margin-left:1%;
     }
+    a{
+        text-decoration: none;
 
-    .actuatorState{
-        padding-top : 2%;
     }
-
 </style>
 
+<?php include(__DIR__."/../templates/main/navbar.php") ?>
+<div class="row">
+    <div class="column1">
+        <h1 class="titre" style="color:rgb(255, 95, 95)"> Mes Capteurs</h1>
+        <div class="capteur_temperature ecriture">
+
+            <div class="repere1">La température est de 56 °C<button id="ouv_temperature" onclick="opencity('#ouv_temperature','#temperature')"   >afficher plus </button></div>
+            <div id="temperature" class="temperatures" style="display:none" >
+                <div class="petit"> La température de la pièce 1 est 55°C <button ><a href='#'>détails</a></button></div>
+                <div class="petit"> La température de la pièce 2 est 50°C <button  ><a href='#'>détails</a></button></div>
+                <div class="petit"> La température de la pièce 3 est 60°C <button  ><a href='#'>détails</a></button></div>
+                <button id="ferm_temperature" onclick="closecity('#temperature','#ouv_temperature')"> afficher moins</button>
+            </div>
+        </div>
+        <div class="capteur_pression ecriture">
+            <div>La pression est de 1 Pa <button id="ouv_pression" onclick="opencity('#ouv_pression','#pression')">afficher plus</button></div>
+            <div id='pression' style="display:none">
+                <div class="petit"> La pression de la pièce 1 est 2 Pa<button ><a href='#'>détails</a></button></div>
+                <div class="petit"> La pression de la pièce 2 est 0 Pa<button  ><a href='#'>détails</a></button></div>
+                <button id="ferm_pression" onclick="closecity('#pression','#ouv_pression')">afficher moins</button>
+            </div>
+        </div>
+    </div>
 
 
-
-        <?php include(__DIR__."/../templates/main/navbar.php") ?>
-
-        <div class="tab">
-
-                <button class="tablinks active" onclick="openCity(event, 'Apartment')">Nom de l'appartement</button>
-                <?php foreach ($data['apartmentData'] as $value): ?>
-                <button class="tablinks" onclick="openCity(event, 'room')"><?php echo $value['name']; ?></button>
-                <?php endforeach; ?>
-                <button><a href="/addroom/<?php echo $data['apartmentId']; ?>">Ajouter une pièce</a></button>
-                <div class="searchbar">
-                    <form id="search">
-                        <div><input class="search" type="text" placeholder="Rechercher.."></div>
-                        <div id="searchIcon"><button type="submit" href="#"><img src="/img/search.png"></button></div>
-                    </form>
-                </div>
+    <div class="column2">
+        <h1 class="titre" style="color:rgb(46, 182, 46)"> Mon appartement<a href=href="/addroom/<?php echo $data['apartmentId']; ?>" ><img class="ajout" src="/img/ajout.png"></a></h1>
+        <div class="ecriture">
+            <?php foreach ($data['apartmentData'] as $value): ?>
+            <div class="petit" ><a  href='#'><?php echo $value['name']; ?></a></div>
+            <?php endforeach; ?>
 
         </div>
-        <div id="Apartment" class="tabcontent">
-                <div class="up">
-                    <div class="type">
-                        <table class="table">
-                            <tr>
-                                <td>Température : 21 °C </td>
-                                <td><form><input  type="submit" value="details" href="#"></form></td>
-                            </tr>
-                            <tr>
-                                <td>Humidité : 4 %</td>
-                                <td><form><input  type="submit" value="details" href="#"></form></td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="order">
-                      <img src="/img/lightoff.png" alt ="img_luminosite" height="100" width="100">
-                        <label class="switch">
-                          <input type="checkbox">
-                          <span class="slider round"></span>
-                        </label>
-                        Allumer la lampe
+    </div>
+    <div class="column3" >
+        <div class="haut">
+            <h1 class="titre" style="color:rgb(78, 196, 196)"> Mes Notifications</h1>
+            <div class="ecriture">
+                <div class="petit"> votre capteur marche mal mm/hh/jj/mm</div>
+                <div class="petit"> votre capteur a cessé de fonctionner</div>
+            </div>
+        </div>
+        <div class="bas">
+            <h1 class="titre "  style="color:rgb(78, 196, 196)" >Mes Ordres <button><a href="#"> Ajouter un ordre</a> </button></h1>
+            <div class="ecriture">
+                <div> je t'ordronne d'allumer une lampe<button id="ouv_ordre" onclick="opencity('#ouv_ordre','#ordre')">Afficher plus</button></div>
+                <div id="ordre" style="display:none">
+                    <div class="petit"> info sur le temps</div>
+                    <div class="petit"> info sur les capteurs</div>
+                    <div class="petit">info sur les pièces</div>
+                    <button id="ferm_ordre" onclick="closecity('#ordre','#ouv_ordre')">Afficher moins</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-                    <div class="neworder">
-                        <form>
-                            <input   type="submit" value="Ajouter un nouvel ordre">
-                        </form>
-                    </div>
+<script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous">
+</script>
+<script>
 
-                </div>
-                <div class="down">
-                     <div class="title">
-                        Actionneurs
-                     </div>
-                     <div class="actuatorbox">
-                         <div >
-                           <img src="/img/humidity.png" alt="img_humid" height="100" width="100">
-                            <label class="switch">
-                              <input type="checkbox">
-                              <span class="slider round"></span>
-                            </label>
-                            actionneur 1
-                         </div>
-                         <div >
-                           <img src="/img/humidity.png" alt="img_humid" height="100" width="100">
-                           <label class="switch">
-                             <input type="checkbox">
-                             <span class="slider round"></span>
-                           </label>
-                            actionneur 2
-                         </div>
-                         <div >
-                           <img src="/img/humidity.png" alt="img_humid" height="100" width="100">
-                           <label class="switch">
-                             <input type="checkbox">
-                             <span class="slider round"></span>
-                           </label>
-                            actionneur 3
-                         </div>
-                         <div >
-                           <img src="/img/humidity.png" alt="img_humid" height="100" width="100">
-                           <label class="switch">
-                             <input type="checkbox">
-                             <span class="slider round"></span>
-                           </label>
-                            actionneur 4
-                         </div>
-                     </div>
-                </div>
-        </div>
-        <div id="room" class="tabcontent" style="display:none">
-                <h3>Pièce 1</h3>
+        function opencity(a,b){
 
 
-            <div class="allSensors">
-                <div class = "sensors">
-                    <div class="aSensor" id = "sensor 1">
-                        <table class = "tableSensor">
-                            <tr class = "sensorName">
-                                <td colspan="2">Luminosité</td>
-                            </tr>
-                            <tr class = "content">
-                                <td class = "imageSensor">
-                                    <img src = "/img/lighton.png" alt ="img_luminosite" width="100" height="100"/>
-                                </td>
-                                <td class = "dataSensor">
-                                    70%
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="anActuator" id = "actuator1">
-                        <table class="tableActuator">
-                            <tr class="actuatorName">
-                                <td colspan="2">&nbsp; Activer la lumière &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   <img src="/img/edit_pencil.png" width="20" height="20" /></td>
-                            </tr>
-                            <tr class="content">
-                                <td class = "imageActuator">
-                                    <img src = "/img/lightoff.png" alt="img_light" width="100" height="100"/>
-                                </td>
-                                <td class "actuatorState">
-                                    <p>
-                                        <label class="switch">
-                                        <input type="checkbox">
-                                        <span class="slider round"></span>
-                                        </label>
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
-
-                    </div>
-
-                    <div class = "aSensor" id = "sensor2">
-                        <table class="tableSensor">
-                            <tr class = "sensorName">
-                                <td colspan="2">&nbsp; Humidité</td>
-                            </tr>
-
-                            <tr class = "content">
-                                <td class = "imageSensor">
-                                    <img src = "/img/humidity.png" alt = "humidite" width="100" height="100"/>
-                                </td>
-                                <td class = "dataSensor">
-                                    60%
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                </div>
-
-
-  <script>
-      function openCity(evt, cityName) {
-          // Declare all variables
-          var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+            $(a).hide(1000);
+            $(b).show('slow');
+        }
+    function closecity(a,b){
+        $(a).hide(1000);
+        $(b).show('slow');
     }
 
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
 
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
 
-  </script>
+</script>
+</body>
+
+
+</html>
