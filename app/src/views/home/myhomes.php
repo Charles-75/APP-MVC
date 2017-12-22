@@ -22,7 +22,7 @@
                     Numero : <?php echo $value['number']; ?><br>
                     Code Postal : <?php echo $value['zipCode']; ?><br>
                     <div class="home-buttons">
-                        <button onclick="roomsRedirection(<?php echo $value['id'];?>)" class="bouton">Choisir</button>
+                        <a href="/home/<?= $value['id'];?>" class="bouton">Choisir</a>
                         <button onclick="delete_confirm(<?php echo $value['id']?>)" class="bouton bouton-delete">Supprimer</button>
                     </div>
                 </div>
@@ -45,6 +45,6 @@
         return false;
     }
     function roomsRedirection(id){
-        document.location.href="rooms/"+id+"/";
+        document.location.href="home/"+id+"/";
     }
 </script>

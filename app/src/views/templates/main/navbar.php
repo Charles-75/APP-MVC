@@ -1,25 +1,23 @@
-<div class="block">
-    <div class='body'>
-        <div class='domisep'>
-            <img src='/img/Domisep.png'>
-        </div>
+<div class="navbar">
 
-        <div class='nav'>
-            
-            <a class='lien' href='/myhomes' >Mes appartements</a>
-            <a class='lien' href='#'>Contact</a>
+    <img src="/img/Domisep.png" id="navbar-logo" alt="DomISEP">
 
-        </div>
-
-        <div class='icon'>
-
-            <div class="lien1"><a href='/profile'><img class='image' src='/img/profil.png'></a></div>
-            <div class="lien1"><a href='/login'><img class='image' src='/img/logout.png'></a></div>
-        </div>
+    <div id="navbar-links">
+        <a href='/myhomes' >Mes maisons</a> | <a class='lien' href='#'>Contact</a>
     </div>
 
-    <div class='text'>
-        <div class="lien2"><a href='/profile'>Profil</a></div>
-        <div class="lien2"><a href='/login'>Déconnexion</a></div>
+    <div id="navbar-icons">
+
+        <div class="navbar-lien">
+            <a href='/profile'>
+                <img class='image' src="/img/profil.png">
+            </a>
+        </div>
+
+        <div class="navbar-lien">
+            <a href="/login">
+                <img class="image" src="/img/logout.png">
+            </a>
+        </div>
     </div>
 </div>

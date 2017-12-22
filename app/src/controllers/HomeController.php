@@ -62,7 +62,7 @@ class HomeController extends Controller
         header('Location: /myhomes');
     }
 
-    public function roomsAction($params){
+    public function homeAction($params){
         $apartmentId = $params['id'];
         $_SESSION['apartmentId'] = $apartmentId;
         $data = [
