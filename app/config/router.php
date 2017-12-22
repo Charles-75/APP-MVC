@@ -16,10 +16,13 @@ $routes = [
     ['/\/updateprofilepost/', ['\Src\Controllers\UserController', 'updateprofilepost']],
     ['/\/addhome/', ['\Src\Controllers\HomeController', 'addhome']],
     ['/\/addhomepost/', ['\Src\Controllers\HomeController', 'addhomepost']],
+    ['/\/addguest\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addguest']],
+    ['/\/addguestpost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addguestpost']],
+    ['/\/deleteguest\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'deleteguest']],
+    ['/\/deleteguestpost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'deleteguestpost']],
     ['/\/deletehome\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'deletehome']],
     ['/\/myhomes/', ['\Src\Controllers\HomeController', 'myhomes']],
     ['/\/home\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'home']],
     ['/\/addroom\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addRoom']],
     ['/\/addroompost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addRoomPost']],
-    
 ];

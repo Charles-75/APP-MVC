@@ -222,7 +222,7 @@ a[class = "footerLinks"]:hover{
 
 .card.home {
 
-    width: 500px;
+    width: 600px;
     display: flex;
     flex-direction: row;
     align-items: center;
