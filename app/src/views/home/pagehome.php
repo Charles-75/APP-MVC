@@ -1,9 +1,9 @@
-<!-- <!DOCTYPE html> -->
+
 <html>
     <head>
         <meta charset="utf-8">
         <title>Home'ISEP</title>
-        <link rel="stylesheet" type="text/css" href="pagehome.css">
+        
         
     </head>
     <body>
@@ -94,7 +94,7 @@ a{
 }
         </style>
            
-            
+            <?php include(__DIR__."/../templates/main/navbar.php") ?>
             <div class="row">
               <div class="column1">
                 <h1 class="titre" style="color:rgb(255, 95, 95)"> Mes Capteurs</h1>
