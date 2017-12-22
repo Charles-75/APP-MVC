@@ -1,15 +1,100 @@
-<!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="utf-8">
         <title>Home'ISEP</title>
-        <link rel="stylesheet" type="text/css" href="pagehome.css">
+        
         
     </head>
     <body>
-            
+         <style>
+             body{
+    background: linear-gradient(130deg,rgb(83, 131, 219), rgb(215, 226, 247));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.row{
+    display : flex;
+    justify-content: space-around;
+    
+}
+
+.column1{
+    height:600px;
+    overflow:auto;
+    width:30%;
+    border: 1px solid black;
+    border-radius:2%;
+    background-color: rgba(243, 183, 183, 0.671);
+    
+}
+.column2{
+    width:30%;
+    overflow: auto;
+    border: 1px solid black;
+    border-radius:2%;
+    background-color: rgba(144, 238, 144, 0.486);
+   
+}
+.ajout{
+    height:7%;
+    width:7%;
+    float:right;
+    margin-right:2%;
+}
+.column3{
+    width:30%;
+    display: flex;
+    flex-direction: column;
+}
+.haut{
+    border: 1px solid black;
+    height:50%;
+    background-color: rgba(224, 255, 255, 0.534);
+    border-radius:2%;
+    overflow: auto;
+}
+.bas{
+    border: 1px solid black;
+    height:50%;
+    margin-top:2%;
+    background-color: rgba(224, 255, 255, 0.534);
+    border-radius:2%;
+    overflow: auto;
+}
+.titre{
+    text-align: center;
+    border-bottom: 1px solid grey;
+}
+button{
+   
+    border-radius:3px;
+    border:1px solid black;
+    margin-left:2%;
+   
+}
+.ecriture{
+    font-size: 1.3em;
+}
+
+.petit{
+    margin:1%;
+    
+}
+.capteur_pression{
+    margin-top:2%;
+    margin-left: 1%;
+}
+.capteur_temperature{
+    margin-left:1%;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+        </style>
            
-            
+            <?php include(__DIR__."/../templates/main/navbar.php") ?>
             <div class="row">
               <div class="column1">
                 <h1 class="titre" style="color:rgb(255, 95, 95)"> Mes Capteurs</h1>
@@ -63,12 +148,11 @@
                 </div> 
               </div>
             </div>
-            <script
+            <script>
             src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous">
-            </script>
-      <script>
+           
 
 function opencity(a,b){
     
