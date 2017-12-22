@@ -5,7 +5,7 @@
         </div>
 
         <div class='nav'>
-            <a class='lien' href='/rooms/<?php echo $_SESSION['apartmentId']; ?>'>Ma maison</a>
+            
             <a class='lien' href='/myhomes' >Mes appartements</a>
             <a class='lien' href='#'>Contact</a>
 
