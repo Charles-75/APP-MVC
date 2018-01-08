@@ -94,16 +94,15 @@ class HomeController extends Controller
 
     public function deleteGuestPostAction($params){
         $apartmentId = $params['id'];
-        $guests = $this->homes->getAllGuests($apartmentId);
-        /*echo "<pre>";
-        print_r($guests);
-        exit();*/
+        $guests = $this->homes->getAllGuests($apartmentId);   //selectionne les users invités
         foreach ($guests as $guest){
-            $clé = $guest['id'];
-            if (isset($_POST['check'.$clé.''])){
-                $guest1 = $this->homes->getGuestId($apartmentId, $clé);
-                $this->homes->deleteGuest($guest1[0]);
-
+            $cle = $guest['id'];         //id du user
+            if (isset($_POST['check'.$cle.''])){
+                $guest1 = $this->homes->getGuestId($apartmentId, $cle);    //id de guestship
+                foreach ($guest1 as $value){
+                    $id = $value['id'];
+                    $this->homes->deleteGuest($id);
+                }
             }
         }
         header('Location: /myhomes');
