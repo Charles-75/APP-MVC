@@ -1,16 +1,12 @@
-<div class="container align-box narrow-container">
+<div class="container align-box" id="login-container">
 
     <img src="/img/Domisep.png" class="img-responsive" id="login-logo">
 
     <div class="card">
 
-        <?php
-            if (isset($_SESSION['info'])){
-                echo '<div style="margin-bottom: 2%; background-color: #43DC7E; padding: 1%; font-size: 80%">'.$_SESSION['info'].'</div>';
-            }
-        ?>
+        <p> Admin page</p>
 
-        <form action="/loginpost" method="POST">
+        <form action="/login_adminpost" method="POST">
 
         <input id="email" type="email" name="email" placeholder="Adresse e-mail" value="<?php if (isset($_COOKIE['email'])){ echo $_COOKIE['email'];} ?>">
 
