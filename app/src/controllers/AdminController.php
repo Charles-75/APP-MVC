@@ -66,6 +66,9 @@ class AdminController extends Controller
     }
 
     public function searchuserAction($params) {
+        if(!isset($params['term'])) {
+            return json_encode([]);
+        }
         $term = $params['term'];
         $users = $this->users->getUserLike($term);
         if($users == null) $users = [];
