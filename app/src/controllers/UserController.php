@@ -21,6 +21,7 @@ class UserController extends Controller
     }
 
     public function loginAction($params) {
+        unset($_SESSION['warning']);
         return $this->renderer->renderTemplate('user/login.php');
     }
 
@@ -28,6 +29,7 @@ class UserController extends Controller
      * @param $params
      */
     public function loginpostAction($params) {
+        unset($_SESSION['info']);
         $username = $_POST['email'];
         $password = $_POST['password'];
         $user = $this->users->getUserByCredentials($username, $password);
@@ -54,30 +56,37 @@ class UserController extends Controller
     }
 
     public function registerAction($params) {
+        unset($_SESSION['info']);
         return $this->renderer->renderTemplate('user/register.php');
     }
 
     public function registerpostAction($params){
         if (!empty($_POST['firstname']) && !empty($_POST['surname']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmation']) && !empty($_POST['phone'])){
             if ($_POST['password'] == $_POST['confirmation']){
+                if (isset($_POST['cgu'])){
+                    $firstname = $_POST['firstname'];
+                    $surname = $_POST['surname'];
+                    $email = $_POST['email'];
+                    $password = $_POST['password'];
+                    $phone = $_POST['phone'];
 
-                $firstname = $_POST['firstname'];
-                $surname = $_POST['surname'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-                $phone = $_POST['phone'];
-
-                $this->users->insertUser($firstname, $surname, $email, $password, $phone);
-                header('Location: /login');
+                    $this->users->insertUser($firstname, $surname, $email, $password, $phone);
+                    $_SESSION['info'] = "Votre inscription a bien été prise en compte, vous pouvez maintenant vous connecter";
+                    header('Location: /login');
+                }
+                else{
+                    header('Location: /register');
+                    $_SESSION['warning'] = "Vous devez accepter les conditions générales d'utilisation (CGU)";
+                }
             }
             else{
                 header('Location: /register');
-                //return '<p>Veuillez confirmer correctement votre mot de passe</p>';
+                $_SESSION['warning'] = "Revérifiez la confirmation de votre mot de passe";
             }
         }
         else{
             header('Location: /register');
-            //return '<p>Vous devez remplir tous les champs du formulaire</p>';
+            $_SESSION['warning'] = "Vous devez remplir tous les champs du formulaire";
         }
     }
 

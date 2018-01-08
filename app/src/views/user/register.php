@@ -6,7 +6,13 @@
         </div>
 
 
-        <h1>Créer un compte</h1>
+    <h1>Créer un compte</h1>
+
+        <?php
+        if (isset($_SESSION['warning'])){
+            echo '<div style="margin-top: 2%; background-color: #D60D0D; padding: 1%;">'.$_SESSION['warning'].'</div>';
+        }
+        ?>
 
         <form action="/registerpost" method="POST" style="margin-top: 5%">
             <input id="firstname" type="text" name="firstname" class="op" required placeholder="Prénom">
@@ -18,7 +24,6 @@
             <input id="cgu" type="checkbox" name="cgu" class="op" required><label for="cgu"> <span class="op" style = "color: rgb(34, 117, 194)">J'accepte les CGU</span></label>
             <br/>
             <br/>
-
             <input type="submit" value="Confirmer" class="bouton" style="margin-bottom: 4%">
             <a href="/login">Se connecter</a>
         </form>
