@@ -40,6 +40,7 @@ class Homes
 
 
 
+
     public function getAllHomes()
     {
         try {
@@ -101,11 +102,78 @@ class Homes
         }
     }
 
+    public function insertGuest($userId, $apartmentId){
+        try{
+            $req = $this->bdd->prepare("INSERT INTO guestship(userId, apartmentId) VALUES(:userId, :apartmentId)");
+            $req->execute([
+                'userId' => $userId,
+                'apartmentId' => $apartmentId,
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
+
+    public function getAllGuests($apartmentId){
+        $req = $this->bdd->prepare("SELECT user.* FROM user INNER JOIN guestship ON guestship.userId = user.id WHERE guestship.apartmentId = :apartmentId");
+        $req->execute([
+            'apartmentId' => $apartmentId
+        ]);
+
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
     public function deleteHome($id){
         try{
             $req = $this->bdd->prepare("DELETE FROM apartment WHERE id = :id");
             $req->execute([
                 'id' => $id
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
+
+    public function deleteAllGuests($apartmentId){
+        try{
+            $req = $this->bdd->prepare("DELETE FROM guestship WHERE apartmentId = :apartmentId");
+            $req->execute([
+                'apartmentId' => $apartmentId,
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
+
+    public function getGuestId($apartmentId, $userId){
+        $req = $this->bdd->prepare("SELECT id FROM guestship WHERE guestship.apartmentId = :apartmentId AND guestship.userId = :userId");
+        $req->execute([
+            'apartmentId' => $apartmentId,
+            'userId' => $userId
+        ]);
+
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+    public function deleteGuest($id){
+        try{
+            $req = $this->bdd->prepare("DELETE FROM guestship WHERE id = :id");
+            $req->execute([
+                'id' => $id,
             ]);
         }
         catch (\PDOException $e){

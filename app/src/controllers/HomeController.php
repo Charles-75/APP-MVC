@@ -3,6 +3,7 @@
 namespace Src\Controllers;
 
 use \Core\Controller;
+use function Sodium\add;
 use Src\Model\Homes;
 use Src\Model\Sensors;
 use Src\Model\Users;
@@ -29,7 +30,17 @@ class HomeController extends Controller
 
     public function myHomesAction($params) {
         $idUser = $_SESSION['id'];
-        $data = $this->homes->getUserHomesOrdered($idUser);
+        $homes = $this->homes->getUserHomesOrdered($idUser);
+
+        for ($it=0 ; $it < count($homes) ; $it++) {
+            $homes[$it]['guest'] = $this->homes->getAllGuests($homes[$it]['id']);
+        }
+        $data = [
+            'homes' => $homes,
+        ];
+        /*echo "<pre>";
+        print_r($data);
+        exit();*/
         return $this->renderer->renderTemplate('home/myhomes.php', $data);
     }
 
@@ -56,9 +67,51 @@ class HomeController extends Controller
         }
     }
 
+    public function addGuestAction($params){
+        $apartmentId = $params['id'];
+        $data = ['apartmentId' => $apartmentId];
+        return $this->renderer->renderTemplate('home/addGuest.php', $data);
+    }
+
+    public function addGuestPostAction($params){
+        $apartmentId = $params['id'];
+        $email = $_POST['email'];
+        $user = $this->users->getUserByEmail($email);
+        $userId = $user['id'];
+        $this->homes->insertGuest($userId, $apartmentId);
+        header('Location: /myhomes');
+    }
+
+    public function deleteGuestAction($params){
+        $apartmentId = $params['id'];
+        $guests = $this->homes->getAllGuests($apartmentId);
+        $data = [
+            'apartmentId' => $apartmentId,
+            'guests' => $guests
+        ];
+        return $this->renderer->renderTemplate('home/deleteGuest.php', $data);
+    }
+
+    public function deleteGuestPostAction($params){
+        $apartmentId = $params['id'];
+        $guests = $this->homes->getAllGuests($apartmentId);   //selectionne les users invités
+        foreach ($guests as $guest){
+            $cle = $guest['id'];         //id du user
+            if (isset($_POST['check'.$cle.''])){
+                $guest1 = $this->homes->getGuestId($apartmentId, $cle);    //id de guestship
+                foreach ($guest1 as $value){
+                    $id = $value['id'];
+                    $this->homes->deleteGuest($id);
+                }
+            }
+        }
+        header('Location: /myhomes');
+    }
+
     public function deleteHomeAction($params){
         $apartmentId = $params['id'];
         $this->homes->deleteHome($apartmentId);
+        $this->homes->deleteAllGuests($apartmentId);
         header('Location: /myhomes');
     }
 
@@ -67,7 +120,7 @@ class HomeController extends Controller
         $_SESSION['apartmentId'] = $apartmentId;
         $data = [
             'apartmentId' => $apartmentId,
-            'apartmentData' => $this->rooms->getRoomsByHomeId($apartmentId)
+            'apartmentData' => $this->rooms->getRoomsByHomeId($apartmentId),
         ];
         return $this->renderer->renderTemplate('home/mainPage.php', $data);
     }

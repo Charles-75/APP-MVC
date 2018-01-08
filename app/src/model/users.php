@@ -132,6 +132,24 @@ class Users {
         }
     }
 
+    public function getUserByName($firstname, $surname){
+        try {
+            $req = $this->bdd->prepare("SELECT * FROM user WHERE firstName = :firstname AND surname = :surname");
+            $req->execute([
+                ':firstname' => $firstname,
+                ':surname' => $surname
+            ]);
+            $res = $req->fetchALL(PDO::FETCH_ASSOC);
+            return $res;
+        }
+        catch (\PDOException $e) {
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
+
     public function insertUser($firstname, $surname, $email, $password, $phone){
         try{
             $req = $this->bdd->prepare("INSERT INTO user(firstName, surname, email, password, phoneNumber) VALUES(:firstname, :surname, :email, :password, :phone)");
