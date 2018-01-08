@@ -169,11 +169,11 @@ class Homes
         return $res;
     }
 
-    public function deleteGuest($guestId){
+    public function deleteGuest($id){
         try{
             $req = $this->bdd->prepare("DELETE FROM guestship WHERE id = :id");
             $req->execute([
-                'id' => $guestId,
+                'id' => $id,
             ]);
         }
         catch (\PDOException $e){
