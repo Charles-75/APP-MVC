@@ -6,6 +6,7 @@ namespace Src\Controllers;
 use \Core\Controller;
 use Src\Model\Homes;
 use Src\Model\Admins;
+use Src\Model\Users;
 use Vendors\Renderer\Renderer;
 
 
@@ -15,6 +16,7 @@ class AdminController extends Controller
 
     private $renderer;
     private $admins;
+    private $users;
 
 
     public function __construct()
@@ -22,6 +24,7 @@ class AdminController extends Controller
         $this->renderer = new Renderer();
         $this->admins = new Admins();
         $this->homes = new Homes();
+        $this->users = new Users();
     }
 
 
@@ -60,8 +63,13 @@ class AdminController extends Controller
 
         return $this->renderer->renderTemplate('home/allhomes.php');
 
+    }
 
-
+    public function searchuserAction($params) {
+        $term = $params['term'];
+        $users = $this->users->getUserLike($term);
+        if($users == null) $users = [];
+        return json_encode($users);
     }
 
 }

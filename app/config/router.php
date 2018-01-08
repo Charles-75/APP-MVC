@@ -53,4 +53,7 @@ $routes = [
     ['/\/addroompost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addRoomPost']],
 
     ['/\/allhomes/', ['\Src\Controllers\AdminController', 'allhomes']],   //admin
+
+    ['/\/searchuser\//', ['\Src\Controllers\AdminController', 'searchuser']],
+    ['/\/searchuser\/(?<term>.+)/', ['\Src\Controllers\AdminController', 'searchuser']],
 ];
