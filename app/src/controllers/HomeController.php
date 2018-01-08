@@ -136,7 +136,7 @@ class HomeController extends Controller
         if (!empty($_POST['name'])){
             $name = $_POST['name'];
             $this->rooms->insertRoom($name, $apartmentId);
-            header('Location: /rooms/'.$apartmentId);
+            header('Location: /home/'.$apartmentId);
         }
         else{
             header('Location: /addroom/'.$apartmentId);

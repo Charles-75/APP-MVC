@@ -4,6 +4,12 @@
 
     <div class="card">
 
+        <?php
+            if (isset($_SESSION['info'])){
+                echo '<div style="margin-bottom: 2%; background-color: #43DC7E; padding: 1%; font-size: 80%">'.$_SESSION['info'].'</div>';
+            }
+        ?>
+
         <form action="/loginpost" method="POST">
 
         <input id="email" type="email" name="email" placeholder="Adresse e-mail" value="<?php if (isset($_COOKIE['email'])){ echo $_COOKIE['email'];} ?>">
