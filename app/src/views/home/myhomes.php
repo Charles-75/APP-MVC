@@ -6,7 +6,7 @@
 
     <h1>Mes maisons</h1>
 
-    <div class="hover"><a href="/addhome" style="font-size: 150%"><img src="img/addHome.png" width="35px" height="35px" style="margin-top: 10px">  Ajouter une maison</a></div>
+    <div class="card"><a href="/addhome" style="font-size: 150%"><img src="img/addHome.png" width="35px" height="35px" style="margin-top: 10px">  Ajouter une maison</a></div>
 
 
     <div class="homes-container">

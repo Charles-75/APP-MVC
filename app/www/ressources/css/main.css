@@ -31,6 +31,10 @@ body {
 
 }
 
+.card:only-child {
+    margin-top: 50px;
+}
+
 
 .img-responsive {
     display: block;
@@ -202,12 +206,23 @@ a[class = "footerLinks"]:hover{
 
 
 /* PAGE LOGIN */
-#login-container {
+.narrow-container {
     width: 400px;
 }
 
 #login-logo {
     margin-bottom: 10px;
+}
+
+
+/* PAGE RESGISTER */
+
+#register-logo {
+    width: 50%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 
