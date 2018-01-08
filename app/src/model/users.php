@@ -191,7 +191,7 @@ class Users {
 
 
     public function getUserLike($term){
-        if(strlen($term) == 0) {
+        if(strlen($term) < 2) {
             return null;
         }
         try{
