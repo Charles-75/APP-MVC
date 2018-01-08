@@ -120,7 +120,7 @@
 
 
     <div class="column2">
-        <h1 class="titre" style="color:rgb(46, 182, 46)"> Mon appartement<a href=href="/addroom/<?php echo $data['apartmentId']; ?>" ><img class="ajout" src="/img/ajout.png"></a></h1>
+        <h1 class="titre" style="color:rgb(46, 182, 46)"> Mon appartement<a href="/addroom/<?php echo $data['apartmentId']; ?>" ><img class="ajout" src="/img/ajout.png"></a></h1>
         <div class="ecriture">
             <?php foreach ($data['apartmentData'] as $value): ?>
             <div class="petit" ><a  href='#'><?php echo $value['name']; ?></a></div>
