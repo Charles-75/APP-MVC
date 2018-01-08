@@ -23,7 +23,7 @@
                     Numero : <?php echo $value['number']; ?><br>
                     Code Postal : <?php echo $value['zipCode']; ?><br>
                     <div class="home-buttons">
-                        <button onclick="roomsRedirection(<?php echo $value['id'];?>)" class="bouton">Choisir</button>
+                        <button onclick="HomeRedirection(<?php echo $value['id'];?>)" class="bouton">Choisir</button>
                         <button onclick="deleteHome(<?php echo $value['id']?>)" class="bouton bouton-delete">Supprimer</button>
                         <button onclick="guestRedirection(<?php echo $value['id'];?>)" class="bouton">Ajouter invité</button>
                         <button onclick="deleteGuest(<?php echo $value['id']?>)" class="bouton bouton-delete">Supprimer invité(s)</button>
@@ -59,8 +59,8 @@
     }
 
 
-    function roomsRedirection(id){
-        document.location.href="rooms/"+id+"/";
+    function HomeRedirection(id){
+        document.location.href="home/"+id+"/";
     }
     function guestRedirection(id) {
         document.location.href="addguest/"+id+"/";
