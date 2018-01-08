@@ -190,6 +190,29 @@ class Users {
 
 
 
+    public function getUserLike($firstname, $lastname){
+        try{
+            $req = $this->bdd->prepare("SELECT * FROM user WHERE firstname LIKE :firstname OR lastname LIKE :lastname"); // nom et/ou prénom
+            $req->execute([
+                ':firstname' => $firstname,
+                'surname' => $lastname,
+            ]);
+            $res = $req->fetchAll(FETCH_ASSOC);
+                return $res;
+
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+
+    }
+
+
+
 }
 
 ?>
+}
