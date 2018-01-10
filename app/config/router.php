@@ -55,5 +55,6 @@ $routes = [
     ['/\/allhomes/', ['\Src\Controllers\AdminController', 'allhomes']],   //admin
 
     ['/\/searchuser\//', ['\Src\Controllers\AdminController', 'searchuser']],
+
     ['/\/searchuser\/(?<term>.+)/', ['\Src\Controllers\AdminController', 'searchuser']],
 ];

@@ -61,7 +61,7 @@ class AdminController extends Controller
 
     public function allHomesAction($params) {
 
-        return $this->renderer->renderTemplate('home/allhomes.php');
+        return $this->renderer->renderTemplate('admin/allhomes.php');
 
     }
 
@@ -73,6 +73,12 @@ class AdminController extends Controller
         $users = $this->users->getUserLike($term);
         if($users == null) $users = [];
         return json_encode($users);
+    }
+
+
+    public function goToUserHomes($params) {
+
+
     }
 
 }
