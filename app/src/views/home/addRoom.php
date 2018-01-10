@@ -1,3 +1,5 @@
+<?php include(__DIR__."/../templates/main/navbar.php") ?>
+
 <div class="card unique-card" id="registerCard">
     <h1>Ajouter une pièce</h1>
 
