@@ -75,7 +75,7 @@ a:hover {
  */
 
 
-input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="number"], textarea {
     display: block;
     width: 100%;
     height: 20px;
@@ -90,9 +90,13 @@ input[type="text"], input[type="password"], input[type="email"], input[type="tel
     -ms-transition: box-shadow 0.30s ease-in-out;
     -o-transition: box-shadow 0.30s ease-in-out;
 }
-input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="number"]:focus {
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="number"]:focus, textarea:focus {
     box-shadow: 0 0 5px #1980c2;
     border: 1px solid #1980c2;
+}
+
+textarea {
+    resize: none;
 }
 
 label {
