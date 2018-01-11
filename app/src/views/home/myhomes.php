@@ -1,7 +1,7 @@
 <?php include(__DIR__."/../templates/main/navbar.php") ?>
 
 
-<div class="container">
+<div class="container home-container">
 
 
     <h1>Mes maisons</h1>

@@ -11,6 +11,7 @@ body {
 }
 
 .container {
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -264,4 +265,18 @@ a[class = "footerLinks"]:hover{
     .home > .map {
         margin-bottom: 10px;
     }
+}
+
+
+
+/* PAGE HOME */
+
+.home-container {
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
