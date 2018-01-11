@@ -1,4 +1,14 @@
 <style>
+    #gestionAdmin{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin : 4%
+
+    }
+
+
+
     .infoUser{
         border: 1px solid #000;
         width: 200px;
@@ -12,27 +22,53 @@
     }
 
     #searchbyname{
-        position: absolute;
-        left: 50%;
-        margin-top: 2%;
     }
+
+    #contenuNotif{
+        overflow: auto;
+
+
+
+    }
+
+
+
 
 
 
 </style>
 
-
-<div id="searchbyname">
-    <h2> <u>Rechercher un utilisateur</u> </h2>
-
-    <form>
-        <label for="searchbyname">Rechercher par nom ou par prénom :</label>
-        <input type="search" name="searchbyname" id="search">
-
-        <table id="table"></table>
+<div id="gestionAdmin">
 
 
-    </form>
+
+    <div id="searchbyname">
+        <h2> <u>Rechercher un utilisateur</u> </h2>
+
+        <form>
+            <label for="searchbyname">Rechercher par nom ou par prénom :</label>
+            <input type="search" name="searchbyname" id="search">
+
+            <table id="table"></table>
+
+
+        </form>
+
+    </div>
+
+
+    <div id="notification">
+        <h2> <u> Gerer les notifications </u> </h2>
+
+        <form method="post" action="notification.php">
+            <label for="contenu">Ajouter une notification : </label> </br>
+            <input type="text" name="contenu" id="contenuNotif" placeholder="Tapez le contenue de la notification" required>
+            <input type="submit">
+        </form>
+
+
+    </div>
+</div>
 
 
     <script>
@@ -56,6 +92,6 @@
 
     </script>
 
-</div>
+
 
 
