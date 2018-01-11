@@ -3,7 +3,7 @@
 namespace Src\Controllers;
 
 use \Core\Controller;
-use Src\Model\Homes;
+use Src\Model\Tickets;
 use Src\Model\Users;
 use Vendors\Renderer\Renderer;
 
@@ -12,12 +12,13 @@ class UserController extends Controller
 
     private $renderer;
     private $users;
+    private $tickets;
 
     public function __construct()
     {
         $this->renderer = new Renderer();
         $this->users = new Users();
-        $this->homes = new Homes();
+        $this->tickets = new Tickets();
     }
 
     public function loginAction($params) {
@@ -114,5 +115,17 @@ class UserController extends Controller
             $this->users->updateUserById($_POST['firstname'], $_POST['surname'], $_POST['email'], $_POST['phone'], $_SESSION['id']);
             header('Location: /profile');
         }
+    }
+
+    public function addTicketAction($params){
+        return $this->renderer->renderTemplate('user/addticket.php');
+    }
+
+    public function addTicketPostAction($params){
+        $userId = $_SESSION['id'];
+        $content = $_POST['content'];
+        $subject = $_POST['subject'];
+        $this->tickets->createNewTicket($subject, $content, $userId);
+        header('Location: /myhomes');
     }
 }

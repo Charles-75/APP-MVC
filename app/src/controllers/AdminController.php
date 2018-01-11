@@ -81,4 +81,23 @@ class AdminController extends Controller
 
     }
 
+
+    public function profileAdminAction($params){
+        $data = $this->admins->getAdminById($_SESSION['id']);
+        return $this->renderer->renderTemplate('admin/profileAdmin.php', $data);
+    }
+
+
+    public function updateAdminAction($params){
+        $data = $this->admins->getAdminById($_SESSION['id']);
+        return $this->renderer->renderTemplate('admin/updateAdmin.php', $data);
+    }
+
+    public function updateAdminPostAction($params){
+        if (!empty($_POST['username']) && !empty($_POST['email'])&& !empty($_POST['phone'])){
+            $this->admins->updateAdminById($_POST['username'], $_POST['email'], $_POST['phone'], $_SESSION['id']);
+            header('Location: /profileadmin');
+        }
+    }
+
 }
