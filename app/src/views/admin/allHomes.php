@@ -1,3 +1,4 @@
+
 <div id="gestionAdmin">
 
 
@@ -22,7 +23,7 @@
 
         <form method="post" action="notification.php">
             <label for="contenu">Ajouter une notification : </label> </br>
-            <input type="text" name="contenu" id="contenuNotif" placeholder="Tapez le contenue de la notification" required>
+            <textarea name="contenu" id="contenuNotif" placeholder="Tapez le contenue de la notification" rows="1" cols="1" required></textarea> </br>
             <input type="submit">
         </form>
 
