@@ -7,6 +7,11 @@
     </div>
 
     <div id="navbar-icons">
+        <div class="navbar-lien">
+            <a href='/addticket'>
+                <img class='image' src="/img/ticket.png">
+            </a>
+        </div>
 
         <div class="navbar-lien">
             <a href='/profile'>
