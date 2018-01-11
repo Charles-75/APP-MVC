@@ -1,3 +1,4 @@
+<?php include(__DIR__."/../templates/admin/navbarAdmin.php") ?>
 
 <div id="gestionAdmin">
 
@@ -23,7 +24,7 @@
 
         <form method="post" action="notification.php">
             <label for="contenu">Ajouter une notification : </label> </br>
-            <textarea name="contenu" id="contenuNotif" placeholder="Tapez le contenue de la notification" rows="1" cols="1" required></textarea> </br>
+            <textarea name="contenu" id="contenuNotif" placeholder="Tapez le contenue de la notification" rows="1" cols="1" required></textarea>
             <input type="submit">
         </form>
 
@@ -37,7 +38,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin : 4%
+        margin : 3%
 
     }
 
@@ -60,6 +61,7 @@
 
     #contenuNotif{
         overflow: auto;
+        height: 100px;
 
 
 
