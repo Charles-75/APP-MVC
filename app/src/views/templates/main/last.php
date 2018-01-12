@@ -10,7 +10,7 @@
             </div>
 
             <div>
-                <a href="#"  class="footerLinks">Contact</a>
+                <a href="/contact"  class="footerLinks">Contact</a>
             </div>
 
             <div>
