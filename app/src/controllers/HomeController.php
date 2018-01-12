@@ -180,8 +180,8 @@ class HomeController extends Controller
             $this->sensors->addSensors($sensorType, $sensorReference, $cemacId);
             header('Location: /addstuff/'.$apartmentId);
         }
-        if (!empty($_POST['type_actuator']) AND ($_POST['stuff'] == 'actuators') AND !empty($_POST['cemac_id']) AND !empty($_POST['reference'])) {
-            $actuatorType = $_POST['type_actuator'];
+        if (!empty($_POST['type']) AND ($_POST['stuff'] == 'actuators') AND !empty($_POST['cemac_id']) AND !empty($_POST['reference'])) {
+            $actuatorType = $_POST['type'];
             $actuatorReference = $_POST['reference'];
             $cemacId = $_POST['cemac_id'];
             $this->actuators->addActuator($actuatorType, $actuatorReference, $cemacId);
