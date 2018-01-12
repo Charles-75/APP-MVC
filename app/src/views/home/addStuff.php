@@ -1,6 +1,10 @@
 <?php include(__DIR__."/../templates/main/navbar.php") ?>
 
-
+<style>
+    .actuators{
+        display : none;
+    }
+</style>
 <div>
     <h1> Ajouter un  Cemac </h1>
     <form  action="/addcemacpost/<?php echo $data['apartmentId']; ?>" method="POST">
@@ -20,11 +24,11 @@
     <h1> Ajouter des capteurs et actionneurs </h1>
     <form action="/addsensororactuatorpost/<?php echo $data['apartmentId']; ?>" method="POST">
 
-        <select name="stuff">
-            <option value="sensors"> capteurs</option>
-            <option value="actuators"> actionneurs</option>
+        <select name="stuff"  >
+            <option value="sensors" onclick="openchoice('sensors')"> capteurs</option>
+            <option value="actuators" onclick="openchoice('actuators')"> actionneurs</option>
         </select>
-        <select name="type" >
+        <select name="type" class="tab sensors" >
             <option value="temperature">température </option>
             <option value="humidite">humidité </option>
             <option value="pression">pression </option>
@@ -38,7 +42,7 @@
                 <option value="<?php echo $value['id']; ?>" ><?php echo $value['name']; ?></option>
             <?php endforeach; ?>
         </select>
-        <select name="type_actuator">
+        <select name="type_actuator" class="tab actuators"  >
             <option value="lumières">lumières</option>
             <option value="volets">volets</option>
         </select>
@@ -47,3 +51,13 @@
     </form>
 
 </div>
+<script>
+    function openchoice(stuffname){
+        var i,tab;
+        tab=document.getElementsByClassName("tab");
+        for (i = 0; i < tab.length; i++) {
+            tab[i].style.display = "none";
+        }
+        document.getElementsByClassName(stuffname).style.display="block";
+   }
+</script>
