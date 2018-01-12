@@ -5,6 +5,7 @@ namespace Src\Controllers;
 use \Core\Controller;
 use function Sodium\add;
 use Src\Model\Homes;
+use Src\Model\Notifications;
 use Src\Model\Sensors;
 use Src\Model\Users;
 use Src\Model\Rooms;
@@ -22,6 +23,7 @@ class HomeController extends Controller
     private $sensors;
     private $cemac;
     private $actuators;
+    private $notifications;
 
     public function __construct()
     {
@@ -32,6 +34,7 @@ class HomeController extends Controller
         $this->sensors = new Sensors();
         $this->cemac = new Cemac();
         $this->actuators = new Actuators();
+        $this->notifications = new Notifications();
     }
 
     public function myHomesAction($params) {
@@ -127,7 +130,9 @@ class HomeController extends Controller
         $data = [
             'apartmentId' => $apartmentId,
             'apartmentData' => $this->rooms->getRoomsByHomeId($apartmentId),
+            'dataNotif' => $this->notifications->getNotification()
         ];
+
         return $this->renderer->renderTemplate('home/mainPage.php', $data);
     }
 

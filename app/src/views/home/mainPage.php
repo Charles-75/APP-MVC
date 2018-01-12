@@ -36,10 +36,19 @@
     <div class="card" id="card-notif">
         <div class="haut">
             <h1 class="titre" style="color:rgb(78, 196, 196)"> Mes Notifications</h1>
-            <div class="ecriture">
-                <div class="petit"> votre capteur marche mal mm/hh/jj/mm</div>
-                <div class="petit"> votre capteur a cessé de fonctionner</div>
-            </div>
+                <div id="listNotif">
+                    <?php
+
+                    $tr = "<table>";
+                    foreach ($data['dataNotif'] as $notif){
+                        $tr .= "<tr onclick='openNotif(". $notif['id'] .")'><td class='linkSubject'>".$notif['subject']."</td></tr>";
+                    }
+                    $tr.="</table>";
+                    echo $tr;
+
+                    ?>
+
+                </div>
         </div>
         <div class="bas">
             <h1 class="titre "  style="color:rgb(78, 196, 196)" >Mes Ordres <button><a href="#"> Ajouter un ordre</a> </button></h1>
@@ -84,6 +93,21 @@
         $(a).hide(1);
         $(b).show(1);
     }
+
+
+    // Notifications
+
+    var notifications = JSON.parse("<?php echo addslashes(json_encode($data['dataNotif'])); ?>");
+
+    function openNotif(notifId) {
+        notifications.forEach(function(notif) {
+            if(notif.id == notifId) {
+                // TODO : afficher une fenêtre modale
+                alert(notif.subject + "   :   " + notif.content);
+            }
+        })
+    }
+
 
 
 

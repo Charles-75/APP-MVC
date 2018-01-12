@@ -101,28 +101,11 @@
     }
 
 
-    #listNotif{
-        overflow: auto;
 
-        height: 120px;
-
-        border: solid 1px rgba(0, 0, 0, 0.34);
 
     }
 
-    .linkSubject{
-        cursor: pointer;
-        color : #2f6aed;
-        text-decoration: none;
-        -webkit-transition: color 0.30s ease-in-out;
-        -moz-transition: color 0.30s ease-in-out;
-        -ms-transition: color 0.30s ease-in-out;
-        -o-transition: color 0.30s ease-in-out;
-    }
 
-    td[class='linkSubject']:hover{
-        color: white;
-    }
 
 </style>
 
