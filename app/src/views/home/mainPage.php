@@ -32,9 +32,9 @@
 
         </div>
     </div>
+    <div id="orderAndNotif">
+        <div class="card" id="card-notif">
 
-    <div class="card" id="card-notif">
-        <div class="haut">
             <h1 class="titre" style="color:rgb(78, 196, 196)"> Mes Notifications</h1>
                 <div id="listNotif">
                     <?php
@@ -50,7 +50,7 @@
 
                 </div>
         </div>
-        <div class="bas">
+        <div class="card" id="card-ordre">
             <h1 class="titre "  style="color:rgb(78, 196, 196)" >Mes Ordres <button><a href="#"> Ajouter un ordre</a> </button></h1>
             <div class="ecriture">
                 <div> je t'ordronne d'allumer une lampe<button id="ouv_ordre" onclick="opencity('#ouv_ordre','#ordre')">Afficher plus</button></div>

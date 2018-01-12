@@ -282,6 +282,27 @@ a[class = "footerLinks"]:hover{
 }
 
 
+
+
+#card-capteurs,#card-rooms{
+    width: 350px;
+    height: 700px;
+}
+
+#card-notif{
+    width: 350px;
+    height: 250px;
+}
+
+#card-ordre{
+    align-self: flex-end;
+    align-content: flex-end;
+    width: 350px;
+    height: 410px;
+
+}
+
+
 /* NOTIFICATIONS */
 
 .linkSubject{
