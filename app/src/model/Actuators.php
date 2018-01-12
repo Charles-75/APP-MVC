@@ -39,7 +39,7 @@ class Actuators
     }
 
     public function addActuator($actuatorType, $actuatorReference, $cemacId){
-        $req = $this->bdd->prepare("INSERT INTO actuator VALUE (:type, :reference, :state; :value, :cemacId)");
+        $req = $this->bdd->prepare("INSERT INTO actuator (type,reference,state,value,cemacId) VALUES (:type, :reference, :state; :value, :cemacId)");
         $req->execute([
             ':type' => $actuatorType,
             ':reference' => $actuatorReference,
