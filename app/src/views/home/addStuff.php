@@ -1,11 +1,21 @@
 <?php include(__DIR__."/../templates/main/navbar.php") ?>
 
 <style>
-    .actuators{
-        display : none;
+   .box{
+       display: flex;
+       justify-content: space-between;
+
+          }
+    .cemac{
+        margin-left:0% ;
+
+    }
+    .capteurs{
+        margin-left:10%;
     }
 </style>
-<div>
+<div class="box container">
+ <div class="cemac minibox card">
     <h1> Ajouter un  Cemac </h1>
     <form  action="/addcemacpost/<?php echo $data['apartmentId']; ?>" method="POST">
         <input type="text" name="reference_cemac" placeholder="référence du Cemac">
@@ -19,8 +29,8 @@
     </form>
 
 
-</div>
-<div>
+ </div>
+ <div class="capteurs minibox card">
     <h1> Ajouter des capteurs et actionneurs </h1>
     <form action="/addsensororactuatorpost/<?php echo $data['apartmentId']; ?>" method="POST">
 
@@ -39,6 +49,7 @@
         <input type="submit" value="confirmer">
     </form>
 
+ </div>
 </div>
 <script>
 
