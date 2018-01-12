@@ -311,6 +311,12 @@ a[class = "footerLinks"]:hover{
 
 }
 
+#ajoutOrdre{
+    position: absolute;
+    bottom: 100px;
+    left: 1140px;
+}
+
 
 /* NOTIFICATIONS */
 

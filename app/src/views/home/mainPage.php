@@ -54,7 +54,7 @@
                 </div>
         </div>
         <div class="card" id="card-ordre">
-            <h1 class="titre "  style="color:rgb(78, 196, 196)" >Mes Ordres <button><a href="#"> Ajouter un ordre</a> </button></h1>
+            <h1 class="titre "  style="color:rgb(78, 196, 196)" >Mes Ordres </h1>
             <div class="ecriture">
                 <div> je t'ordronne d'allumer une lampe<button id="ouv_ordre" onclick="opencity('#ouv_ordre','#ordre')">Afficher plus</button></div>
                 <div id="ordre" style="display:none">
@@ -63,11 +63,16 @@
                     <div class="petit">info sur les pièces</div>
                     <button id="ferm_ordre" onclick="closecity('#ordre','#ouv_ordre')">Afficher moins</button>
                 </div>
+                <span id="ajoutOrdre" >Ajouter un ordre </h3><a href="#">  <img class="ajout" src="/img/ajout.png" width="16" height="16"> </a></span>
+
             </div>
+
         </div>
     </div>
 
+
 </div>
+
 
 <style>
 
