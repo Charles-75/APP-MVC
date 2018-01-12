@@ -64,7 +64,10 @@ $routes = [
 
     ['/\/allhomes/', ['\Src\Controllers\AdminController', 'allhomes']],   //admin
 
-    ['/\/searchuser\//', ['\Src\Controllers\AdminController', 'searchuser']],
+    ['/\/addstuff\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addStuff']],
 
-    ['/\/searchuser\/(?<term>.+)/', ['\Src\Controllers\AdminController', 'searchuser']], //admin
+    ['/\/addcemacpost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addCemacPost']],
+
+    ['/\/addsensororactuatorpost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addSensorOrActuatorPost']],
+
 ];

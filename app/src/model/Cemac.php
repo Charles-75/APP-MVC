@@ -4,7 +4,8 @@ namespace Src\Model;
 
 use \PDO;
 
-class Cemac {
+class Cemac
+{
 
     private $bdd;
 
@@ -13,7 +14,7 @@ class Cemac {
      */
     public function __construct()
     {
-        $this->bdd = new PDO('mysql:host='.DB_HOST.';dbname=app', DB_USER, DB_PASSWORD);
+        $this->bdd = new PDO('mysql:host=' . DB_HOST . ';dbname=app', DB_USER, DB_PASSWORD);
         $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
@@ -28,7 +29,8 @@ class Cemac {
      * @return Cemac
      */
 
-    public function getCemacByRoom($roomId){
+    public function getCemacByRoom($roomId)
+    {
         $req = $this->bdd->prepare('SELECT * FROM cemac WHERE roomId = :roomId');
         $req->execute([
             ':roomId' => $roomId
@@ -38,16 +40,33 @@ class Cemac {
 
     }
 
-    public function getCemacByApartment($apartmentId){
+    public function getCemacIdAndNameAndRoomIdByApartmentId($apartmentId)
+    {
         $req = $this->bdd->prepare('SELECT cemac.* FROM cemac INNER JOIN room ON cemac.roomId = room.id 
                                               INNER JOIN apartment ON apartment.id = room.apartmentId WHERE apartment.id = :id ');
         $req->execute(
-            [':id' => $apartmentId ]);
+            [':id' => $apartmentId]);
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
 
 
+    public function addCemac($roomId, $name)
+    {
+        try {
+            $req = $this->bdd->prepare("INSERT INTO cemac(name,roomId) VALUES(:name,:roomId)  ");
+            $req->execute([
+                'name' => $name,
+                'roomId' => $roomId,
+            ]);
+
+        } catch (\PDOException $e) {
+            return null;
+        } catch (\Exception $e) {
+            return null;
+        }
+
+    }
 }
 
 ?>

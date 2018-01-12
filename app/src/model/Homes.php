@@ -185,6 +185,7 @@ class Homes
     }
 
 
+
     /*public function getHomesByUserId($userId){
         $req = $this->bdd->prepare("SELECT room.* FROM apartment INNER JOIN apartement
                                               WHERE apartment.id = room.apartmentId WHERE apartent.idUser = :userId");

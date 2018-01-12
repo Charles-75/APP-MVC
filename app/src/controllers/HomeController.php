@@ -8,6 +8,8 @@ use Src\Model\Homes;
 use Src\Model\Sensors;
 use Src\Model\Users;
 use Src\Model\Rooms;
+use Src\Model\Cemac;
+use Src\Model\Actuators;
 use Vendors\Renderer\Renderer;
 
 class HomeController extends Controller
@@ -18,6 +20,8 @@ class HomeController extends Controller
     private $homes;
     private $rooms;
     private $sensors;
+    private $cemac;
+    private $actuators;
 
     public function __construct()
     {
@@ -26,6 +30,8 @@ class HomeController extends Controller
         $this->homes = new Homes();
         $this->rooms = new Rooms();
         $this->sensors = new Sensors();
+        $this->cemac = new Cemac();
+        $this->actuators = new Actuators();
     }
 
     public function myHomesAction($params) {
@@ -142,6 +148,50 @@ class HomeController extends Controller
             header('Location: /addroom/'.$apartmentId);
         }
     }
+    public function addStuffAction($params){
+        $apartmentId = $params['id'];
+        $_SESSION['apartmentId'] = $apartmentId;
+        $data = [
+            'apartmentId' => $apartmentId,
+            'apartmentData' => $this->rooms->getRoomIdAndNameByHomeId($apartmentId),
+            'cemacData' => $this->cemac->getCemacIdAndNameAndRoomIdByApartmentId($apartmentId),
+        ];
+        return $this->renderer->renderTemplate('home/addStuff.php', $data);
+    }
+    public function addCemacPostAction($params){
+        $apartmentId = $params['id'];
+        if (!empty($_POST['reference_cemac']) AND !empty($_POST['piece'])){
+            $name = $_POST['reference_cemac'];
+            $roomId=$_POST['piece'];
+            $this->cemac->addCemac($roomId, $name);
+            header('Location: /addstuff/'.$apartmentId);
+        }
+        else{
+            header('Location: /addstuff /'.$apartmentId);
+        }
+    }
+    public function addSensorOrActuatorPostAction($params)
+    {
+        $apartmentId = $params['id'];
+        if (!empty($_POST['type']) AND ($_POST['stuff'] == 'sensors') AND !empty($_POST['cemad_id']) AND !empty($_POST['reference'])) {
+            $sensorType = $_POST['type'];
+            $sensorReference = $_POST['reference'];
+            $cemacId = $_POST['cemac_id'];
+            $this->sensors->addSensors($sensorType, $sensorReference, $cemacId);
+            header('Location: /addstuff/'.$apartmentId);
+        }
+        if (!empty($_POST['type']) AND ($_POST['stuff'] == 'actuators') AND !empty($_POST['cemad_id']) AND !empty($_POST['reference'])) {
+            $actuatorType = $_POST['type'];
+            $actuatorReference = $_POST['reference'];
+            $cemacId = $_POST['cemac_id'];
+            $this->actuators->addActuator($actuatorType, $actuatorReference, $cemacId);
+            header('Location: /addstuff/'.$apartmentId);
+        } else {
+            header('Location: /addstuff/'.$apartmentId);
+        }
+    }
+
+
 
     /*public function homeAction($params){
         $apartmentId = $params['id'];

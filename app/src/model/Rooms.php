@@ -41,6 +41,22 @@ class Rooms {
             return null;
         }
     }
+    public function getRoomIdAndNameByHomeId($homeId)
+    {
+        try {
+            $req = $this->bdd->prepare("SELECT name,id FROM room WHERE apartmentId = :id");
+            $req->execute([':id' => $homeId]);
+            $res = $req->fetchAll(PDO::FETCH_ASSOC);
+            return $res;
+        }
+        catch(\PDOException $e) {
+            return null;
+        }
+        catch(\Error $e) {
+            return null;
+        }
+
+    }
 
 
     public function addRoom($roomName, $homeId){   //retourne rien
