@@ -6,6 +6,7 @@ namespace Src\Controllers;
 use \Core\Controller;
 use Src\Model\Homes;
 use Src\Model\Admins;
+use Src\Model\Notifications;
 use Src\Model\Users;
 use Vendors\Renderer\Renderer;
 
@@ -17,6 +18,7 @@ class AdminController extends Controller
     private $renderer;
     private $admins;
     private $users;
+    private $notification;
 
 
     public function __construct()
@@ -25,6 +27,7 @@ class AdminController extends Controller
         $this->admins = new Admins();
         $this->homes = new Homes();
         $this->users = new Users();
+        $this->notification = new Notifications();
     }
 
 
@@ -60,8 +63,9 @@ class AdminController extends Controller
     }
 
     public function allHomesAction($params) {
+        $data = $this->notification->getNotification();
+        return $this->renderer->renderTemplate('admin/allhomes.php', $data);
 
-        return $this->renderer->renderTemplate('admin/allhomes.php');
 
     }
 
@@ -99,5 +103,16 @@ class AdminController extends Controller
             header('Location: /profileadmin');
         }
     }
+
+
+
+    public function notificationForMaintenancePostAction($params){
+        if (!empty($_POST['sujet']) && !empty($_POST['contenu'])) {
+            $this->notification->addNotification($_POST['sujet'], $_POST['contenu']);
+            header('Location: /allhomes');
+        }
+    }
+
+
 
 }

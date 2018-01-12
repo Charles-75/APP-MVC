@@ -74,4 +74,6 @@ $routes = [
 
     ['/\/addsensororactuatorpost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addSensorOrActuatorPost']],
 
+    ['/\/notification_maintenance_post/', ['\Src\Controllers\AdminController', 'notificationForMaintenancePost']], //admin
+
 ];

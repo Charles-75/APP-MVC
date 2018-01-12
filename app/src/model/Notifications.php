@@ -3,6 +3,8 @@
 
 namespace Src\Model;
 
+use \PDO;
+
 
 class Notifications
 {
@@ -27,13 +29,23 @@ class Notifications
 
 
 
-    public function addNotification($content, $date){
+    public function addNotification($subject, $content){
 
-        $req = $this->bdd->prepare("INSERT INTO notifiaction(content, date) VALUES(:content, :date)");
+        $req = $this->bdd->prepare("INSERT INTO notification(subject, content, date) VALUES(:subject, :content, NOW())");
         $req->execute([
+            'subject' => $subject,
             'content' => $content,
-            'date' => $date
         ]);
+
+    }
+
+
+    public function getNotification(){
+        $req = $this->bdd->query("SELECT * FROM notification");
+        $res = $req->fetchALL(PDO::FETCH_ASSOC);
+
+
+        return $res;
     }
 
 
