@@ -38,19 +38,18 @@ class Actuators
         return $res;
     }
 
-    public function addActuator($actuatorType, $actuatorReference, $cemacId){
-        $req = $this->bdd->prepare("INSERT INTO actuator (type,reference,state,value,cemacId) VALUES (:type, :reference, :state; :value, :cemacId)");
-        $req->execute([
+    public function addActuator($actuatorType, $actuatorReference, $cemacId)
+    {
+        $req = $this->bdd->prepare("INSERT INTO actuator(type,reference,cemacId) VALUES(:type, :reference, :cemacId)");
+        $req ->execute([
             ':type' => $actuatorType,
             ':reference' => $actuatorReference,
-            ':state' => null,
-            ':value' => null,
             ':cemacId' => $cemacId
         ]);
     }
 
     public function getActuatorByType($actuatorType){
-        $req = $this->bdd->prepare("SELECT * FROM actuator WHERE type = :type");;
+        $req = $this->bdd->prepare("SELECT * FROM actuator WHERE type = :type");
         $req->execute([
             ':type'=>$actuatorType
         ]);

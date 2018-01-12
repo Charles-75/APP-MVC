@@ -38,6 +38,10 @@
                 <option value="<?php echo $value['id']; ?>" ><?php echo $value['name']; ?></option>
             <?php endforeach; ?>
         </select>
+        <select name="type_actuator">
+            <option value="lumières">lumières</option>
+            <option value="volets">volets</option>
+        </select>
         <input type="text" name="reference">
         <input type="submit" value="confirmer">
     </form>
