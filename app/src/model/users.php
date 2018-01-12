@@ -190,16 +190,17 @@ class Users {
 
 
 
-    public function getUserLike($firstname, $lastname){
+    public function getUserLike($term){
+        if(strlen($term) < 2) {
+            return null;
+        }
         try{
-            $req = $this->bdd->prepare("SELECT * FROM user WHERE firstname LIKE :firstname OR lastname LIKE :lastname"); // nom et/ou prénom
+            $req = $this->bdd->prepare("SELECT * FROM user WHERE firstName LIKE :term OR surname LIKE :term"); // nom et/ou prénom
             $req->execute([
-                ':firstname' => $firstname,
-                'surname' => $lastname,
+                ':term' => '%'.$term.'%'
             ]);
-            $res = $req->fetchAll(FETCH_ASSOC);
-                return $res;
-
+            $res = $req->fetchAll(PDO::FETCH_ASSOC);
+            return $res;
         }
         catch (\PDOException $e){
             return null;
@@ -215,4 +216,3 @@ class Users {
 }
 
 ?>
-}

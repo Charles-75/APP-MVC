@@ -26,9 +26,19 @@ $routes = [
 
     ['/\/profile/', ['\Src\Controllers\UserController', 'profile']],
 
+    ['/\/profileadmin/', ['\Src\Controllers\AdminController', 'profileAdmin']],
+
     ['/\/updateprofile/', ['\Src\Controllers\UserController', 'updateprofile']],
 
+    ['/\/updateadmin/', ['\Src\Controllers\AdminController', 'updateAdmin']],
+
     ['/\/updateprofilepost/', ['\Src\Controllers\UserController', 'updateprofilepost']],
+
+    ['/\/addticket/', ['\Src\Controllers\UserController', 'addticket']],
+
+    ['/\/addticketpost/', ['\Src\Controllers\UserController', 'addticketpost']],
+
+    ['/\/updateadminpost/', ['\Src\Controllers\AdminController', 'updateAdminPost']], //admin
 
     ['/\/addhome/', ['\Src\Controllers\HomeController', 'addhome']],
 
@@ -53,4 +63,8 @@ $routes = [
     ['/\/addroompost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addRoomPost']],
 
     ['/\/allhomes/', ['\Src\Controllers\AdminController', 'allhomes']],   //admin
+
+    ['/\/searchuser\//', ['\Src\Controllers\AdminController', 'searchuser']],
+
+    ['/\/searchuser\/(?<term>.+)/', ['\Src\Controllers\AdminController', 'searchuser']], //admin
 ];

@@ -6,6 +6,7 @@ namespace Src\Controllers;
 use \Core\Controller;
 use Src\Model\Homes;
 use Src\Model\Admins;
+use Src\Model\Users;
 use Vendors\Renderer\Renderer;
 
 
@@ -15,6 +16,7 @@ class AdminController extends Controller
 
     private $renderer;
     private $admins;
+    private $users;
 
 
     public function __construct()
@@ -22,6 +24,7 @@ class AdminController extends Controller
         $this->renderer = new Renderer();
         $this->admins = new Admins();
         $this->homes = new Homes();
+        $this->users = new Users();
     }
 
 
@@ -58,10 +61,43 @@ class AdminController extends Controller
 
     public function allHomesAction($params) {
 
-        return $this->renderer->renderTemplate('home/allhomes.php');
+        return $this->renderer->renderTemplate('admin/allhomes.php');
+
+    }
+
+    public function searchuserAction($params) {
+        if(!isset($params['term'])) {
+            return json_encode([]);
+        }
+        $term = $params['term'];
+        $users = $this->users->getUserLike($term);
+        if($users == null) $users = [];
+        return json_encode($users);
+    }
 
 
+    public function goToUserHomes($params) {
 
+
+    }
+
+
+    public function profileAdminAction($params){
+        $data = $this->admins->getAdminById($_SESSION['id']);
+        return $this->renderer->renderTemplate('admin/profileAdmin.php', $data);
+    }
+
+
+    public function updateAdminAction($params){
+        $data = $this->admins->getAdminById($_SESSION['id']);
+        return $this->renderer->renderTemplate('admin/updateAdmin.php', $data);
+    }
+
+    public function updateAdminPostAction($params){
+        if (!empty($_POST['username']) && !empty($_POST['email'])&& !empty($_POST['phone'])){
+            $this->admins->updateAdminById($_POST['username'], $_POST['email'], $_POST['phone'], $_SESSION['id']);
+            header('Location: /profileadmin');
+        }
     }
 
 }

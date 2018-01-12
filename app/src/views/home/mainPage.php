@@ -1,103 +1,8 @@
-﻿
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Home'ISEP</title>
+﻿<?php include(__DIR__."/../templates/main/navbar.php") ?>
+<div class="container home-container">
 
-
-</head>
-<body>
-<style>
-    body{
-        background: linear-gradient(130deg,rgb(83, 131, 219), rgb(215, 226, 247));
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-    .row{
-        display : flex;
-        justify-content: space-around;
-
-    }
-
-    .column1{
-        height:600px;
-        overflow:auto;
-        width:30%;
-        border: 1px solid black;
-        border-radius:2%;
-        background-color: rgba(243, 183, 183, 0.671);
-
-    }
-    .column2{
-        width:30%;
-        overflow: auto;
-        border: 1px solid black;
-        border-radius:2%;
-        background-color: rgba(144, 238, 144, 0.486);
-
-    }
-    .ajout{
-        height:7%;
-        width:7%;
-        float:right;
-        margin-right:2%;
-    }
-    .column3{
-        width:30%;
-        display: flex;
-        flex-direction: column;
-    }
-    .haut{
-        border: 1px solid black;
-        height:50%;
-        background-color: rgba(224, 255, 255, 0.534);
-        border-radius:2%;
-        overflow: auto;
-    }
-    .bas{
-        border: 1px solid black;
-        height:50%;
-        margin-top:2%;
-        background-color: rgba(224, 255, 255, 0.534);
-        border-radius:2%;
-        overflow: auto;
-    }
-    .titre{
-        text-align: center;
-        border-bottom: 1px solid grey;
-    }
-    button{
-
-        border-radius:3px;
-        border:1px solid black;
-        margin-left:2%;
-
-    }
-    .ecriture{
-        font-size: 1.3em;
-    }
-
-    .petit{
-        margin:1%;
-
-    }
-    .capteur_pression{
-        margin-top:2%;
-        margin-left: 1%;
-    }
-    .capteur_temperature{
-        margin-left:1%;
-    }
-    a{
-        text-decoration: none;
-
-    }
-</style>
-
-<?php include(__DIR__."/../templates/main/navbar.php") ?>
-<div class="row">
-    <div class="column1">
-        <h1 class="titre" style="color:rgb(255, 95, 95)"> Mes Capteurs</h1>
+    <div class="card" id="card-capteurs">
+        <h1 class="titre" style="color:rgb(255, 95, 95)">Mes Capteurs</h1>
         <div class="capteur_temperature ecriture">
 
             <div class="repere1">La température est de 56 °C<button id="ouv_temperature" onclick="opencity('#ouv_temperature','#temperature')"   >afficher plus </button></div>
@@ -118,9 +23,8 @@
         </div>
     </div>
 
-
-    <div class="column2">
-        <h1 class="titre" style="color:rgb(46, 182, 46)"> Mon appartement<a href=href="/addroom/<?php echo $data['apartmentId']; ?>" ><img class="ajout" src="/img/ajout.png"></a></h1>
+    <div class="card" id="card-rooms">
+        <h1 class="titre" style="color:rgb(46, 182, 46)"> Mon appartement<a href="/addroom/<?php echo $data['apartmentId']; ?>" ><!--<img class="ajout" src="/img/ajout.png">--></a></h1>
         <div class="ecriture">
             <?php foreach ($data['apartmentData'] as $value): ?>
             <div class="petit" ><a  href='#'><?php echo $value['name']; ?></a></div>
@@ -128,7 +32,8 @@
 
         </div>
     </div>
-    <div class="column3" >
+
+    <div class="card" id="card-notif">
         <div class="haut">
             <h1 class="titre" style="color:rgb(78, 196, 196)"> Mes Notifications</h1>
             <div class="ecriture">
@@ -149,20 +54,32 @@
             </div>
         </div>
     </div>
+
 </div>
-<script
-    src="https://code.jquery.com/jquery-3.2.1.js"
-    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-    crossorigin="anonymous">
-</script>
+
+<style>
+
+    .card {
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    @media(min-width: 1440px) {
+        .card {
+            width: 30%;
+        }
+    }
+
+</style>
+
 <script>
 
-        function opencity(a,b){
+    function opencity(a,b){
 
 
-            $(a).hide(1);
-            $(b).show(1);
-        }
+        $(a).hide(1);
+        $(b).show(1);
+    }
     function closecity(a,b){
         $(a).hide(1);
         $(b).show(1);
@@ -171,7 +88,3 @@
 
 
 </script>
-</body>
-
-
-</html>

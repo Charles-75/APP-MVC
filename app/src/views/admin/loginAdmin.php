@@ -1,4 +1,4 @@
-<div class="container align-box" id="login-container">
+<div class="container align-box narrow-container">
 
     <img src="/img/Domisep.png" class="img-responsive" id="login-logo">
 

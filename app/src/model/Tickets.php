@@ -3,8 +3,9 @@
 
 namespace Src\Model;
 
+use \PDO;
 
-class Ticket
+class Tickets
 {
     private $bdd;
 
@@ -23,15 +24,15 @@ class Ticket
 
 
 
-    public function createNewTicket($creationDate, $content) {    //Prendre la date actuelle dans le controller quand on appelle cette fonction
+    public function createNewTicket($subject, $content, $userId) {    //Prendre la date actuelle dans le controller quand on appelle cette fonction
                                                                   //Et la mettre dans creationDate
-
-        $req = $this->bdd->prepare("INSERT INTO ticket VALUE(:creationDate, :closeDate, :state, :content)");
+        $req = $this->bdd->prepare("INSERT INTO ticket (creationDate, closeDate, state, subject, content, userId) VALUE(NOW(), :closeDate, :state, :subject, :content, :userId)");
         $req->execute([
-            ':creationDate' => $creationDate,
             ':closeDate' => null,
             ':state' => 0,
-            ':content' => $content
+            ':subject' => $subject,
+            ':content' => $content,
+            ':userId' => $userId
         ]);
     }
 

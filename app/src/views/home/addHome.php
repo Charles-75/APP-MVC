@@ -1,3 +1,5 @@
+<?php include(__DIR__."/../templates/main/navbar.php") ?>
+
 <div class="container align-box narrow-container">
 
     <div class="card">
