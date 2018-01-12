@@ -41,7 +41,7 @@ class IndexController extends Controller
     }
 
     public function contactAction($params) {
-        return "<h1>Page de contact</h1> <a href='/about'>Aller à la page about</a>";
+        return "<h1>Page de contact</h1> <a href='/contact'>Aller à la page de contact</a>";
     }
 
     public function memberAction($params) {
