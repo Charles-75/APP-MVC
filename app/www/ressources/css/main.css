@@ -316,6 +316,11 @@ a[class = "footerLinks"]:hover{
     bottom: 100px;
     left: 1140px;
 }
+#ajoutCapteur{
+    position: absolute;
+    bottom: 100px;
+    right: 930px;
+}
 
 
 /* NOTIFICATIONS */
