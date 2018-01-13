@@ -21,7 +21,7 @@
                 <button id="ferm_pression" onclick="closecity('#pression','#ouv_pression')">afficher moins</button>
             </div>
         </div>
-        <span id="ajoutCapteur" >Ajouter un capteur </h3><a href="#">  <img class="ajout" src="/img/ajout.png" width="16" height="16"> </a></span>
+        <span id="ajoutCapteur" >Ajouter un capteur </h3><a href="/addstuff/<?php echo $data['apartmentId']; ?>">  <img class="ajout" src="/img/ajout.png" width="16" height="16"> </a></span>
 
     </div>
 
