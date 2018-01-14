@@ -23,7 +23,14 @@ class Sensors
     #####################
     # COMMANDES SENSORS #
     #####################
-
+    public function bigfunction(){
+        $req=$this->bdd->query("SELECT sensor.type,value.value,room.name FROM room
+                                         INNER JOIN cemac ON room.id=cemac.roomId
+                                         INNER JOIN sensor ON sensor.cemacId=cemac.id
+                                         INNER JOIN value ON value.sensorId=sensor.id ");
+        $res = $req ->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
 
     public function getSensorsByRooms($roomId){
         $req = $this->bdd->prepare("SELECT sensor.* FROM sensor INNER JOIN cemac ON sensor.cemacId = cemac.id
@@ -35,6 +42,8 @@ class Sensors
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
+
+
 
 
     public function getSensorsValue($sensorId){

@@ -130,7 +130,9 @@ class HomeController extends Controller
         $data = [
             'apartmentId' => $apartmentId,
             'apartmentData' => $this->rooms->getRoomsByHomeId($apartmentId),
-            'dataNotif' => $this->notifications->getNotification()
+            'dataNotif' => $this->notifications->getNotification(),
+            'bigdata'=>$this->sensors->bigfunction(),
+
         ];
 
         return $this->renderer->renderTemplate('home/mainPage.php', $data);
