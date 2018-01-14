@@ -163,6 +163,19 @@ class HomeController extends Controller
         ];
         return $this->renderer->renderTemplate('home/addStuff.php', $data);
     }
+    public function roomAction($params){
+        $apartmentId= $params['id'];
+        $_SESSION['apartmentId'] = $apartmentId;
+        $roomName = $_GET['name'];
+        $roomId = $this->rooms->getRoomIdByName($roomName);
+        $data = [
+            'apartmentId' => $apartmentId,
+            'sensor' => $this->sensors->getSensorsByRooms($roomId),
+            'actuator' => $this ->actuators->getActuatorsByRooms($roomId),
+
+        ];
+        return $this -> renderer->renderTemplate( 'home/room.php',$data);
+    }
     public function addCemacPostAction($params){
         $apartmentId = $params['id'];
         if (!empty($_POST['reference_cemac']) AND !empty($_POST['piece'])){
