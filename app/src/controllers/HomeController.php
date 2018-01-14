@@ -164,17 +164,25 @@ class HomeController extends Controller
         return $this->renderer->renderTemplate('home/addStuff.php', $data);
     }
     public function roomAction($params){
-        $apartmentId= $params['id'];
-        $_SESSION['apartmentId'] = $apartmentId;
-        $roomName = $_GET['name'];
-        $roomId = $this->rooms->getRoomIdByName($roomName);
+            $apartmentId= $params['id'];
+            $_SESSION['apartmentId'] = $apartmentId;
+            $roomName = $params['term'];
+            $roomId = $this ->rooms->getRoomIdByName($roomName);
+            $data = [
+                'apartmentId' => $apartmentId,
+                'sensor' => $this->sensors->getSensorsByRooms($roomId),
+                'actuator' =>$this->actuators->getActuatorsByRooms($roomId),
+                'roomName'=> $roomName,
+            ];
+        return $this -> renderer->renderTemplate( 'home/room.php',$data);
+    }
+    public function sensorDetailAction($params){
+        $apartmentId = $params['id'];
+
         $data = [
             'apartmentId' => $apartmentId,
-            'sensor' => $this->sensors->getSensorsByRooms($roomId),
-            'actuator' => $this ->actuators->getActuatorsByRooms($roomId),
-
         ];
-        return $this -> renderer->renderTemplate( 'home/room.php',$data);
+        return $this-> renderer->renderTemplate( 'home/sensordetail.php',$data);
     }
     public function addCemacPostAction($params){
         $apartmentId = $params['id'];
@@ -211,26 +219,8 @@ class HomeController extends Controller
 
 
 
-    /*public function homeAction($params){
-        $apartmentId = $params['id'];
-        $data = $this->rooms->getRoomsByHomeId($apartmentId);
-        return $this->renderer->renderTemplate('home/mainPage.php', $data);
 
 
-
-
-
-        $rooms = $this->rooms->getRoomsByHomeId($apartmentId);
-        $data = array();
-        foreach ($rooms as $room) {
-            $sensors = $this->sensors->getSensorsByRooms($room['id']);
-            array_push($data, [
-                'room' => $room,
-                'sensors' => $sensors
-            ]);
-        }
-        return $this->renderer->renderTemplate('home/home.php', $data);
-    }*/
 }
 
 

@@ -62,8 +62,8 @@ class Rooms {
         try {
             $req = $this->bdd->prepare("SELECT id FROM room WHERE name= :name");
             $req->execute([':name' => $roomName]);
-            $res = $req->fetchAll(PDO::FETCH_ASSOC);
-            return $res;
+            $res = $req->fetch(PDO::FETCH_ASSOC);
+            return $res['id'];
         }
         catch(\PDOException $e) {
             return null;

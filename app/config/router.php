@@ -76,5 +76,9 @@ $routes = [
 
     ['/\/notification_maintenance_post/', ['\Src\Controllers\AdminController', 'notificationForMaintenancePost']], //admin
 
-    ['/\/room\/(?<id>[0-9]+)(?<term>.+)/', ['\Src\Controllers\HomeController', 'room']],
+    ['/\/home\/(?<id>[0-9]+)\/(?<term>.+)/', ['\Src\Controllers\HomeController', 'room']],
+
+    ['/\/home\/(?<id>[0-9]+)\/(?<term1>.+)\/(?<term2>.+)/', ['\Src\Controllers\HomeController', 'sensordetail']],
+
+
 ];

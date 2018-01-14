@@ -19,7 +19,7 @@ class Actuators
 
 
     public function getActuatorsByRooms($roomId){
-        $req = $this->bdd->prepare("SELECT actuator.* FROM sensor INNER JOIN cemac ON actuator.cemacId = cemac.id
+        $req = $this->bdd->prepare("SELECT actuator.* FROM actuator INNER JOIN cemac ON actuator.cemacId = cemac.id
                                               WHERE cemac.roomId = :roomId ");
         $req->execute([
             ':roomId' => $roomId
