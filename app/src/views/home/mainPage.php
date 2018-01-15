@@ -2,7 +2,7 @@
 <div class="container home-container">
 
     <div class="card" id="card-capteurs">
-        <h1 class="titre" style="color:rgb(255, 95, 95)">Mes Capteurs</h1>
+        <h1 class="titre" style="color:rgb(255, 95, 95)">Ma maison</h1>
         Ajouter un capteur </h3><a href="/addstuff/<?php echo $data['apartmentId']; ?>">  <img class="ajout" src="/img/ajout.png" width="16" height="16"> </a>
 
         <?php
@@ -35,7 +35,7 @@
 
         <div class="pieces" >
             <?php foreach ($data['apartmentData'] as $value): ?>
-            <div class="petit" ><a  href='/home/<?php echo $data['apartmentId']; ?>/<?php echo $value['name']; ?>'><?php echo $value['name']; ?></a></div>
+            <div class="petit" ><a  href='  /home/<?php echo $data['apartmentId']; ?>/<?php echo $value['name']; ?>'><?php echo $value['name']; ?></a></div>
             <?php endforeach; ?>
 
         </div>
