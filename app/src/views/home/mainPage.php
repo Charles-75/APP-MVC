@@ -28,10 +28,10 @@
     </div>
 
     <div class="card" id="card-rooms">
-        <h1 class="titre" style="color:rgb(46, 182, 46)"> Mon appartement</h1>
+        <h1 class="titre" style="color:rgb(46, 182, 46)"> Mes pièces </h1>
         Ajouter une pièce <a href="/addroom/<?php echo $data['apartmentId']; ?>" > <img class="ajout" src="/img/ajout.png" width="16" height="16"> </a>
 
-        <h3>Mes pièces</h3>
+
         <div class="pieces" >
             <?php foreach ($data['apartmentData'] as $value): ?>
             <div class="petit" ><a  href='/home/<?php echo $data['apartmentId']; ?>/<?php echo $value['name']; ?>'><?php echo $value['name']; ?></a></div>
