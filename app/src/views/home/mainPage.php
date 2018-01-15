@@ -3,35 +3,38 @@
 
     <div class="card" id="card-capteurs">
         <h1 class="titre" style="color:rgb(255, 95, 95)">Mes Capteurs</h1>
-        <div class="capteur_temperature ecriture">
 
-            <div class="repere1">La température moyenne  est de 56 °C<button id="ouv_temperature" onclick="opencity('#ouv_temperature','#temperature')"   >afficher plus </button></div>
-            <div id="temperature" class="temperatures" style="display:none" >
+
+
+
 
                 <?php
 
-                foreach($data['sensor_type']as $weird ) {
-
+                foreach($data['sensor_type']as $allTypes ) { ?>
+                     <div class="capteur_<?php echo $allTypes['type'] ?> ecriture">
+                     <div> <?php echo $allTypes['type'] ?> est de ?? en moyenne <button id="ouv_<?php echo $allTypes['type'] ?>" onclick="opencity('#ouv_<?php echo $allTypes['type'] ?>','#<?php echo $allTypes['type'] ?>')"   >afficher plus </button></div>
+                     <div id="<?php  echo $allTypes['type'] ?>" class="<?php  echo $allTypes['type'] ?>s" style="display:none" >
+                    <?php
                     foreach ($data['bigdata'] as $value) {
 
 
-                        if ($value['type'] == $weird['type']) { ?>
+                        if ($value['type'] == $allTypes['type']) { ?>
                             <div class="petit">La <?php echo $value['type']; ?> de la pièce
                                 "<?php echo $value['name'] ?>" est à <?php echo $value['value']; ?> °C
                                 <button><a href="#">détails</a></button>
                             </div>
                             <?php
                         }
-                    }
-
-                }
+                    } ?>
+                    <button id="ferm_<?php echo $allTypes['type'] ?>" onclick="closecity('#<?php echo $allTypes['type'] ?>','#ouv_<?php echo $allTypes['type'] ?>')"> afficher moins</button>
+                    </div>
+                    </div>
+                <?php  }
 
                 ?>
-                <div class="petit"> La température de la pièce 1 est 55°C <button ><a href='#'>détails</a></button></div>
-                <div class="petit"> La température de la pièce 2 est 50°C <button  ><a href='#'>détails</a></button></div>
-                <div class="petit"> La température de la pièce 3 est 60°C <button  ><a href='#'>détails</a></button></div>
-                <button id="ferm_temperature" onclick="closecity('#temperature','#ouv_temperature')"> afficher moins</button>
-            </div>
+
+
+
         </div>
         <div class="capteur_pression ecriture">
             <div>La pression est de 1 Pa <button id="ouv_pression" onclick="opencity('#ouv_pression','#pression')">afficher plus</button></div>
