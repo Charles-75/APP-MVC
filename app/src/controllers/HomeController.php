@@ -38,7 +38,7 @@ class HomeController extends Controller
 
     public function myHomesAction($params) {
         $idUser = $_SESSION['id'];
-        $homes = $this->homes->getUserHomesOrdered($idUser);
+        $homes = $this->homes->getUserHomes($idUser);
 
         for ($it=0 ; $it < count($homes) ; $it++) {
             $homes[$it]['guest'] = $this->homes->getAllGuests($homes[$it]['id']);
@@ -126,6 +126,10 @@ class HomeController extends Controller
     public function homeAction($params){
         $apartmentId = $params['id'];
         $_SESSION['apartmentId'] = $apartmentId;
+        $homeData = $this->homes->getLatestAverageSensorsData($apartmentId);
+        echo "<pre>";
+        var_dump($homeData);
+        die();
         $data = [
             'apartmentId' => $apartmentId,
             'apartmentData' => $this->rooms->getRoomsByHomeId($apartmentId),
@@ -155,6 +159,30 @@ class HomeController extends Controller
             header('Location: /addroom/'.$apartmentId);
         }
     }
+
+    public function deleteRoomAction($params){
+        $apartmentId = $params['id'];
+        $rooms = $this->rooms->getRoomIdAndNameByHomeId($apartmentId);
+        $data = [
+            'apartmentId' => $apartmentId,
+            'rooms' => $rooms
+        ];
+        return $this->renderer->renderTemplate('home/deleteRoom.php', $data);
+    }
+
+    public function deleteRoomPostAction($params){
+        $apartmentId = $params['id'];
+        $rooms = $this->rooms->getRoomIdAndNameByHomeId($apartmentId);
+        foreach ($rooms as $room){
+            $id = $room['id'];
+            if (isset($_POST['check'.$id.''])){
+                $this->rooms->deleteRoom($id);
+            }
+        }
+        header('Location: /home/'.$apartmentId);
+
+    }
+
     public function addStuffAction($params){
         $apartmentId = $params['id'];
         $_SESSION['apartmentId'] = $apartmentId;

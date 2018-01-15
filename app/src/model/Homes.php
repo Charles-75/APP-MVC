@@ -54,7 +54,7 @@ class Homes
     }
 
 
-    public function getUserHomesOrdered($userId){    //Donne les homes d'un user particulier repéré par son id, triée par code postal, et rue.
+    public function getUserHomes($userId){    //Donne les homes d'un user particulier repéré par son id, triée par code postal, et rue.
         try {
             $req = $this->bdd->prepare("SELECT * FROM apartment WHERE idUser = :userId ORDER BY id");  // Pas avec le nom et prénom car 2 clampins peuvent s'appeler pareil...
             $req->execute([':userId' => $userId]);
@@ -65,6 +65,30 @@ class Homes
         } catch (\Exception $e) {
             return null;
         }
+    }
+
+    public function getLatestAverageSensorsData($homeId) {
+        $req = $this->bdd->prepare("
+          SELECT sensor.typeId, sensortype.name AS typeName, AVG(value.value) AS averageValue
+          FROM value
+          INNER JOIN sensor ON sensor.id = value.sensorId
+          INNER JOIN sensortype ON sensortype.id = sensor.typeId
+          INNER JOIN cemac ON cemac.id = sensor.cemacId
+          INNER JOIN room ON room.id = cemac.roomId
+          WHERE value.id IN (
+            SELECT MAX(value.id)
+              FROM value
+              GROUP BY value.sensorId
+            )
+            AND room.apartmentId = :homeId
+          GROUP BY sensor.typeId;
+        ");
+        $req->execute([
+            'homeId' => $homeId
+        ]);
+        $sensors = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+        return $sensors;
     }
 
 
