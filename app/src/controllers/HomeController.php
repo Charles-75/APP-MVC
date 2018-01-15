@@ -218,6 +218,13 @@ class HomeController extends Controller
             header('Location: /addstuff/'.$apartmentId);
         }
     }
+public function orderAction($params){
+    $apartmentId=$params['id'];
+    $data=[
+        'apartmentId' => $apartmentId,
+    ];
+    return $this->renderer->renderTemplate('home/order.php');
+}
 }
 
 

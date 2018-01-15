@@ -84,5 +84,7 @@ $routes = [
 
     ['/\/home\/(?<id>[0-9]+)\/(?<term1>.+)\/(?<term2>.+)/', ['\Src\Controllers\HomeController', 'sensordetail']],
 
+    ['/\/home\/(?<id>[0-9]+)\/(?<term1>.+)/', ['\Src\Controllers\HomeController', 'order']],
 
+    ['/\/home\/(?<id>[0-9]+)\/(?<term1>.+)/', ['\Src\Controllers\HomeController', 'orderpost']],
 ];
