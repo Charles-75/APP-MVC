@@ -39,14 +39,15 @@
             <option value="sensors">capteurs</option>
             <option value="actuators"> actionneurs</option>
         </select>
-        <select name="type" id="typeSelector"></select>
-        <select name="cemac_id">
+        <select name="type" id="typeSelector" class="reference_cemac" style="display: none;"></select>
+        <select name="cemac_id" class="reference_cemac" style="display: none;">
             <?php foreach ($data['cemacData'] as $value): ?>
                 <option value="<?php echo $value['id']; ?>" ><?php echo $value['name']; ?></option>
             <?php endforeach; ?>
         </select>
-        <input type="text" name="reference">
-        <input type="submit" value="confirmer">
+        <input type="text" name="reference" class ="reference_cemac" style="display: none;" >
+        <input type="submit"  class="reference_cemac" value="confirmer" style="display: none;">
+
     </form>
 
  </div>
@@ -67,6 +68,15 @@
     selector.addEventListener('change', openchoice);
 
     function openchoice(){
+        var cemac = document.getElementsByClassName('reference_cemac');
+        var i;
+
+        if (typeSelector.style.display === 'none')
+        {
+            for (i=0; i<cemac.length;i++) {
+               cemac[i].style.display = "inline";
+            }
+        }
 
         while (typeSelector.firstChild) {
             typeSelector.removeChild(typeSelector.firstChild);

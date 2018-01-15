@@ -5,16 +5,26 @@
         <h1 class="titre" style="color:rgb(255, 95, 95)">Mes Capteurs</h1>
         <div class="capteur_temperature ecriture">
 
-            <div class="repere1">La température est de 56 °C<button id="ouv_temperature" onclick="opencity('#ouv_temperature','#temperature')"   >afficher plus </button></div>
+            <div class="repere1">La température moyenne  est de 56 °C<button id="ouv_temperature" onclick="opencity('#ouv_temperature','#temperature')"   >afficher plus </button></div>
             <div id="temperature" class="temperatures" style="display:none" >
-                <?php  foreach ($data['bigdata'] as $value):
+
+                <?php
+
+                foreach($data['sensor_type']as $weird ) {
+
+                    foreach ($data['bigdata'] as $value) {
 
 
-                    if ($value['type'] == 'temperature'){ ?>
-                        <div class="petit">La <?php echo $value['type']; ?> de la pièce "<?php echo $value['name'] ?>" est à <?php echo $value['value'];?> °C<button><a href="#">détails</a></button> </div>
-                    <?php }
+                        if ($value['type'] == $weird['type']) { ?>
+                            <div class="petit">La <?php echo $value['type']; ?> de la pièce
+                                "<?php echo $value['name'] ?>" est à <?php echo $value['value']; ?> °C
+                                <button><a href="#">détails</a></button>
+                            </div>
+                            <?php
+                        }
+                    }
 
-                endforeach;
+                }
 
                 ?>
                 <div class="petit"> La température de la pièce 1 est 55°C <button ><a href='#'>détails</a></button></div>

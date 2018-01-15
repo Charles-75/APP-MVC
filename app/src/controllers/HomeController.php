@@ -131,7 +131,8 @@ class HomeController extends Controller
             'apartmentId' => $apartmentId,
             'apartmentData' => $this->rooms->getRoomsByHomeId($apartmentId),
             'dataNotif' => $this->notifications->getNotification(),
-            'bigdata'=>$this->sensors->bigfunction(),
+            'bigdata'=>$this->sensors->getRoomNameSensorValueSensorType(),
+            'sensor_type'=>$this->sensors->getSensorByType(),
 
         ];
 
