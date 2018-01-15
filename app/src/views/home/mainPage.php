@@ -3,47 +3,26 @@
 
     <div class="card" id="card-capteurs">
         <h1 class="titre" style="color:rgb(255, 95, 95)">Mes Capteurs</h1>
-
-
-
-
-
                 <?php
-
                 foreach($data['sensor_type']as $allTypes ) { ?>
                      <div class="capteur_<?php echo $allTypes['type'] ?> ecriture">
                      <div> <?php echo $allTypes['type'] ?> est de ?? en moyenne <button id="ouv_<?php echo $allTypes['type'] ?>" onclick="opencity('#ouv_<?php echo $allTypes['type'] ?>','#<?php echo $allTypes['type'] ?>')"   >afficher plus </button></div>
                      <div id="<?php  echo $allTypes['type'] ?>" class="<?php  echo $allTypes['type'] ?>s" style="display:none" >
                     <?php
                     foreach ($data['bigdata'] as $value) {
-
-
                         if ($value['type'] == $allTypes['type']) { ?>
                             <div class="petit">La <?php echo $value['type']; ?> de la pièce
-                                "<?php echo $value['name'] ?>" est à <?php echo $value['value']; ?> °C
+                                "<?php echo $value['name'] ?>" est à <?php echo $value['value']; ?>
                                 <button><a href="#">détails</a></button>
                             </div>
                             <?php
                         }
                     } ?>
                     <button id="ferm_<?php echo $allTypes['type'] ?>" onclick="closecity('#<?php echo $allTypes['type'] ?>','#ouv_<?php echo $allTypes['type'] ?>')"> afficher moins</button>
-                    </div>
+                    </div> <br>
                     </div>
                 <?php  }
-
                 ?>
-
-
-
-        </div>
-        <div class="capteur_pression ecriture">
-            <div>La pression est de 1 Pa <button id="ouv_pression" onclick="opencity('#ouv_pression','#pression')">afficher plus</button></div>
-            <div id='pression' style="display:none">
-                <div class="petit"> La pression de la pièce 1 est 2 Pa<button ><a href='#'>détails</a></button></div>
-                <div class="petit"> La pression de la pièce 2 est 0 Pa<button  ><a href='#'>détails</a></button></div>
-                <button id="ferm_pression" onclick="closecity('#pression','#ouv_pression')">afficher moins</button>
-            </div>
-        </div>
         <span id="ajoutCapteur" >Ajouter un capteur </h3><a href="/addstuff/<?php echo $data['apartmentId']; ?>">  <img class="ajout" src="/img/ajout.png" width="16" height="16"> </a></span>
 
     </div>
