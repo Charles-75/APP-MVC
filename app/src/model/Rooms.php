@@ -118,6 +118,21 @@ class Rooms {
         }
     }
 
+    public function deleteRoom($roomId){
+        try{
+            $req = $this->bdd->prepare("DELETE FROM room WHERE id = :id");
+            $req->execute([
+                'id' => $roomId,
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
+
 
 
 }

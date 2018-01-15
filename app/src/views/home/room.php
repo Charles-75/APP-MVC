@@ -4,19 +4,16 @@
     h1{
         text-align: left;
     }
-   .all_sensors {
-
-   }
+    .all_sensors {
+    }
     .sensor{
         border : solid black 0.5px ;
     }
     .all_actuators{
-
     }
     .actuator{
         border : solid black 0.5px;
     }
-
 </style>
 <div class="container">
     <div class="card">

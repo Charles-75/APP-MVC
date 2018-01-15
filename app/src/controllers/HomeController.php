@@ -155,6 +155,30 @@ class HomeController extends Controller
             header('Location: /addroom/'.$apartmentId);
         }
     }
+
+    public function deleteRoomAction($params){
+        $apartmentId = $params['id'];
+        $rooms = $this->rooms->getRoomIdAndNameByHomeId($apartmentId);
+        $data = [
+            'apartmentId' => $apartmentId,
+            'rooms' => $rooms
+        ];
+        return $this->renderer->renderTemplate('home/deleteRoom.php', $data);
+    }
+
+    public function deleteRoomPostAction($params){
+        $apartmentId = $params['id'];
+        $rooms = $this->rooms->getRoomIdAndNameByHomeId($apartmentId);
+        foreach ($rooms as $room){
+            $id = $room['id'];
+            if (isset($_POST['check'.$id.''])){
+                $this->rooms->deleteRoom($id);
+            }
+        }
+        header('Location: /home/'.$apartmentId);
+
+    }
+
     public function addStuffAction($params){
         $apartmentId = $params['id'];
         $_SESSION['apartmentId'] = $apartmentId;
