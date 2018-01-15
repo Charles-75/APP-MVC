@@ -3,7 +3,9 @@
 
     <div class="card" id="card-capteurs">
         <h1 class="titre" style="color:rgb(255, 95, 95)">Mes Capteurs</h1>
-                <?php
+        Ajouter un capteur </h3><a href="/addstuff/<?php echo $data['apartmentId']; ?>">  <img class="ajout" src="/img/ajout.png" width="16" height="16"> </a>
+
+        <?php
                 foreach($data['sensor_type']as $allTypes ) { ?>
                      <div class="capteur_<?php echo $allTypes['type'] ?> ecriture">
                      <div> <?php echo $allTypes['type'] ?> est de ?? en moyenne <button id="ouv_<?php echo $allTypes['type'] ?>" onclick="opencity('#ouv_<?php echo $allTypes['type'] ?>','#<?php echo $allTypes['type'] ?>')"   >afficher plus </button></div>
@@ -23,7 +25,6 @@
                     </div>
                 <?php  }
                 ?>
-        <span id="ajoutCapteur" >Ajouter un capteur </h3><a href="/addstuff/<?php echo $data['apartmentId']; ?>">  <img class="ajout" src="/img/ajout.png" width="16" height="16"> </a></span>
 
     </div>
 
@@ -59,7 +60,9 @@
         </div>
         <div class="card" id="card-ordre">
             <h1 class="titre "  style="color:rgb(78, 196, 196)" >Mes Ordres </h1>
-            <div class="ecriture">
+            Ajouter un ordre </h3><a href="#">  <img class="ajout" src="/img/ajout.png" width="16" height="16"> </a>
+
+            <div id="contenuOrdre">
                 <div> je t'ordronne d'allumer une lampe<button id="ouv_ordre" onclick="opencity('#ouv_ordre','#ordre')">Afficher plus</button></div>
                 <div id="ordre" style="display:none">
                     <div class="petit"> info sur le temps</div>
@@ -67,7 +70,6 @@
                     <div class="petit">info sur les pièces</div>
                     <button id="ferm_ordre" onclick="closecity('#ordre','#ouv_ordre')">Afficher moins</button>
                 </div>
-                <span id="ajoutOrdre" >Ajouter un ordre </h3><a href="#">  <img class="ajout" src="/img/ajout.png" width="16" height="16"> </a></span>
 
             </div>
 

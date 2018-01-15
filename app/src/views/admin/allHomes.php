@@ -56,7 +56,16 @@
     </div>
 
 
+
 </div>
+
+<div class="card" id="adminTicket">
+    <div>
+        <h2>Ticket </h2>
+    </div>
+
+</div>
+
 
 
 <style>
@@ -101,7 +110,10 @@
     }
 
 
-
+    #adminTicket{
+        margin-left: 145px;
+        width : 1110px;
+        height: 150px;
 
     }
 

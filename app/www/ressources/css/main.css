@@ -306,20 +306,15 @@ a[class = "footerLinks"]:hover{
 .pieces{
     margin-top: 10px;
     border: solid 1px rgba(0, 0, 0, 0.13);
-    height: 500px;
+    height: 530px;
     overflow: auto;
 
 }
 
-#ajoutOrdre{
-    position: absolute;
-    bottom: 100px;
-    left: 1140px;
-}
-#ajoutCapteur{
-    position: absolute;
-    bottom: 100px;
-    right: 930px;
+
+#contenuOrdre{
+    border: solid 1px rgba(0, 0, 0, 0.13);
+    height: 250px;
 }
 
 
@@ -345,3 +340,4 @@ td[class='linkSubject']:hover{
     border: solid 1px rgba(0, 0, 0, 0.12);
 
 }
+
