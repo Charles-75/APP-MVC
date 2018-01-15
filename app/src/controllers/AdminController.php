@@ -14,7 +14,6 @@ use Vendors\Renderer\Renderer;
 class AdminController extends Controller
 {
 
-
     private $renderer;
     private $admins;
     private $users;
@@ -29,7 +28,6 @@ class AdminController extends Controller
         $this->users = new Users();
         $this->notification = new Notifications();
     }
-
 
     public function loginAction($params) {
         return $this->renderer->renderTemplate('admin/loginAdmin.php');

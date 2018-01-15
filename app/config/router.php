@@ -8,6 +8,10 @@ $routes = [
 
     ['/\/contact/', ['\Src\Controllers\IndexController', 'contact']],
 
+    ['/\/faq/', ['\Src\Controllers\IndexController', 'faq']],
+
+    ['/\/cgu/', ['\Src\Controllers\IndexController', 'cgu']],
+
     ['/\/member\/(?<id>[0-9]+)/', ['\Src\Controllers\IndexController', 'member']],
 
     ['/\/login/', ['\Src\Controllers\UserController', 'login']],
