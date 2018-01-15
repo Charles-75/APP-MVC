@@ -2,11 +2,11 @@
         <div class= "infoSite">
 
             <div>
-                <a href="#" class="footerLinks">CGU</a>
+                <a href="/cgu" class="footerLinks">CGU</a>
             </div>
 
             <div>
-                <a href="#" class="footerLinks">FAQ</a>
+                <a href="/faq" class="footerLinks">FAQ</a>
             </div>
 
             <div>

@@ -41,7 +41,15 @@ class IndexController extends Controller
     }
 
     public function contactAction($params) {
-        return "<h1>Page de contact</h1> <a href='/contact'>Aller à la page de contact</a>";
+        return $this->renderer->renderTemplate('general/contact.php');
+    }
+
+    public function faqAction($params) {
+        return $this->renderer->renderTemplate('general/faq.php');
+    }
+
+    public function cguAction($params) {
+        return $this->renderer->renderTemplate('general/cgu.php');
     }
 
     public function memberAction($params) {

@@ -3,7 +3,6 @@
 namespace Src\Controllers;
 
 use \Core\Controller;
-use function Sodium\add;
 use Src\Model\Homes;
 use Src\Model\Notifications;
 use Src\Model\Sensors;
@@ -53,7 +52,7 @@ class HomeController extends Controller
         return $this->renderer->renderTemplate('home/myhomes.php', $data);
     }
 
-    public function addHomeAction($parmas){
+    public function addHomeAction($params){
         return $this->renderer->renderTemplate('home/addHome.php');
     }
 
@@ -171,16 +170,16 @@ class HomeController extends Controller
         return $this->renderer->renderTemplate('home/addStuff.php', $data);
     }
     public function roomAction($params){
-            $apartmentId= $params['id'];
-            $_SESSION['apartmentId'] = $apartmentId;
-            $roomName = $params['term'];
-            $roomId = $this ->rooms->getRoomIdByName($roomName);
-            $data = [
-                'apartmentId' => $apartmentId,
-                'sensor' => $this->sensors->getSensorsByRooms($roomId),
-                'actuator' =>$this->actuators->getActuatorsByRooms($roomId),
-                'roomName'=> $roomName,
-            ];
+        $apartmentId= $params['id'];
+        $_SESSION['apartmentId'] = $apartmentId;
+        $roomName = $params['term'];
+        $roomId = $this->rooms->getRoomIdByName($roomName);
+        $data = [
+            'apartmentId' => $apartmentId,
+            'sensor' => $this->sensors->getSensorsByRooms($roomId),
+            'actuator' => $this ->actuators->getActuatorsByRooms($roomId),
+            'roomName' => $roomName
+        ];
         return $this -> renderer->renderTemplate( 'home/room.php',$data);
     }
     public function sensorDetailAction($params){
@@ -223,11 +222,6 @@ class HomeController extends Controller
             header('Location: /addstuff/'.$apartmentId);
         }
     }
-
-
-
-
-
 }
 
 

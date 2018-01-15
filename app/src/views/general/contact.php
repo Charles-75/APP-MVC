@@ -2,7 +2,7 @@
 
 <style>
 .body {
-  font: Roboto;
+  font-family: Roboto, serif;
 }
 
 .aboutFrame {
