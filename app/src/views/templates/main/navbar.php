@@ -5,7 +5,7 @@
 
     <div id="navbar-links">
         <a href='/myhomes' >Mes maisons</a>
-        <?php  if (isset($data['homes'])) {
+        <?php  if (isset($data['homes']) OR isset($date['guests'])) {
 
 
         }

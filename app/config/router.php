@@ -4,13 +4,13 @@
 $routes = [
     ['/\//', ['\Src\Controllers\IndexController', 'index']],
 
-    ['/\/about/', ['\Src\Controllers\AboutController', 'about']],
+    ['/\/about\/(?<id>[0-9]+)/', ['\Src\Controllers\AboutController', 'about']],
 
-    ['/\/contact/', ['\Src\Controllers\IndexController', 'contact']],
+    ['/\/contact\/(?<id>[0-9]+)/', ['\Src\Controllers\IndexController', 'contact']],
 
-    ['/\/faq/', ['\Src\Controllers\IndexController', 'faq']],
+    ['/\/faq\/(?<id>[0-9]+)/', ['\Src\Controllers\IndexController', 'faq']],
 
-    ['/\/cgu/', ['\Src\Controllers\IndexController', 'cgu']],
+    ['/\/cgu\/(?<id>[0-9]+)/', ['\Src\Controllers\IndexController', 'cgu']],
 
     ['/\/member\/(?<id>[0-9]+)/', ['\Src\Controllers\IndexController', 'member']],
 
@@ -28,7 +28,7 @@ $routes = [
 
     ['/\/login_adminpost/', ['\Src\Controllers\AdminController', 'loginpost']], //admin
 
-    ['/\/profile/', ['\Src\Controllers\UserController', 'profile']],
+    ['/\/profile\/(?<id>[0-9]+)/', ['\Src\Controllers\UserController', 'profile']],
 
     ['/\/profileadmin/', ['\Src\Controllers\AdminController', 'profileAdmin']],
 
@@ -38,13 +38,13 @@ $routes = [
 
     ['/\/updateprofilepost/', ['\Src\Controllers\UserController', 'updateprofilepost']],
 
-    ['/\/addticket/', ['\Src\Controllers\UserController', 'addticket']],
+    ['/\/addticket\/(?<id>[0-9]+)/', ['\Src\Controllers\UserController', 'addticket']],
 
     ['/\/addticketpost/', ['\Src\Controllers\UserController', 'addticketpost']],
 
     ['/\/updateadminpost/', ['\Src\Controllers\AdminController', 'updateAdminPost']], //admin
 
-    ['/\/addhome/', ['\Src\Controllers\HomeController', 'addhome']],
+    ['/\/addhome\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addhome']],
 
     ['/\/addhomepost/', ['\Src\Controllers\HomeController', 'addhomepost']],
 

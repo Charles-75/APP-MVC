@@ -53,10 +53,14 @@ class HomeController extends Controller
     }
 
     public function addHomeAction($params){
-        return $this->renderer->renderTemplate('home/addHome.php');
+        $apartmentId = $params['id'];
+        $data = ['apartmentId' => $apartmentId];
+        return $this->renderer->renderTemplate('home/addHome.php',$data);
     }
 
     public function addHomePostAction($params){
+        $apartmentId = $params['id'];
+        $data = ['apartmentId' => $apartmentId];
         if (!empty($_POST['town']) && !empty($_POST['street']) && !empty($_POST['number']) && !empty($_POST['zipCode'])){
             if ($_POST['number'] >= 1){
                 $town = $_POST['town'];
@@ -70,7 +74,7 @@ class HomeController extends Controller
                 header('Location: /myhomes');
             }
             else{
-                header('Location: /addhome');
+                header('Location: /addhome/'.$apartmentId);
             }
         }
     }
@@ -167,7 +171,7 @@ class HomeController extends Controller
             'apartmentId' => $apartmentId,
             'rooms' => $rooms
         ];
-        return $this->renderer->renderTemplate('home/deleteRoom.php', $data);
+        return $this->renderer->renderTemplate('home/deleteRoom.php/'.$apartmentId, $data);
     }
 
     public function deleteRoomPostAction($params){
@@ -250,8 +254,9 @@ public function orderAction($params){
     $apartmentId=$params['id'];
     $data=[
         'apartmentId' => $apartmentId,
+        'roomName' => $this->rooms->getRoomsByHomeId($apartmentId),
     ];
-    return $this->renderer->renderTemplate('home/order.php');
+    return $this->renderer->renderTemplate('home/order.php',$data);
 }
 }
 
