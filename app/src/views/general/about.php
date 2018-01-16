@@ -1,7 +1,10 @@
+<?php include(__DIR__."/../templates/main/navbar.php") ?>
+
+
 <div>
 
-  <p>A propos
-  Vous rentrez chez vous un soir d'hiver et ne voulez pas garder votre pull
+  <p>A propos</p><br>
+  <p>Vous rentrez chez vous un soir d'hiver et ne voulez pas garder votre pull
 en attendant que votre logement se réchauffe ? Vous avez oublié d'éteindre
 la lumière du couloir ou de la cuisine en partant ?</p><br>
   <p>Home'ISEP est un produit de Domisep, conçu pour vous permettre de gérer votre

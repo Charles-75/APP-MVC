@@ -1,5 +1,6 @@
 <?php include(__DIR__."/../templates/main/navbar.php") ?>
 
+
 <style>
 .body {
   font-family: Roboto, serif;

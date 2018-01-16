@@ -1,3 +1,6 @@
+<?php include(__DIR__."/../templates/main/navbar.php") ?>
+
+
 <h1>CONDITIONS GÉNÉRALES D'UTILISATION DU SITE
 Home'ISEP</h1>
 
