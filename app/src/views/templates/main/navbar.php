@@ -2,8 +2,19 @@
 
     <img src="/img/Domisep.png" id="navbar-logo" alt="DomISEP">
 
+
     <div id="navbar-links">
-        <a href='/myhomes' >Mes maisons</a> | <a class='lien' href='#'>Contact</a>
+        <a href='/myhomes' >Mes maisons</a>
+        <?php  if (isset($data['homes'])) {
+
+
+        }
+        else{
+            $id=$data['apartmentId'];
+            echo "<a href='/home/$id'> Ma Page d'accueil </a> ";
+        }
+        ?>
+
     </div>
 
     <div id="navbar-icons">
