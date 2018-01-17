@@ -5,13 +5,10 @@
 
     <div id="navbar-links">
         <a href='/myhomes' >Mes maisons</a>
-        <?php  if (isset($data['homes']) OR isset($date['guests'])) {
+        <?php  if (isset($data['apartmentId'])){
+            $id = $data['apartmentId'];
+            echo "|  <a href='/home/$id'> Ma Page d'accueil </a> ";
 
-
-        }
-        else{
-            $id=$data['apartmentId'];
-            echo "<a href='/home/$id'> Ma Page d'accueil </a> ";
         }
         ?>
 
