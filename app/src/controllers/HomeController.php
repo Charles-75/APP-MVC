@@ -128,16 +128,18 @@ class HomeController extends Controller
     public function homeAction($params){
         $apartmentId = $params['id'];
         $_SESSION['apartmentId'] = $apartmentId;
-        $homeData = $this->homes->getLatestAverageSensorsData($apartmentId);
-        echo "<pre>";
-        var_dump($homeData);
-        die();
+        $sensorsData = $this->homes->getLatestAverageSensorsData($apartmentId);
+
+        //echo "<pre>";
+        //var_dump($sensorsData);
+        //die();
+
         $data = [
             'apartmentId' => $apartmentId,
+            'sensorsData' => $sensorsData,
             'apartmentData' => $this->rooms->getRoomsByHomeId($apartmentId),
             'dataNotif' => $this->notifications->getNotification(),
-            'bigdata'=>$this->sensors->getRoomNameSensorValueSensorType(),
-            'sensor_type'=>$this->sensors->getSensorByType(),
+            'bigdata'=>$this->sensors->getRoomNameSensorValueSensorType()
 
         ];
 

@@ -69,7 +69,7 @@ class Homes
 
     public function getLatestAverageSensorsData($homeId) {
         $req = $this->bdd->prepare("
-          SELECT sensor.typeId, sensortype.name AS typeName, AVG(value.value) AS averageValue
+          SELECT sensor.typeId, sensortype.name AS typeName, FLOOR(AVG(value.value)) AS averageValue, sensortype.image AS image
           FROM value
           INNER JOIN sensor ON sensor.id = value.sensorId
           INNER JOIN sensortype ON sensortype.id = sensor.typeId
