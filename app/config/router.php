@@ -82,6 +82,10 @@ $routes = [
 
     ['/\/addsensororactuatorpost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addSensorOrActuatorPost']],
 
+    ['/\/deletecemac\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'deleteCemac']],
+
+    ['/\/deletecemacpost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'deleteCemacPost']],
+
     ['/\/notification_maintenance_post/', ['\Src\Controllers\AdminController', 'notificationForMaintenancePost']], //admin
 
     ['/\/home\/(?<id>[0-9]+)\/(?<term>.+)/', ['\Src\Controllers\HomeController', 'room']],

@@ -67,6 +67,21 @@ class Cemac
         }
 
     }
+
+    public function deleteCemac($cemacId){
+        try{
+            $req = $this->bdd->prepare("DELETE FROM cemac WHERE id = :id");
+            $req->execute([
+                'id' => $cemacId,
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
 }
 
 ?>

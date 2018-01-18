@@ -70,4 +70,19 @@ class Sensors
             ':cemacId' => $cemacId
         ]);
     }
+
+    public function deleteAllSensors($cemacId){
+        try{
+            $req = $this->bdd->prepare("DELETE FROM sensor WHERE cemacId = :id");
+            $req->execute([
+                'id' => $cemacId,
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
 }

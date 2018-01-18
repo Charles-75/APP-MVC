@@ -169,7 +169,7 @@ class HomeController extends Controller
             'apartmentId' => $apartmentId,
             'rooms' => $rooms
         ];
-        return $this->renderer->renderTemplate('home/deleteRoom.php/', $data);
+        return $this->renderer->renderTemplate('home/deleteRoom.php', $data);
     }
 
     public function deleteRoomPostAction($params){
@@ -248,14 +248,42 @@ class HomeController extends Controller
             header('Location: /addstuff/'.$apartmentId);
         }
     }
-public function orderAction($params){
-    $apartmentId=$params['id'];
-    $data=[
-        'apartmentId' => $apartmentId,
-        'roomName' => $this->rooms->getRoomsByHomeId($apartmentId),
-    ];
-    return $this->renderer->renderTemplate('home/order.php',$data);
-}
+    public function orderAction($params){
+        $apartmentId=$params['id'];
+        $data=[
+            'apartmentId' => $apartmentId,
+            'roomName' => $this->rooms->getRoomsByHomeId($apartmentId),
+        ];
+        return $this->renderer->renderTemplate('home/order.php',$data);
+    }
+
+    public function deleteCemacAction($params){
+        $apartmentId = $params['id'];
+        $rooms = $this->rooms->getRoomIdAndNameByHomeId($apartmentId);
+        $cemacs = $this->cemac->getCemacIdAndNameAndRoomIdByApartmentId($apartmentId);
+        $data = [
+            'apartmentId' => $apartmentId,
+            'rooms' => $rooms,
+            'cemacs' => $cemacs
+        ];
+        return $this->renderer->renderTemplate('home/deleteCemac.php', $data);
+    }
+
+    public function deleteCemacPostAction($params){
+        $apartmentId = $params['id'];
+        $cemacs = $this->cemac->getCemacIdAndNameAndRoomIdByApartmentId($apartmentId);
+        foreach ($cemacs as $cemac){
+            $cemacId = $cemac['id'];
+            if (isset($_POST['check'.$cemacId.''])){
+                $this->cemac->deleteCemac($cemacId);
+                $this->sensors->deleteAllSensors($cemacId);
+                $this->actuators->deleteAllActuators($cemacId);
+            }
+        }
+        header('Location: /home/'.$apartmentId);
+    }
+
+
 }
 
 
