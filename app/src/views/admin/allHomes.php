@@ -5,7 +5,7 @@
 
 
     <div id="searchbyname" class="card">
-        <h2> <u>Rechercher un utilisateur</u> </h2>
+        <h1 class"titre"> Rechercher un utilisateur</h1>
 
         <form>
             <label for="searchbyname">Rechercher par nom ou par prénom :</label>
@@ -22,7 +22,7 @@
 
 
     <div id="notification" class="card">
-        <h2> <u> Gerer les notifications </u> </h2>
+        <h1>  Gerer les notifications </h1>
 
         <form method="post" action="/notification_maintenance_post">
             <label for="sujet"><strong>Ajouter une notification : </strong></label> </br>
