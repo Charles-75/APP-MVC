@@ -15,6 +15,7 @@
         border : solid black 0.5px;
     }
 </style>
+
 <div class="container">
     <div class="card">
         <div class="all_sensors">

@@ -328,6 +328,7 @@ a[class = "footerLinks"]:hover{
 #contenuOrdre{
     border: solid 1px rgba(0, 0, 0, 0.13);
     height: 250px;
+    overflow: auto;
 }
 
 
@@ -349,7 +350,7 @@ td[class='linkSubject']:hover{
 
 #listNotif{
     overflow: auto;
-    height: 120px;
+    height: 300px;
     border: solid 1px rgba(0, 0, 0, 0.12);
 
 }

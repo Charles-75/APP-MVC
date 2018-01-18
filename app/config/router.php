@@ -88,11 +88,13 @@ $routes = [
 
     ['/\/notification_maintenance_post/', ['\Src\Controllers\AdminController', 'notificationForMaintenancePost']], //admin
 
+    ['/\/delete_notification\/(?<id>[0-9]+)/', ['\Src\Controllers\AdminController', 'deleteNotification']], //admin
+
     ['/\/home\/(?<id>[0-9]+)\/(?<term>.+)/', ['\Src\Controllers\HomeController', 'room']],
 
     ['/\/home\/(?<id>[0-9]+)\/(?<term1>.+)\/(?<term2>.+)/', ['\Src\Controllers\HomeController', 'sensordetail']],
 
-    ['/\/home\/(?<id>[0-9]+)\/(?<term1>.+)/', ['\Src\Controllers\HomeController', 'order']],
+    ['/\/pannesimulayion\/(?<id>[0-9]+)\/(?<id1>[0-9]+)/', ['\Src\Controllers\SensorController', 'panneSimulation']],
 
-    ['/\/home\/(?<id>[0-9]+)\/(?<term1>.+)/', ['\Src\Controllers\HomeController', 'orderpost']],
+
 ];

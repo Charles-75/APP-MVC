@@ -7,6 +7,7 @@ use \Core\Controller;
 use Src\Model\Homes;
 use Src\Model\Admins;
 use Src\Model\Notifications;
+use Src\Model\Tickets;
 use Src\Model\Users;
 use Vendors\Renderer\Renderer;
 
@@ -18,6 +19,8 @@ class AdminController extends Controller
     private $admins;
     private $users;
     private $notification;
+    private $homes;
+    private $ticket;
 
 
     public function __construct()
@@ -27,6 +30,7 @@ class AdminController extends Controller
         $this->homes = new Homes();
         $this->users = new Users();
         $this->notification = new Notifications();
+        $this->ticket = new Tickets();
     }
 
     public function loginAction($params) {
@@ -61,7 +65,10 @@ class AdminController extends Controller
     }
 
     public function allHomesAction($params) {
-        $data = $this->notification->getNotification();
+        $data =[
+            'dataNotif' => $this->notification->getNotification(),
+            'dataTicket' => $this->ticket->getTicketOrderedByUserId()
+        ];
         return $this->renderer->renderTemplate('admin/allhomes.php', $data);
 
 
@@ -109,6 +116,17 @@ class AdminController extends Controller
             $this->notification->addNotification($_POST['sujet'], $_POST['contenu']);
             header('Location: /allhomes');
         }
+    }
+
+
+    public function deleteNotificationAction($params){
+        $this->notification->deleteNotification($params['id']);
+        header('Location: /allhomes');
+    }
+
+
+    public function getAllTicketsAction($params){
+        $data = $this->ticket->getTicketOrderedByUserId();
     }
 
 

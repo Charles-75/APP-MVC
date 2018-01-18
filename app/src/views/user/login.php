@@ -2,6 +2,8 @@
 
     <img src="/img/Domisep.png" class="img-responsive" id="login-logo">
 
+    <h1> Home'Isep by Domisep </h1>
+
     <div class="card">
 
         <?php
@@ -28,6 +30,8 @@
             </div>
 
         </form>
+
+
 
     </div>
 

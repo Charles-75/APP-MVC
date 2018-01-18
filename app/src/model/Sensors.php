@@ -23,6 +23,7 @@ class Sensors
     #####################
     # COMMANDES SENSORS #
     #####################
+
     public function getRoomNameSensorValueSensorType(){
         $req=$this->bdd->query("SELECT sensor.type,value.value,room.name FROM room
                                          INNER JOIN cemac ON room.id=cemac.roomId
@@ -70,6 +71,27 @@ class Sensors
             ':cemacId' => $cemacId
         ]);
     }
+
+
+    public function getSensorPanneById(){
+
+            $req = $this->bdd->query('SELECT id FROM SENSOR WHERE sensor.panne == 1');
+            $res = $req->fetchAll(PDO::FETCH_ASSOC);
+
+            return $res;
+        }
+
+    public function updateSensorPanne($sensorId){
+        $req = $this->bdd->prepare('UPDATE sensor SET panne = 1 WHERE id == :sensorId');
+        $req->execute([
+            ':sensorId' => $sensorId
+        ]);
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
+
 
     public function deleteAllSensors($cemacId){
         try{

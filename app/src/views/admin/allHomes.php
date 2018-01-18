@@ -41,8 +41,8 @@
                 <?php
 
                 $tr = "<table>";
-                foreach ($data as $notif){
-                    $tr .= "<tr onclick='openNotif(". $notif['id'] .")'><td class='linkSubject'>".$notif['subject']."</td></tr>";
+                foreach ($data['dataNotif'] as $notif){
+                    $tr .= "<tr onclick='openNotif(". $notif['id'] .")'><td class='linkSubject'>".$notif['subject']."</td><td><button class='bouton-delete' onclick='deleteNotif(".$notif['id'].")'>Delete</button></td></tr>";
                 }
                 $tr.="</table>";
                 echo $tr;
@@ -57,14 +57,24 @@
 
 
 
-</div>
+<!-- </div>
 
-<div class="card" id="adminTicket">
+ <div class="card" id="adminTicket">
     <div>
-        <h2>Ticket </h2>
+        <h2> Tickets </h2>
+        <?php /*
+
+        $tr = "<table>";
+        foreach ($data['dataTicket'] as $ticket){
+            $tr .= "<tr class='linkSubject' onclick='openTicket(". $ticket['id'] .")'><td >".$ticket['userId']."</td><td>".$ticket['creationDate']."</td><td>".$ticket['subject']."</td></tr>";
+        }
+        $tr.="</table>";
+        echo $tr; */
+
+        ?>
     </div>
 
-</div>
+</div> -->
 
 
 
@@ -93,11 +103,12 @@
 
     #searchbyname{
         margin-right : 10%;
+        height: 650px;
     }
 
     #listUsers{
         overflow: auto;
-        height: 200px;
+        height: 400px;
     }
 
     #notification{
@@ -111,11 +122,18 @@
 
 
     #adminTicket{
-        margin-left: 145px;
-        width : 1110px;
+        margin-left: 650px;
+        width : 300px;
         height: 150px;
 
     }
+
+    .bouton-delete{
+        width : 50px;
+        height : 20px;
+    }
+
+
 
 
 
@@ -142,7 +160,7 @@
 
     // Notifications
 
-    var notifications = JSON.parse("<?php echo addslashes(json_encode($data)); ?>");
+    var notifications = JSON.parse("<?php echo addslashes(json_encode($data['dataNotif'])); ?>");
 
     function openNotif(notifId) {
         notifications.forEach(function(notif) {
@@ -152,6 +170,26 @@
             }
         })
     }
+
+    function deleteNotif(id) {
+        document.location.href="delete_notification/"+id+"/";
+    }
+
+
+    // Tickets
+
+    var tickets = JSON.parse("<?php echo addslashes(json_encode($data['dataTicket'])); ?>");
+
+    function openTicket(ticketId) {
+        tickets.forEach(function(ticket) {
+            if(ticket.id == ticketId) {
+                // TODO : afficher une fenêtre modale
+                alert(ticket.subject + "   :   " + ticket.content);
+            }
+        })
+    }
+
+
 
 
 </script>

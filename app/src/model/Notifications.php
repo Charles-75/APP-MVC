@@ -49,4 +49,12 @@ class Notifications
     }
 
 
+    public function deleteNotification($id){
+        $req = $this->bdd->prepare("DELETE FROM notification WHERE id = :id");
+        $req->execute([
+            "id" => $id
+        ]);
+    }
+
+
 }

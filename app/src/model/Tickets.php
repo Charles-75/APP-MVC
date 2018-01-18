@@ -48,4 +48,12 @@ class Tickets
         ]);
     }
 
+
+    public function getTicketOrderedByUserId(){
+        $req = $this->bdd->query("SELECT * FROM ticket ORDER BY userId");
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
 }
