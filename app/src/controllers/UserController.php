@@ -133,6 +133,41 @@ class UserController extends Controller
         $userId = $_SESSION['id'];
         $ticketsOpen = $this->tickets->getAllTicketsStillOpen($userId);
         $ticketsClose = $this->tickets->getAllTicketsClosed($userId);
+        $months = ["janvier", "février", "mars", "avril", "mai", "juin",
+            "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+
+        for ($it = 0; $it < count($ticketsOpen); $it++){
+            list($date, $time) = explode(" ", $ticketsOpen[$it]['creationDate']);
+            list($year, $month, $day) = explode("-", $date);
+            list($hour, $min) = explode(":", $time);
+
+            $ticketsOpen[$it]['year'] = $year;
+            $ticketsOpen[$it]['month'] = $months[$month - 1];
+            $ticketsOpen[$it]['day'] = $day;
+            $ticketsOpen[$it]['hour'] = $hour;
+            $ticketsOpen[$it]['min'] = $min;
+        }
+        for ($it = 0; $it < count($ticketsClose); $it++){
+            list($date, $time) = explode(" ", $ticketsClose[$it]['creationDate']);
+            list($year, $month, $day) = explode("-", $date);
+            list($hour, $min) = explode(":", $time);
+
+            list($date1, $time1) = explode(" ", $ticketsClose[$it]['closeDate']);
+            list($year1, $month1, $day1) = explode("-", $date1);
+            list($hour1, $min1) = explode(":", $time1);
+
+            $ticketsClose[$it]['year'] = $year;
+            $ticketsClose[$it]['month'] = $months[$month - 1];
+            $ticketsClose[$it]['day'] = $day;
+            $ticketsClose[$it]['hour'] = $hour;
+            $ticketsClose[$it]['min'] = $min;
+
+            $ticketsClose[$it]['year1'] = $year1;
+            $ticketsClose[$it]['month1'] = $months[$month1 - 1];
+            $ticketsClose[$it]['day1'] = $day1;
+            $ticketsClose[$it]['hour1'] = $hour1;
+            $ticketsClose[$it]['min1'] = $min1;
+        }
         $data = [
             'ticketsOpen' => $ticketsOpen,
             'ticketsClose' => $ticketsClose
@@ -142,9 +177,39 @@ class UserController extends Controller
     public function viewTicketAction($params){
         $ticketId = $params['id'];
         $ticket = $this->tickets->getTicket($ticketId);
-        $data = [
-            'ticket' => $ticket
-        ];
+        $months = ["janvier", "février", "mars", "avril", "mai", "juin",
+            "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+        foreach ($ticket as $value){
+            $obj = new \DateTime($value['creationDate']);
+            $date0 = $obj->format('d');
+            $month1 = $obj->format('m');
+            $month = $months[$month1 - 1];
+            $date1 = $obj->format('Y à H');
+            $date2 = $obj->format('i');
+            $date = $date0." ".$month." ".$date1."h".$date2;
+            if ($value['closeDate'] != NULL){
+                $obj1 = new \DateTime($value['closeDate']);
+                $date3 = $obj1->format('d');
+                $month2 = $obj1->format('m');
+                $month1 = $months[$month2 - 1];
+                $date4 = $obj1->format('Y à H');
+                $date5 = $obj1->format('i');
+                $closeDate = $date3." ".$month1." ".$date4."h".$date5;
+            }
+        }
+        if (isset($closeDate)){
+            $data = [
+                'ticket' => $ticket,
+                'date' => $date,
+                'closeDate' => $closeDate
+            ];
+        }
+        else{
+            $data = [
+                'ticket' => $ticket,
+                'date' => $date
+            ];
+        }
         return $this->renderer->renderTemplate('user/viewTicket.php', $data);
     }
 }
