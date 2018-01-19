@@ -8,7 +8,7 @@
             <?php foreach ($data['ticketsOpen'] as $ticket): ?>
                 <ul style="margin-top: 5%">
 
-                    <i style="font-size: 80%">Soumis le <?php echo $ticket['day']." ".$ticket['month']." ".$ticket['year']." à ".$ticket['hour']."h".$ticket['min']; ?></i><br><a href="viewticket/<?php echo $ticket['id']; ?>" ><?php echo $ticket['subject']; ?></a>
+                    <i style="font-size: 80%">Soumis le <?php echo $ticket['openDate']; ?></i><br><a href="/viewticket/<?php echo $ticket['id']; ?>/" ><?php echo $ticket['subject']; ?></a>
                 </ul>
             <?php endforeach; ?>
         </div>
@@ -17,7 +17,7 @@
             <h2>Tickets clos</h2>
             <?php foreach ($data['ticketsClose'] as $ticket): ?>
                 <ul style="margin-top: 5%">
-                    <i style="font-size: 80%">Soumis le <?php echo $ticket['day']." ".$ticket['month']." ".$ticket['year']." à ".$ticket['hour']."h".$ticket['min']; ?> et clos le <?php echo $ticket['day1']." ".$ticket['month1']." ".$ticket['year1']." à ".$ticket['hour1']."h".$ticket['min1']; ?> :</i><br><a href="viewticket/<?php echo $ticket['id']; ?>" ><?php echo $ticket['subject']; ?></a>
+                    <i style="font-size: 80%">Soumis le <?php echo $ticket['openDate']; ?> et clos le <?php echo $ticket['closeDate']; ?> :</i><br><a href="viewticket/<?php echo $ticket['id']; ?>" ><?php echo $ticket['subject']; ?></a>
                 </ul>
             <?php endforeach; ?>
         </div>

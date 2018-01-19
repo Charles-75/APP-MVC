@@ -2,14 +2,6 @@
 <div class="container">
     <?php
     foreach ($data['ticket'] as $ticket):
-
-        /*
-        list($date, $time) = explode(" ", $ticket['creationDate']);
-        list($year, $month, $day) = explode("-", $date);
-        list($hour, $min) = explode(":", $time);
-        $months = ["janvier", "février", "mars", "avril", "mai", "juin",
-            "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
-*/
         ?>
         <h1><?php echo $ticket['subject']; ?></h1>
 
@@ -25,6 +17,6 @@
 
     <?php endforeach; ?>
 
-    <a href="tickethistoric/" class="bouton">Retour</a>
+    <a href="/tickethistoric" class="bouton">Retour</a>
 
 </div>

@@ -137,40 +137,37 @@ class UserController extends Controller
             "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
 
         for ($it = 0; $it < count($ticketsOpen); $it++){
-            list($date, $time) = explode(" ", $ticketsOpen[$it]['creationDate']);
-            list($year, $month, $day) = explode("-", $date);
-            list($hour, $min) = explode(":", $time);
-
-            $ticketsOpen[$it]['year'] = $year;
-            $ticketsOpen[$it]['month'] = $months[$month - 1];
-            $ticketsOpen[$it]['day'] = $day;
-            $ticketsOpen[$it]['hour'] = $hour;
-            $ticketsOpen[$it]['min'] = $min;
+            $obj = new \DateTime($ticketsOpen[$it]['creationDate']);
+            $date0 = $obj->format('d');
+            $month1 = $obj->format('m');
+            $month = $months[$month1 - 1];
+            $date3 = $obj->format('Y à H');
+            $date2 = $obj->format('i');
+            $date = $date0." ".$month." ".$date3."h".$date2;
+            $ticketsOpen[$it]['openDate'] = $date;
         }
         for ($it = 0; $it < count($ticketsClose); $it++){
-            list($date, $time) = explode(" ", $ticketsClose[$it]['creationDate']);
-            list($year, $month, $day) = explode("-", $date);
-            list($hour, $min) = explode(":", $time);
+            $obj1 = new \DateTime($ticketsClose[$it]['creationDate']);
+            $date4 = $obj1->format('d');
+            $month2 = $obj1->format('m');
+            $month3 = $months[$month2 - 1];
+            $date5 = $obj1->format('Y à H');
+            $date6 = $obj1->format('i');
+            $date1 = $date4." ".$month3." ".$date5."h".$date6;
+            $ticketsClose[$it]['openDate'] = $date1;
 
-            list($date1, $time1) = explode(" ", $ticketsClose[$it]['closeDate']);
-            list($year1, $month1, $day1) = explode("-", $date1);
-            list($hour1, $min1) = explode(":", $time1);
-
-            $ticketsClose[$it]['year'] = $year;
-            $ticketsClose[$it]['month'] = $months[$month - 1];
-            $ticketsClose[$it]['day'] = $day;
-            $ticketsClose[$it]['hour'] = $hour;
-            $ticketsClose[$it]['min'] = $min;
-
-            $ticketsClose[$it]['year1'] = $year1;
-            $ticketsClose[$it]['month1'] = $months[$month1 - 1];
-            $ticketsClose[$it]['day1'] = $day1;
-            $ticketsClose[$it]['hour1'] = $hour1;
-            $ticketsClose[$it]['min1'] = $min1;
+            $obj2 = new \DateTime($ticketsClose[$it]['closeDate']);
+            $date7 = $obj2->format('d');
+            $month4 = $obj2->format('m');
+            $month5 = $months[$month4 - 1];
+            $date8 = $obj2->format('Y à H');
+            $date9 = $obj2->format('i');
+            $closeDate = $date7." ".$month5." ".$date8."h".$date9;
+            $ticketsClose[$it]['closeDate'] = $closeDate;
         }
         $data = [
             'ticketsOpen' => $ticketsOpen,
-            'ticketsClose' => $ticketsClose
+            'ticketsClose' => $ticketsClose,
         ];
         return $this->renderer->renderTemplate('user/ticketHistoric.php', $data);
     }
