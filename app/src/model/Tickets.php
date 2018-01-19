@@ -52,7 +52,33 @@ class Tickets
     public function getTicketOrderedByUserId(){
         $req = $this->bdd->query("SELECT * FROM ticket ORDER BY userId");
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
 
+    public function getTicket($id){
+        $req = $this->bdd->prepare("SELECT * FROM ticket WHERE id = :id");
+        $req->execute([
+            'id' => $id
+        ]);
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+    public function getAllTicketsClosed($userId){
+        $req = $this->bdd->prepare("SELECT * FROM ticket WHERE userId = :id AND closeDate IS NOT NULL ORDER BY creationDate DESC ");
+        $req->execute([
+            'id' => $userId
+        ]);
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+    public function getAllTicketsStillOpen($userId){
+        $req = $this->bdd->prepare("SELECT * FROM ticket WHERE userId = :id AND closeDate IS NULL ORDER BY creationDate DESC");
+        $req->execute([
+            'id' => $userId
+        ]);
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
 

@@ -128,4 +128,23 @@ class UserController extends Controller
         $this->tickets->createNewTicket($subject, $content, $userId);
         header('Location: /myhomes');
     }
+
+    public function ticketHistoricAction($params){
+        $userId = $_SESSION['id'];
+        $ticketsOpen = $this->tickets->getAllTicketsStillOpen($userId);
+        $ticketsClose = $this->tickets->getAllTicketsClosed($userId);
+        $data = [
+            'ticketsOpen' => $ticketsOpen,
+            'ticketsClose' => $ticketsClose
+        ];
+        return $this->renderer->renderTemplate('user/ticketHistoric.php', $data);
+    }
+    public function viewTicketAction($params){
+        $ticketId = $params['id'];
+        $ticket = $this->tickets->getTicket($ticketId);
+        $data = [
+            'ticket' => $ticket
+        ];
+        return $this->renderer->renderTemplate('user/viewTicket.php', $data);
+    }
 }
