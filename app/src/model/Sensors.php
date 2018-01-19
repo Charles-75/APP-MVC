@@ -107,4 +107,10 @@ class Sensors
             return null;
         }
     }
+
+    public function getAllSensorTypes() {
+        $req = $this->bdd->query("SELECT * FROM sensortype");
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
 }
