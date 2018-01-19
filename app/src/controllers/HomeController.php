@@ -194,6 +194,7 @@ class HomeController extends Controller
             'apartmentId' => $apartmentId,
             'apartmentData' => $this->rooms->getRoomIdAndNameByHomeId($apartmentId),
             'cemacData' => $this->cemac->getCemacIdAndNameAndRoomIdByApartmentId($apartmentId),
+            'sensorTypes' => $this->sensors->getAllSensorTypes()
         ];
         return $this->renderer->renderTemplate('home/addStuff.php', $data);
     }

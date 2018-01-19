@@ -1,5 +1,4 @@
 <?php include(__DIR__."/../templates/main/navbar.php") ?>
-
 <style>
    .box{
        display: flex;
@@ -54,9 +53,7 @@
 </div>
 <script>
 
-    var sensorTypes = [
-        'temperature', 'humidite', 'pression', 'presence', 'luminosite', 'qualite_air', 'fumee'
-    ];
+    var sensorTypes = JSON.parse("<?php echo addslashes(json_encode($data['sensorTypes'])); ?>");
     var actuatorTypes = [
         'lumieres', 'volets'
     ];
@@ -89,7 +86,7 @@
         else if(choice == 'actuators') var choices = actuatorTypes;
 
         choices.forEach(function(type) {
-            typeSelector.appendChild(new Option(type, type));
+            typeSelector.appendChild(new Option(type['name'], type['id']));
         });
 
    }
