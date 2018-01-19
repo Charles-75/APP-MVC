@@ -42,6 +42,10 @@ $routes = [
 
     ['/\/addticketpost/', ['\Src\Controllers\UserController', 'addticketpost']],
 
+    ['/\/tickethistoric/', ['\Src\Controllers\UserController', 'ticketHistoric']],
+
+    ['/\/viewticket\/(?<id>[0-9]+)/', ['\Src\Controllers\UserController', 'viewTicket']],
+
     ['/\/updateadminpost/', ['\Src\Controllers\AdminController', 'updateAdminPost']], //admin
 
     ['/\/addhome/', ['\Src\Controllers\HomeController', 'addhome']],
@@ -94,7 +98,7 @@ $routes = [
 
     ['/\/home\/(?<id>[0-9]+)\/(?<term1>.+)\/(?<term2>.+)/', ['\Src\Controllers\HomeController', 'sensordetail']],
 
-    ['/\/pannesimulayion\/(?<id>[0-9]+)\/(?<id1>[0-9]+)/', ['\Src\Controllers\SensorController', 'panneSimulation']],
+    ['/\/pannesimulation\/(?<id>[0-9]+)\/(?<id1>[0-9]+)/', ['\Src\Controllers\SensorController', 'panneSimulation']],
 
-
+    ['/\/test\/(?<id>[0-9]+)/', ['\Src\Controllers\SensorController', 'test']],
 ];
