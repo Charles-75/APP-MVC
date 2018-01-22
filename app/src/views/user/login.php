@@ -26,7 +26,7 @@
 
             <div class="liens">
                 <a href="/resetpassword">Mot de passe oublié?</a>
-                <a href="/register">Inscription</a>
+                <a href="/register" style="display: inline-block; margin-left: 10%">Inscription</a>
             </div>
 
         </form>

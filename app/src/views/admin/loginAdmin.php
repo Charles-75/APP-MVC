@@ -4,7 +4,7 @@
 
     <div class="card">
 
-        <p> Admin page</p>
+        <h2>Administrateur</h2>
 
         <form action="/login_adminpost" method="POST">
 
@@ -20,7 +20,7 @@
 
             <div class="liens">
                 <a href="/resetpassword">Mot de passe oublié?</a>
-                <a href="/register">Inscription</a>
+                <a href="/register" style="display: inline-block; margin-left: 10%">Inscription</a>
             </div>
 
         </form>

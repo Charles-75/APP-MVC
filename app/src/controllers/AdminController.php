@@ -46,7 +46,7 @@ class AdminController extends Controller
         if($user !== null) { // Email existe
             $_SESSION['email'] = $user['email'];
             $_SESSION['password'] = $user['password'];
-            $_SESSION['id'] = $user['id'];
+            $_SESSION['adminId'] = $user['id'];
             if (isset($_POST['rememberMe'])){
                 setcookie('email', $_SESSION['email'], time() + 365*24*3600);
                 setcookie('password', $_SESSION['password'], time() + 365*24*3600);
@@ -62,6 +62,14 @@ class AdminController extends Controller
         else {
             header('Location: /login_admin');
         }
+    }
+
+    public function logoutAction($params){
+        unset($_SESSION['adminId']);
+        unset($_SESSION['email']);
+        unset($_SESSION['password']);
+        unset($_SESSION['apartmentId']);
+        header('Location: /login_admin');
     }
 
     public function allHomesAction($params) {
@@ -92,19 +100,19 @@ class AdminController extends Controller
 
 
     public function profileAdminAction($params){
-        $data = $this->admins->getAdminById($_SESSION['id']);
+        $data = $this->admins->getAdminById($_SESSION['adminId']);
         return $this->renderer->renderTemplate('admin/profileAdmin.php', $data);
     }
 
 
     public function updateAdminAction($params){
-        $data = $this->admins->getAdminById($_SESSION['id']);
+        $data = $this->admins->getAdminById($_SESSION['adminId']);
         return $this->renderer->renderTemplate('admin/updateAdmin.php', $data);
     }
 
     public function updateAdminPostAction($params){
         if (!empty($_POST['username']) && !empty($_POST['email'])&& !empty($_POST['phone'])){
-            $this->admins->updateAdminById($_POST['username'], $_POST['email'], $_POST['phone'], $_SESSION['id']);
+            $this->admins->updateAdminById($_POST['username'], $_POST['email'], $_POST['phone'], $_SESSION['adminId']);
             header('Location: /profileadmin');
         }
     }

@@ -3,7 +3,7 @@
     <img src="/img/Domisep.png" id="navbar-logo" alt="DomISEP">
 
     <div id="navbar-links">
-        <a href="/allhomes">Acceuil Administrateur</a>
+        <a href="/allhomes">Accueil Administrateur</a>
     </div>
 
     <div id="navbar-icons">
@@ -15,7 +15,7 @@
         </div>
 
         <div class="navbar-lien">
-            <a href="/login_admin">
+            <a href="/logout_admin">
                 <img class="image" src="/img/logout.png">
             </a>
         </div>

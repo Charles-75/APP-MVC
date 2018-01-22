@@ -17,8 +17,8 @@
                 <div style="display: inline-block; width: 40px;"><?php echo $data['email'];?></div>
             </div>
             <div style="margin-bottom: 1%">
-                <div style="display: inline-block; width: 90px">Numéro de téléphone : </div>
-                <div style="display: inline-block; width: 40px;"><?php echo $data['phoneNumber'];?></div>
+                <div style="display: inline-block; width: 161px">Numéro de téléphone : </div>
+                <div style="display: inline-block; width: 150px;"><?php echo $data['phoneNumber'];?></div>
             </div>
 
             <div style="display: inline-block; margin-top: 3%"><button class="bouton"><a href="/updateprofile" style="color: white">Modifier</a></button></div>

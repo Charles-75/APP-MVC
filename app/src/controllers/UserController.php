@@ -126,7 +126,7 @@ class UserController extends Controller
         $content = $_POST['content'];
         $subject = $_POST['subject'];
         $this->tickets->createNewTicket($subject, $content, $userId);
-        header('Location: /myhomes');
+        header('Location: /tickethistoric');
     }
 
     public function ticketHistoricAction($params){

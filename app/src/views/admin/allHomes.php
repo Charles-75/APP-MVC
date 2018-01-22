@@ -2,8 +2,6 @@
 
 <div id="gestionAdmin" class="container">
 
-
-
     <div id="searchbyname" class="card">
         <h1 class"titre"> Rechercher un utilisateur</h1>
 
@@ -22,13 +20,13 @@
 
 
     <div id="notification" class="card">
-        <h1>  Gerer les notifications </h1>
+        <h1>  Gérer les notifications </h1>
 
         <form method="post" action="/notification_maintenance_post">
             <label for="sujet"><strong>Ajouter une notification : </strong></label> </br>
-            <input type="text" name="sujet" placeholder="Sujet de la notification" required>
+            <input type="text" name="sujet" placeholder="Sujet de la notification" required style="margin-top: 3%">
             <textarea name="contenu" id="contenuNotif" placeholder="Tapez le contenue de la notification" rows="1" cols="1" required></textarea>
-            <input type="submit">
+            <input type="submit" class="bouton">
         </form>
 
         <br/>
@@ -131,6 +129,13 @@
     .bouton-delete{
         width : 50px;
         height : 20px;
+        background-color: #DC1114;
+        border: 1px solid #C81113;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font: 400 11px Roboto;
+        display: inline-block;
     }
 
 

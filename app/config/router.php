@@ -20,6 +20,8 @@ $routes = [
 
     ['/\/logout/', ['\Src\Controllers\UserController', 'logout']],
 
+    ['/\/logout_admin/', ['\Src\Controllers\AdminController', 'logout']],  //admin
+
     ['/\/register/', ['\Src\Controllers\UserController', 'register']],
 
     ['/\/registerpost/', ['\Src\Controllers\UserController', 'registerpost']],
@@ -38,6 +40,8 @@ $routes = [
 
     ['/\/updateprofilepost/', ['\Src\Controllers\UserController', 'updateprofilepost']],
 
+    ['/\/updateadminpost/', ['\Src\Controllers\AdminController', 'updateAdminPost']], //admin
+
     ['/\/addticket/', ['\Src\Controllers\UserController', 'addticket']],
 
     ['/\/addticketpost/', ['\Src\Controllers\UserController', 'addticketpost']],
@@ -45,8 +49,6 @@ $routes = [
     ['/\/tickethistoric/', ['\Src\Controllers\UserController', 'ticketHistoric']],
 
     ['/\/viewticket\/(?<id>[0-9]+)/', ['\Src\Controllers\UserController', 'viewTicket']],
-
-    ['/\/updateadminpost/', ['\Src\Controllers\AdminController', 'updateAdminPost']], //admin
 
     ['/\/addhome/', ['\Src\Controllers\HomeController', 'addhome']],
 
