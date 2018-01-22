@@ -3,7 +3,7 @@
     <?php
     foreach ($data['ticket'] as $ticket):
         ?>
-        <h1><?php echo $ticket['subject']; ?></h1>
+        <h1 style="margin-bottom: 5%"><?php echo $ticket['subject']; ?></h1>
 
         <i>Soumis le <?php echo $data['date']; ?>
             <?php if ($ticket['closeDate'] != NULL){

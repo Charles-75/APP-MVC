@@ -39,16 +39,18 @@ class HomeController extends Controller
     public function myHomesAction($params) {
         $idUser = $_SESSION['id'];
         $homes = $this->homes->getUserHomes($idUser);
-
+        $homesGuests = $this->homes->getGuestApartmentsId($idUser);
         for ($it=0 ; $it < count($homes) ; $it++) {
             $homes[$it]['guest'] = $this->homes->getAllGuests($homes[$it]['id']);
         }
+        for ($it=0; $it < count($homesGuests); $it++){
+            $apartmentId = $homesGuests[$it]['apartmentId'];
+            $homesGuests[$it]['guest'] = $this->homes->getApartmentByApartmentId($apartmentId);
+        }
         $data = [
             'homes' => $homes,
+            'homesGuests' => $homesGuests
         ];
-        /*echo "<pre>";
-        print_r($data);
-        exit();*/
         return $this->renderer->renderTemplate('home/myhomes.php', $data);
     }
 
