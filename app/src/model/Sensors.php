@@ -64,9 +64,9 @@ class Sensors
     }
 
     public function addSensors($sensorType, $sensorReference, $cemacId){
-        $req = $this->bdd->prepare("INSERT INTO sensor(type,reference,cemacId) VALUES(:type, :reference, :cemacId)");
+        $req = $this->bdd->prepare("INSERT INTO sensor(typeId,reference,cemacId) VALUES(:typeId, :reference, :cemacId)");
         $req ->execute([
-            ':type' => $sensorType,
+            ':typeId' => $sensorType,
             ':reference' => $sensorReference,
             ':cemacId' => $cemacId
         ]);
