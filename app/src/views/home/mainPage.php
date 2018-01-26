@@ -3,7 +3,7 @@
 
     <div class="card" id="card-capteurs">
         <h1>Ma maison</h1>
-        <a href="/addstuff/<?php echo $data['apartmentId']; ?>" class="bouton">Ajouter un capteur</a>
+        <a href="/addgear/<?php echo $data['apartmentId']; ?>" class="bouton">Ajouter un capteur</a>
 
         <?php foreach ($data['sensorsData'] as $sensor): ?>
 
