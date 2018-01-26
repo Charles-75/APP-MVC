@@ -82,7 +82,7 @@ $routes = [
     
     ['/\/searchuser\/(?<term>.+)/', ['\Src\Controllers\AdminController', 'searchuser']],
 
-    ['/\/addstuff\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addStuff']],
+    ['/\/addgear\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addStuff']],
 
     ['/\/addcemacpost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addCemacPost']],
 
