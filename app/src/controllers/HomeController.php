@@ -227,10 +227,10 @@ class HomeController extends Controller
             $name = $_POST['reference_cemac'];
             $roomId=$_POST['piece'];
             $this->cemac->addCemac($roomId, $name);
-            header('Location: /addstuff/'.$apartmentId);
+            header('Location: /addgear/'.$apartmentId);
         }
         else{
-            header('Location: /addstuff /'.$apartmentId);
+            header('Location: /gear /'.$apartmentId);
         }
     }
     public function addSensorOrActuatorPostAction($params)
@@ -241,16 +241,16 @@ class HomeController extends Controller
             $sensorReference = $_POST['reference'];
             $cemacId = $_POST['cemac_id'];
             $this->sensors->addSensors($sensorType, $sensorReference, $cemacId);
-            header('Location: /addstuff/'.$apartmentId);
+            header('Location: /addgear/'.$apartmentId);
         }
         if (!empty($_POST['type']) AND ($_POST['stuff'] == 'actuators') AND !empty($_POST['cemac_id']) AND !empty($_POST['reference'])) {
             $actuatorType = $_POST['type'];
             $actuatorReference = $_POST['reference'];
             $cemacId = $_POST['cemac_id'];
             $this->actuators->addActuator($actuatorType, $actuatorReference, $cemacId);
-            header('Location: /addstuff/'.$apartmentId);
+            header('Location: /addgear/'.$apartmentId);
         } else {
-            header('Location: /addstuff/'.$apartmentId);
+            header('Location: /addgear/'.$apartmentId);
         }
     }
     public function orderAction($params){
