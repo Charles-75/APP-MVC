@@ -100,7 +100,13 @@ class AdminController extends Controller
 
 
     public function profileAdminAction($params){
-        $data = $this->admins->getAdminById($_SESSION['adminId']);
+        unset($_SESSION['warning']);
+        $admin = $this->admins->getAdminById($_SESSION['adminId']);
+        $password = substr($admin['password'], 0, 3);
+        $data = [
+          'admin' => $admin,
+          'password' => $password
+        ];
         return $this->renderer->renderTemplate('admin/profileAdmin.php', $data);
     }
 
@@ -114,6 +120,35 @@ class AdminController extends Controller
         if (!empty($_POST['username']) && !empty($_POST['email'])&& !empty($_POST['phone'])){
             $this->admins->updateAdminById($_POST['username'], $_POST['email'], $_POST['phone'], $_SESSION['adminId']);
             header('Location: /profileadmin');
+        }
+    }
+
+    public function changePasswordAction($params){
+        return $this->renderer->renderTemplate('admin/changePasswordAdmin.php');
+    }
+
+    public function changePasswordPostAction($params){
+        $admin = $this->admins->getAdminById($_SESSION['adminId']);
+        if ($admin['password'] == $_POST['password']){
+            if (strlen($_POST['password1']) > 6){
+                if ($_POST['password1'] == $_POST['password2']){
+                    $this->admins->updateAdminPasswordById($_POST['password1'], $_SESSION['adminId']);
+                    $_SESSION['password'] = $_POST['password1'];
+                    header('Location: /profileadmin');
+                }
+                else{
+                    header('Location: /changepassword');
+                    $_SESSION['warning'] = "Veuillez reconfirmer votre mot de passe";
+                }
+            }
+            else{
+                header('Location: /changepassword');
+                $_SESSION['warning'] = "Votre mot de passe doit faire au moins sept caractères";
+            }
+        }
+        else{
+            header('Location: /changepassword');
+            $_SESSION['warning'] = "Votre mot de passe actuel est incorrect";
         }
     }
 
