@@ -54,10 +54,7 @@
 <script>
 
     var sensorTypes = JSON.parse("<?php echo addslashes(json_encode($data['sensorTypes'])); ?>");
-    var actuatorTypes = [
-        'lumieres', 'volets'
-    ];
-
+    var actuatorTypes = JSON.parse("[{\"id\":\"volet\",\"name\":\"volet\"},{\"id\":\"lumiere\",\"name\":\"lumiere\"}]");
     var selector = document.getElementById('selectStuff');
     var typeSelector = document.getElementById('typeSelector');
 
