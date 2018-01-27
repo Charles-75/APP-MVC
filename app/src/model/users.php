@@ -188,6 +188,22 @@ class Users {
         }
     }
 
+    public function updateUserPasswordById($password, $id){
+        try{
+            $req = $this->bdd->prepare("UPDATE user SET password = :password WHERE id = :id");
+            $req->execute([
+                'password' => $password,
+                'id' => $id
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
+
 
 
     public function getUserLike($term){

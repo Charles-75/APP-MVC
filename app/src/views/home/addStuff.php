@@ -18,13 +18,13 @@
     <h1> Ajouter un  Cemac </h1>
     <form  action="/addcemacpost/<?php echo $data['apartmentId']; ?>" method="POST">
         <input type="text" name="reference_cemac" placeholder="référence du Cemac">
-        <label>Choissisez la pièce associé au Cemac</label>
+        <label>Choissisez la pièce associé au Cemac : </label>
         <select name="piece">
             <?php foreach ($data['apartmentData'] as $value): ?>
                 <option value="<?php echo $value['id']; ?>" ><?php echo $value['name']; ?></option>
             <?php endforeach; ?>
         </select>
-        <input type="submit" value="confirmer">
+        <div class="center"><input type="submit" value="confirmer" class="bouton" style="margin-top: 5%"></div>
     </form>
 
 

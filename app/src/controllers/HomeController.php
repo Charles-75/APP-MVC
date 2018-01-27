@@ -158,6 +158,16 @@ class HomeController extends Controller
         $apartmentId = $params['id'];
         if (!empty($_POST['name'])){
             $name = $_POST['name'];
+            $rooms = $this->rooms->getRoomsByHomeId($apartmentId);
+            foreach ($rooms as $room){
+                if (strtolower($room['name']) === strtolower($name)){
+                    $data = [
+                        'apartmentId' => $apartmentId,
+                        'warning' => "Vous ne pouvez pas rentrer deux pièces de même nom"
+                    ];
+                    return $this->renderer->renderTemplate('home/addRoom.php', $data);  //marche pas avec un header vers /addroom
+                }
+            }
             $this->rooms->insertRoom($name, $apartmentId);
             header('Location: /home/'.$apartmentId);
         }
