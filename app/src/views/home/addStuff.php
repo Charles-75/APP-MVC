@@ -52,11 +52,22 @@
  </div>
 </div>
 <script>
-
+    var actuator=document.getElementById('actuator');
+    var test = JSON.parse (" <?php echo addslashes(json_encode($data['cemacData'])); ?>");
     var sensorTypes = JSON.parse("<?php echo addslashes(json_encode($data['sensorTypes'])); ?>");
     var actuatorTypes = JSON.parse("[{\"id\":\"volet\",\"name\":\"volet\"},{\"id\":\"lumiere\",\"name\":\"lumiere\"}]");
     var selector = document.getElementById('selectStuff');
     var typeSelector = document.getElementById('typeSelector');
+
+    if (test[0] != null){
+
+        actuator.style.display= "inline";
+
+    }
+    if (test[0]== null) {
+        alert("Pour ajouter un capteur ou un actionneur , il faut d'abord ajouter un Cemac" );
+        actuator.style.display= "none";
+    }
 
 
     selector.addEventListener('change', openchoice);
