@@ -18,13 +18,13 @@
     <h1> Ajouter un  Cemac </h1>
     <form  action="/addcemacpost/<?php echo $data['apartmentId']; ?>" method="POST">
         <input type="text" name="reference_cemac" placeholder="référence du Cemac">
-        <label>Choissisez la pièce associé au Cemac</label>
+        <label>Choissisez la pièce associé au Cemac : </label>
         <select name="piece">
             <?php foreach ($data['apartmentData'] as $value): ?>
                 <option value="<?php echo $value['id']; ?>" ><?php echo $value['name']; ?></option>
             <?php endforeach; ?>
         </select>
-        <input type="submit" value="confirmer">
+        <div class="center"><input type="submit" value="confirmer" class="bouton" style="margin-top: 5%"></div>
     </form>
 
 
@@ -44,7 +44,7 @@
                 <option value="<?php echo $value['id']; ?>" ><?php echo $value['name']; ?></option>
             <?php endforeach; ?>
         </select>
-        <input type="text" name="reference" class ="reference_cemac" style="display: none;" >
+        <input type="text" value ="reference de l'equipement" name="reference" class ="reference_cemac" style="display: none;" >
         <input type="submit"  class="reference_cemac" value="confirmer" style="display: none;">
 
     </form>
@@ -52,14 +52,22 @@
  </div>
 </div>
 <script>
-
+    var actuator=document.getElementById('actuator');
+    var test = JSON.parse (" <?php echo addslashes(json_encode($data['cemacData'])); ?>");
     var sensorTypes = JSON.parse("<?php echo addslashes(json_encode($data['sensorTypes'])); ?>");
-    var actuatorTypes = [
-        'lumieres', 'volets'
-    ];
-
+    var actuatorTypes = JSON.parse("[{\"id\":\"volet\",\"name\":\"volet\"},{\"id\":\"lumiere\",\"name\":\"lumiere\"}]");
     var selector = document.getElementById('selectStuff');
     var typeSelector = document.getElementById('typeSelector');
+
+    if (test[0] != null){
+
+        actuator.style.display= "inline";
+
+    }
+    if (test[0]== null) {
+        alert("Pour ajouter un capteur ou un actionneur , il faut d'abord ajouter un Cemac" );
+        actuator.style.display= "none";
+    }
 
 
     selector.addEventListener('change', openchoice);

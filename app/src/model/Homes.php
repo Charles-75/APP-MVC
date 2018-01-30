@@ -193,6 +193,16 @@ class Homes
         return $res;
     }
 
+    public function getGuestApartmentsId($userId){
+        $req = $this->bdd->prepare("SELECT apartmentId FROM guestship WHERE userId = :userId");
+        $req->execute([
+            'userId' => $userId
+        ]);
+
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
     public function deleteGuest($id){
         try{
             $req = $this->bdd->prepare("DELETE FROM guestship WHERE id = :id");
@@ -204,6 +214,19 @@ class Homes
             return null;
         }
         catch (\Exception $e){
+            return null;
+        }
+    }
+
+    public function getApartmentByApartmentId($apartmentId){
+        try {
+            $req = $this->bdd->prepare("SELECT * FROM apartment WHERE id = :apartmentId ORDER BY id");
+            $req->execute([':apartmentId' => $apartmentId]);
+            $res = $req->fetchAll(PDO::FETCH_ASSOC);
+            return $res;
+        } catch (\PDOException $e) {
+            return null;
+        } catch (\Exception $e) {
             return null;
         }
     }

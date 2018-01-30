@@ -20,6 +20,8 @@ $routes = [
 
     ['/\/logout/', ['\Src\Controllers\UserController', 'logout']],
 
+    ['/\/logout_admin/', ['\Src\Controllers\AdminController', 'logout']],  //admin
+
     ['/\/register/', ['\Src\Controllers\UserController', 'register']],
 
     ['/\/registerpost/', ['\Src\Controllers\UserController', 'registerpost']],
@@ -34,9 +36,19 @@ $routes = [
 
     ['/\/updateprofile/', ['\Src\Controllers\UserController', 'updateprofile']],
 
+    ['/\/changepassword/', ['\Src\Controllers\UserController', 'changePassword']],
+
+    ['/\/changepasswordpost/', ['\Src\Controllers\UserController', 'changePasswordPost']],
+
+    ['/\/changepasswordadmin/', ['\Src\Controllers\AdminController', 'changePassword']],
+
+    ['/\/changepasswordadminpost/', ['\Src\Controllers\AdminController', 'changePasswordPost']],
+
     ['/\/updateadmin/', ['\Src\Controllers\AdminController', 'updateAdmin']],
 
     ['/\/updateprofilepost/', ['\Src\Controllers\UserController', 'updateprofilepost']],
+
+    ['/\/updateadminpost/', ['\Src\Controllers\AdminController', 'updateAdminPost']], //admin
 
     ['/\/addticket/', ['\Src\Controllers\UserController', 'addticket']],
 
@@ -45,8 +57,6 @@ $routes = [
     ['/\/tickethistoric/', ['\Src\Controllers\UserController', 'ticketHistoric']],
 
     ['/\/viewticket\/(?<id>[0-9]+)/', ['\Src\Controllers\UserController', 'viewTicket']],
-
-    ['/\/updateadminpost/', ['\Src\Controllers\AdminController', 'updateAdminPost']], //admin
 
     ['/\/addhome/', ['\Src\Controllers\HomeController', 'addhome']],
 
@@ -80,7 +90,7 @@ $routes = [
     
     ['/\/searchuser\/(?<term>.+)/', ['\Src\Controllers\AdminController', 'searchuser']],
 
-    ['/\/addstuff\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addStuff']],
+    ['/\/addgear\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addStuff']],
 
     ['/\/addcemacpost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'addCemacPost']],
 

@@ -84,5 +84,21 @@ class Admins
         }
     }
 
+    public function updateAdminPasswordById($password, $id){
+        try{
+            $req = $this->bdd->prepare("UPDATE admin SET password = :password WHERE id = :id");
+            $req->execute([
+                'password' => $password,
+                'id' => $id
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
+    }
+
 
 }

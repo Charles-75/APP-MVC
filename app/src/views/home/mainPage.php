@@ -3,7 +3,7 @@
 
     <div class="card" id="card-capteurs">
         <h1>Ma maison</h1>
-        <a href="/addstuff/<?php echo $data['apartmentId']; ?>" class="bouton">Ajouter un capteur</a>
+        <a href="/addgear/<?php echo $data['apartmentId']; ?>" class="bouton">Ajouter un capteur</a>
 
         <?php foreach ($data['sensorsData'] as $sensor): ?>
 
@@ -21,6 +21,13 @@
                 <li><a href="/room/<?php echo $room['id']; ?>"><?php echo $room['name']; ?></a></li>
             <?php endforeach; ?>
         </ul>
+        <a href="/deleteroom/<?php echo $data['apartmentId']; ?>" class="a-delete" style="color: white">Supprimer pièce(s)</a>
+
+        <div style="margin-top: 8%">
+            <?php foreach ($data['apartmentData'] as $value): ?>
+            <div><a  href='  /home/<?php echo $data['apartmentId']; ?>/<?php echo $value['name']; ?>'><?php echo $value['name']; ?></a></div>
+            <?php endforeach; ?>
+        </div>
 
     </div>
     <div id="orderAndNotif">
@@ -74,6 +81,16 @@
         .card {
             width: 30%;
         }
+    }
+    .a-delete{
+        padding: 10px;
+        background-color: #DC1114;
+        border: 1px solid #C81113;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font: 400 11px Roboto;
+        display: inline-block;
     }
 
 </style>
