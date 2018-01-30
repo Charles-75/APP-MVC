@@ -16,18 +16,12 @@
     <div class="card" id="card-rooms">
         <h1>Mes pièces</h1>
         <a href="/addroom/<?php echo $data['apartmentId']; ?>" class="bouton">Ajouter une pièce</a>
+        <a href="/deleteroom/<?php echo $data['apartmentId']; ?>" class="a-delete" style="color: white">Supprimer pièce(s)</a>
         <ul>
             <?php foreach ($data['rooms'] as $room): ?>
                 <li><a href="/room/<?php echo $room['id']; ?>"><?php echo $room['name']; ?></a></li>
             <?php endforeach; ?>
         </ul>
-        <a href="/deleteroom/<?php echo $data['apartmentId']; ?>" class="a-delete" style="color: white">Supprimer pièce(s)</a>
-
-        <div style="margin-top: 8%">
-            <?php foreach ($data['apartmentData'] as $value): ?>
-            <div><a  href='  /home/<?php echo $data['apartmentId']; ?>/<?php echo $value['name']; ?>'><?php echo $value['name']; ?></a></div>
-            <?php endforeach; ?>
-        </div>
 
     </div>
     <div id="orderAndNotif">
