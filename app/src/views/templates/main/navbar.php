@@ -5,8 +5,8 @@
 
     <div id="navbar-links">
         <a href='/myhomes' >Mes maisons</a>
-        <?php  if (isset($data['apartmentId'])){
-            $id = $data['apartmentId'];
+        <?php  if (isset($_SESSION['apartmentId'])){
+            $id = $_SESSION['apartmentId'];
             echo "|  <a href='/home/$id'> Ma Page d'accueil </a> ";
 
         }
