@@ -234,7 +234,7 @@ class HomeController extends Controller
             header('Location: /addgear/'.$apartmentId);
         }
         else{
-            header('Location: /gear /'.$apartmentId);
+            header('Location: /addgear/'.$apartmentId);
         }
     }
     public function addSensorOrActuatorPostAction($params)

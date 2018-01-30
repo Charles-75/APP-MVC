@@ -1,6 +1,5 @@
 <?php include(__DIR__."/../templates/main/navbar.php") ?>
 
-
 <div class="container home-container">
 
 
@@ -40,6 +39,34 @@
 
             </div>
         <?php endforeach; ?>
+    </div>
+
+    <?php if (!empty($data['homesGuests'])){ ?>
+    <h1 style="display: block; width: 100%; padding: 20px;">Maisons invités</h1>
+
+    <div class="homes-container">
+    <?php foreach ($data['homesGuests'] as $value1): ?>
+        <div class="card home">
+           <?php foreach ($value1['guest'] as $key1): ?>
+               <iframe
+                       frameborder="0" class="map"
+                       src="https://www.google.com/maps/embed/v1/place?key=AIzaSyArELkdidNIXX2jnYgDvGSbqIgCQpdePMU&q=<?php echo urlencode($key1['number'] . ' ' . $key1['street'] . ' ' . $key1['zipCode']) ?>" allowfullscreen>
+               </iframe class="map">
+               <div class="home-description">
+                   Ville : <?php echo $key1['town']; ?><br>
+                   Rue : <?php echo $key1['street']; ?><br>
+                   Numero : <?php echo $key1['number']; ?><br>
+                   Code Postal : <?php echo $key1['zipCode']; ?><br>
+                   <div class="home-buttons">
+                       <button onclick="HomeRedirection(<?php echo $value1['apartmentId'];?>)" class="bouton">Choisir</button>
+                   </div>
+               </div>
+           <?php endforeach; ?>
+        </div>
+     <?php endforeach; ?>
+    </div>
+    <?php } ?>
+
     </div>
 
 </div>
