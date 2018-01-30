@@ -1,4 +1,7 @@
-<?php include(__DIR__."/../templates/main/navbar.php") ?>
+<?php if (isset($_SESSION['id'])) {
+    include(__DIR__ . "/../templates/main/navbar.php");
+    }
+?>
 
 
 <div id="containerCGU" class="card">
@@ -101,3 +104,8 @@
 
 
 </div>
+
+<?php if (!isset($_SESSION['id'])) {
+    echo '<div class="center"><a href="/register" class="bouton" style="font-size: 100%; margin-bottom: 5%">Retour</a></div>';
+}
+?>
