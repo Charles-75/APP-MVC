@@ -29,7 +29,7 @@
 
 
  </div>
- <div class="capteurs minibox card">
+ <div class="capteurs minibox card" style="display: none;">
     <h1> Ajouter des capteurs et actionneurs </h1>
     <form action="/addsensororactuatorpost/<?php echo $data['apartmentId']; ?>" method="POST">
 
