@@ -21,7 +21,7 @@
         <div class="all_sensors">
             <h1> Capteurs</h1>
             <?php foreach ($data['sensor'] as $value): ?>
-                <div class="sensor"><?php echo $value['reference']; ?>  <a href="/home/<?php echo $data['apartmentId']; ?>/<?php echo $data['roomName']; ?>/<?php echo $value['reference']; ?>"> détails </a></div>
+                <div class="sensor"><?php echo $value['reference']; ?>  <a href="sensor/<?php $value['id']; ?>">Détails</a></div>
             <?php endforeach; ?>
 
         </div>
@@ -29,7 +29,7 @@
             <h1>Actionneurs</h1>
             <div class="actuator">
                 <?php foreach ($data['actuator'] as $value): ?>
-                    <div class="actuator"><?php echo $value['reference']; ?> </div>
+                    <div class="actuator"><?php echo $value['reference']; ?></div>
                 <?php endforeach; ?>
             </div>
 

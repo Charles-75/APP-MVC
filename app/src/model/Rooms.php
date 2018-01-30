@@ -94,12 +94,12 @@ class Rooms {
     }
 
 
-    public function addRoom($roomName, $homeId){   //retourne rien
+    public function addRoom($roomName, $apartmentId){   //retourne rien
         try {
-            $req = $this->bdd->prepare("INSERT INTO room(name, homeId) VALUES(:name, :homeId)");
+            $req = $this->bdd->prepare("INSERT INTO room(name, apartmentId) VALUES(:name, :apartmentId)");
             $req->execute([
                 ':name' => $roomName,
-                ':homeId' => $homeId
+                ':apartmentId' => $apartmentId
             ]);
         }
         catch(\PDOException $e) {
