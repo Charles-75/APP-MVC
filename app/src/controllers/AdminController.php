@@ -168,10 +168,88 @@ class AdminController extends Controller
     }
 
 
-    public function getAllTicketsAction($params){
-        $data = $this->ticket->getTicketOrderedByUserId();
+
+    public function ticketAdminAction($params)
+    {
+        $ticketsOpen = $this->ticket->getAllTicketsStillOpenAdmin();
+        $ticketsClose = $this->ticket->getAllTicketsClosedAdmin();
+        $months = ["janvier", "février", "mars", "avril", "mai", "juin",
+            "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+
+        for ($it = 0; $it < count($ticketsOpen); $it++) {
+            $obj = new \DateTime($ticketsOpen[$it]['creationDate']);
+            $date0 = $obj->format('d');
+            $month1 = $obj->format('m');
+            $month = $months[$month1 - 1];
+            $date3 = $obj->format('Y à H');
+            $date2 = $obj->format('i');
+            $date = $date0 . " " . $month . " " . $date3 . "h" . $date2;
+            $ticketsOpen[$it]['openDate'] = $date;
+        }
+        for ($it = 0; $it < count($ticketsClose); $it++) {
+            $obj1 = new \DateTime($ticketsClose[$it]['creationDate']);
+            $date4 = $obj1->format('d');
+            $month2 = $obj1->format('m');
+            $month3 = $months[$month2 - 1];
+            $date5 = $obj1->format('Y à H');
+            $date6 = $obj1->format('i');
+            $date1 = $date4 . " " . $month3 . " " . $date5 . "h" . $date6;
+            $ticketsClose[$it]['openDate'] = $date1;
+
+            $obj2 = new \DateTime($ticketsClose[$it]['closeDate']);
+            $date7 = $obj2->format('d');
+            $month4 = $obj2->format('m');
+            $month5 = $months[$month4 - 1];
+            $date8 = $obj2->format('Y à H');
+            $date9 = $obj2->format('i');
+            $closeDate = $date7 . " " . $month5 . " " . $date8 . "h" . $date9;
+            $ticketsClose[$it]['closeDate'] = $closeDate;
+        }
+        $data = [
+            'ticketsOpen' => $ticketsOpen,
+            'ticketsClose' => $ticketsClose,
+        ];
+        return $this->renderer->renderTemplate('templates/admin/ticketadmin.php', $data);
     }
 
+    public function viewTicketAdminAction($params){
+        $ticketId = $params['id'];
+        $ticket = $this->ticket->getTicket($ticketId);
+        $months = ["janvier", "février", "mars", "avril", "mai", "juin",
+            "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+        foreach ($ticket as $value){
+            $obj = new \DateTime($value['creationDate']);
+            $date0 = $obj->format('d');
+            $month1 = $obj->format('m');
+            $month = $months[$month1 - 1];
+            $date1 = $obj->format('Y à H');
+            $date2 = $obj->format('i');
+            $date = $date0." ".$month." ".$date1."h".$date2;
+            if ($value['closeDate'] != NULL){
+                $obj1 = new \DateTime($value['closeDate']);
+                $date3 = $obj1->format('d');
+                $month2 = $obj1->format('m');
+                $month1 = $months[$month2 - 1];
+                $date4 = $obj1->format('Y à H');
+                $date5 = $obj1->format('i');
+                $closeDate = $date3." ".$month1." ".$date4."h".$date5;
+            }
+        }
+        if (isset($closeDate)){
+            $data = [
+                'ticket' => $ticket,
+                'date' => $date,
+                'closeDate' => $closeDate
+            ];
+        }
+        else{
+            $data = [
+                'ticket' => $ticket,
+                'date' => $date
+            ];
+        }
+        return $this->renderer->renderTemplate('templates/admin/viewticketadmin.php', $data);
+    }
 
 
 }

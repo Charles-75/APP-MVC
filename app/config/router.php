@@ -56,7 +56,11 @@ $routes = [
 
     ['/\/tickethistoric/', ['\Src\Controllers\UserController', 'ticketHistoric']],
 
+    ['/\/ticketadmin/', ['\Src\Controllers\AdminController', 'ticketAdmin']],
+
     ['/\/viewticket\/(?<id>[0-9]+)/', ['\Src\Controllers\UserController', 'viewTicket']],
+
+    ['/\/viewticketadmin\/(?<id>[0-9]+)/', ['\Src\Controllers\AdminController', 'viewTicketAdmin']],
 
     ['/\/addhome/', ['\Src\Controllers\HomeController', 'addhome']],
 

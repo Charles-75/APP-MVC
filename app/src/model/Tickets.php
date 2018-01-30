@@ -82,4 +82,20 @@ class Tickets
         return $res;
     }
 
+    public function getAllTicketsStillOpenAdmin(){
+        $req = $this->bdd->query("SELECT * FROM ticket WHERE closeDate IS NULL ORDER BY creationDate DESC");
+
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+    public function getAllTicketsClosedAdmin(){
+        $req = $this->bdd->query("SELECT * FROM ticket WHERE closeDate IS NOT NULL ORDER BY creationDate DESC ");
+
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
+
+
 }
