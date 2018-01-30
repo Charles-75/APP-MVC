@@ -4,7 +4,7 @@
 $routes = [
     ['/\//', ['\Src\Controllers\IndexController', 'index']],
 
-    ['/\/about/', ['\Src\Controllers\AboutController', 'about']],
+    ['/\/about/', ['\Src\Controllers\IndexController', 'about']],
 
     ['/\/contact/', ['\Src\Controllers\IndexController', 'contact']],
 

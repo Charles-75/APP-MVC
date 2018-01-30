@@ -135,7 +135,7 @@ class HomeController extends Controller
         $data = [
             'apartmentId' => $apartmentId, // Pour le header
             'sensorsData' => $this->homes->getLatestAverageSensorsData($apartmentId), // Colonne de gauche
-            'rooms' => $this->rooms->getRoomsByHomeId($params['id']),
+            'rooms' => $this->rooms->getRoomsByHomeId($apartmentId),
             'dataNotif' => $this->notifications->getNotification()
         ];
 
@@ -152,7 +152,7 @@ class HomeController extends Controller
         $apartmentId = $params['id'];
         if (!empty($_POST['name'])){
             $name = $_POST['name'];
-            $rooms = $this->rooms->getRoomsByHomeId($apartmentId);
+            /*$rooms = $this->rooms->getRoomsByHomeId($apartmentId);
             foreach ($rooms as $room){
                 if (strtolower($room['name']) === strtolower($name)){
                     $data = [
@@ -161,7 +161,7 @@ class HomeController extends Controller
                     ];
                     return $this->renderer->renderTemplate('home/addRoom.php', $data);  //marche pas avec un header vers /addroom
                 }
-            }
+            }*/
             $this->rooms->addRoom($name, $apartmentId);
             header('Location: /home/'.$apartmentId);
         }
@@ -205,15 +205,14 @@ class HomeController extends Controller
         return $this->renderer->renderTemplate('home/addStuff.php', $data);
     }
     public function roomAction($params){
-        $apartmentId= $params['id'];
-        $_SESSION['apartmentId'] = $apartmentId;
-        $roomName = $params['term'];
-        $roomId = $this->rooms->getRoomIdByName($roomName);
+        $apartmentId = $params['id'];
+        $roomId = $params['id'];
+        //$roomId = $this->rooms->getRoomIdByName($roomName);
         $data = [
             'apartmentId' => $apartmentId,
             'sensor' => $this->sensors->getSensorsByRooms($roomId),
             'actuator' => $this ->actuators->getActuatorsByRooms($roomId),
-            'roomName' => $roomName
+            'roomId' => $roomId
         ];
         return $this -> renderer->renderTemplate( 'home/room.php',$data);
     }

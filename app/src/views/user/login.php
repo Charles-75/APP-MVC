@@ -10,6 +10,9 @@
             if (isset($_SESSION['info'])){
                 echo '<div style="margin-bottom: 2%; background-color: #43DC7E; padding: 1%; font-size: 80%">'.$_SESSION['info'].'</div>';
             }
+
+            session_destroy();
+            session_start();
         ?>
 
         <form action="/loginpost" method="POST">
