@@ -150,10 +150,11 @@ class HomeController extends Controller
 
     public function addRoomPostAction($params){
         $apartmentId = $params['id'];
+
         if (!empty($_POST['name'])){
             $name = $_POST['name'];
             $rooms = $this->rooms->getRoomsByHomeId($apartmentId);
-            foreach ($rooms as $room){
+            /*foreach ($rooms as $room){
                 if (strtolower($room['name']) === strtolower($name)){
                     $data = [
                         'apartmentId' => $apartmentId,
@@ -161,7 +162,7 @@ class HomeController extends Controller
                     ];
                     return $this->renderer->renderTemplate('home/addRoom.php', $data);  //marche pas avec un header vers /addroom
                 }
-            }
+            }*/
             $this->rooms->addRoom($name, $apartmentId);
             header('Location: /home/'.$apartmentId);
         }

@@ -23,7 +23,7 @@ class Renderer
         ob_start();
         require(__DIR__.'/../../src/views/templates/'.$template.'/first.php');
         require(__DIR__.'/../../src/views/'.$path);
-        //require(__DIR__.'/../../src/views/templates/'.$template.'/last.php');
+        require(__DIR__.'/../../src/views/templates/'.$template.'/last.php');
         return ob_get_clean();
     }
 

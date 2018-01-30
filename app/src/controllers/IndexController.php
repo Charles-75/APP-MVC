@@ -52,6 +52,10 @@ class IndexController extends Controller
         return $this->renderer->renderTemplate('general/cgu.php');
     }
 
+    public function aboutAction($params){
+        return $this->renderer->renderTemplate('general/about.php');
+    }
+
     public function memberAction($params) {
         $user = $this->users->getUserById(intval($params['id']));
         return "<pre>".var_dump($user)."</pre>";
