@@ -2,7 +2,6 @@
 
 
 <style>
-
 .cd-faq-categories {
   color: deepskyblue;
 }
@@ -20,9 +19,7 @@
   padding: 0.5em;
   background-color: #ddd;
 }
-
 </style>
-
 
 
 <div>
@@ -78,49 +75,34 @@
 				  </div>
 				</details>
 
-				<details><summary class="cd-faq-trigger">Comment modifier une pièce ?</summary>
-				  <div class="cd-faq-content">
-				  	Pour modifier le nom ou supprimer une pièce .
-				  </div>
-				</details>
-
 				<details><summary class="cd-faq-trigger">Que faire si mon problème n'est pas couvert pas cette FAQ?</summary>
 				  <div class="cd-faq-content">
 				  	Vous avez 2 possibilités :<br>
-            S'il s'agit d'un problème technique comme l'installation ou l'utilisation d'un capteur, ouvrez un ticket en accédant à <a href="/contact">la page d'ouverture de ticket</a> en détaillant le plus possible votre problème.<br>
+            S'il s'agit d'un problème technique comme l'installation ou l'utilisation d'un capteur, ouvrez un ticket en accédant à <a href="/addticket">la page d'ouverture de ticket</a> en détaillant le plus possible votre problème.<br>
             S'il s'agit d'une question plus générale, rendez-vous sur la page de <a href="/contact">contact</a> et envoyez-nous un mail en détaillant le plus possible votre demande.
 				  </div>
 				</details>
-
-				<details><summary class="cd-faq-trigger">?</summary>
-				  <div class="cd-faq-content">
-				  	Bla.
-				  </div>
-				</details>
-
 		</ul>
 
 		<ul id="advanced" class="cd-faq-group">
 			<h2 class="cd-faq-title">F.A.Q. Avancée</h2>
         <details><summary class="cd-faq-trigger">Comment créer un ordre ?</summary>
           <div class="cd-faq-content">
-            Bla.
+            Rendez-vous sur la page de votre appartement et cliquez sur le boutton "Ajouter un ordre".
           </div>
         </details>
 
-
         <details><summary class="cd-faq-trigger">Comment modifier un ordre ?</summary>
 				  <div class="cd-faq-content">
-					  Bla.
+					  Si vous voulez supprimer un ordre, vous pouvez le faire depuis la page de gestion des ordres.
 			    </div>
 				</details>
 
 				<details><summary class="cd-faq-trigger">Comment ajouter un actionneur ?</summary>
 				  <div class="cd-faq-content">
-					   Bla.
+					   Rendez-vous sur la page de votre appartement et cliquez sur le boutton "Ajouter un capteur".
 				  </div>
 				</details>
-
 		</ul>
 
 	</div>
