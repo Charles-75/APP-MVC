@@ -126,21 +126,15 @@ class HomeController extends Controller
     }
 
     public function homeAction($params){
+
         $apartmentId = $params['id'];
         $_SESSION['apartmentId'] = $apartmentId;
-        $sensorsData = $this->homes->getLatestAverageSensorsData($apartmentId);
-
-        //echo "<pre>";
-        //var_dump($sensorsData);
-        //die();
 
         $data = [
-            'apartmentId' => $apartmentId,
-            'sensorsData' => $sensorsData,
-            'apartmentData' => $this->rooms->getRoomsByHomeId($apartmentId),
-            'dataNotif' => $this->notifications->getNotification(),
-            'bigdata'=>$this->sensors->getRoomNameSensorValueSensorType()
-
+            'apartmentId' => $apartmentId, // Pour le header
+            'sensorsData' => $this->homes->getLatestAverageSensorsData($apartmentId), // Colonne de gauche
+            'rooms' => $this->rooms->getRoomsByHomeId($params['id']),
+            'dataNotif' => $this->notifications->getNotification()
         ];
 
         return $this->renderer->renderTemplate('home/mainPage.php', $data);
@@ -156,7 +150,7 @@ class HomeController extends Controller
         $apartmentId = $params['id'];
         if (!empty($_POST['name'])){
             $name = $_POST['name'];
-            $this->rooms->insertRoom($name, $apartmentId);
+            $this->rooms->addRoom($name, $apartmentId);
             header('Location: /home/'.$apartmentId);
         }
         else{

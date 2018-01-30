@@ -94,9 +94,8 @@ $routes = [
 
     ['/\/delete_notification\/(?<id>[0-9]+)/', ['\Src\Controllers\AdminController', 'deleteNotification']], //admin
 
-    ['/\/home\/(?<id>[0-9]+)\/(?<term>.+)/', ['\Src\Controllers\HomeController', 'room']],
+    ['/\/room\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'room']],
 
-    ['/\/home\/(?<id>[0-9]+)\/(?<term1>.+)\/(?<term2>.+)/', ['\Src\Controllers\HomeController', 'sensordetail']],
 
     ['/\/pannesimulation\/(?<id>[0-9]+)\/(?<id1>[0-9]+)/', ['\Src\Controllers\SensorController', 'panneSimulation']],
 

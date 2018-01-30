@@ -29,7 +29,7 @@ class Rooms {
     public function getRoomsByHomeId($homeId)
     {
         try {
-            $req = $this->bdd->prepare("SELECT name FROM room WHERE apartmentId = :id");
+            $req = $this->bdd->prepare("SELECT * FROM room WHERE apartmentId = :id");
             $req->execute([':id' => $homeId]);
             $res = $req->fetchAll(PDO::FETCH_ASSOC);
             return $res;
@@ -57,7 +57,7 @@ class Rooms {
         }
 
     }
-    public function  getRoomIdByName($roomName)
+    public function getRoomIdByName($roomName)
     {
         try {
             $req = $this->bdd->prepare("SELECT id FROM room WHERE name= :name");
@@ -71,6 +71,26 @@ class Rooms {
         catch(\Error $e) {
             return null;
         }
+    }
+
+    public function getLatestRoomsValuesByHome($homeId) {
+        $req = $this->bdd->prepare("
+          SELECT room.id, sensortype.name, sensortype.image, FLOOR(AVG(value.value)) AS averageValue
+          FROM sensor
+          INNER JOIN `value` ON `value`.sensorId = sensor.id
+          INNER JOIN sensortype ON sensor.typeId = sensortype.id
+          INNER JOIN cemac ON sensor.cemacId = cemac.id
+          INNER JOIN room ON cemac.roomId = room.id
+          WHERE value.id IN (
+          SELECT MAX(value.id)
+            FROM value
+            GROUP BY value.sensorId
+          )
+          AND room.apartmentId = :homeId
+          GROUP BY `value`.sensorId
+        ");
+        $req->execute(['homeId' => $homeId]);
+        return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
 
@@ -100,22 +120,6 @@ class Rooms {
 
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
-    }
-
-    public function insertRoom($name, $apartmentId){
-        try{
-            $req = $this->bdd->prepare("INSERT INTO room(name, apartmentId) VALUES(:name, :apartmentId)");
-            $req->execute([
-                'name' => $name,
-                'apartmentId' => $apartmentId,
-            ]);
-        }
-        catch (\PDOException $e){
-            return null;
-        }
-        catch (\Exception $e){
-            return null;
-        }
     }
 
     public function deleteRoom($roomId){

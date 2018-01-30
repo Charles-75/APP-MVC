@@ -26,14 +26,16 @@
                         <button onclick="HomeRedirection(<?php echo $value['id'];?>)" class="bouton">Choisir</button>
                         <button onclick="deleteHome(<?php echo $value['id']?>)" class="bouton bouton-delete">Supprimer</button>
                         <button onclick="guestRedirection(<?php echo $value['id'];?>)" class="bouton">Ajouter invité</button>
-                        <button onclick="deleteGuest(<?php echo $value['id']?>)" class="bouton bouton-delete">Supprimer invité(s)</button>
                     </div>
-                </div>
-                <div>
+                    <?php if(sizeof($value['guest']) > 0): ?>
                     <h3>Invité(s) :</h3>
+                    <ul>
                     <?php foreach ($value['guest'] as $key): ?>
-                        <div style="margin-top: 20%"><?php echo $key['firstName'].' '. $key['surname']; ?></div>
+                        <li><?php echo $key['firstName'].' '. $key['surname']; ?></li>
                     <?php endforeach; ?>
+                    </ul>
+                    <button onclick="deleteGuest(<?php echo $value['id']?>)" class="bouton bouton-delete">Gérer les invités</button>
+                    <?php endif; ?>
                 </div>
 
             </div>

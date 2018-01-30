@@ -16,16 +16,17 @@
     <div class="card" id="card-rooms">
         <h1>Mes pièces</h1>
         <a href="/addroom/<?php echo $data['apartmentId']; ?>" class="bouton">Ajouter une pièce</a>
-
-        <?php foreach ($data['apartmentData'] as $value): ?>
-        <div><a  href='  /home/<?php echo $data['apartmentId']; ?>/<?php echo $value['name']; ?>'><?php echo $value['name']; ?></a></div>
-        <?php endforeach; ?>
+        <ul>
+            <?php foreach ($data['rooms'] as $room): ?>
+                <li><a href="/room/<?php echo $room['id']; ?>"><?php echo $room['name']; ?></a></li>
+            <?php endforeach; ?>
+        </ul>
 
     </div>
     <div id="orderAndNotif">
         <div class="card" id="card-notif">
 
-            <h1 class="titre" style="color:rgb(78, 196, 196)"> Mes Notifications</h1>
+            <h1 class="titre">Mes Notifications</h1>
                 <div id="listNotif">
                     <?php
 
