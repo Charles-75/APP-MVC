@@ -34,7 +34,7 @@ class AdminController extends Controller
     }
 
     public function loginAction($params) {
-        return $this->renderer->renderTemplate('admin/loginAdmin.php');
+        return $this->renderer->renderTemplateAdmin('admin/loginAdmin.php');
     }
 
 
@@ -77,7 +77,7 @@ class AdminController extends Controller
             'dataNotif' => $this->notification->getNotification(),
             'dataTicket' => $this->ticket->getTicketOrderedByUserId()
         ];
-        return $this->renderer->renderTemplate('admin/allhomes.php', $data);
+        return $this->renderer->renderTemplateAdmin('admin/allhomes.php', $data);
 
 
     }
@@ -107,13 +107,13 @@ class AdminController extends Controller
           'admin' => $admin,
           'password' => $password
         ];
-        return $this->renderer->renderTemplate('admin/profileAdmin.php', $data);
+        return $this->renderer->renderTemplateAdmin('admin/profileAdmin.php', $data);
     }
 
 
     public function updateAdminAction($params){
         $data = $this->admins->getAdminById($_SESSION['adminId']);
-        return $this->renderer->renderTemplate('admin/updateAdmin.php', $data);
+        return $this->renderer->renderTemplateAdmin('admin/updateAdmin.php', $data);
     }
 
     public function updateAdminPostAction($params){
@@ -124,7 +124,7 @@ class AdminController extends Controller
     }
 
     public function changePasswordAction($params){
-        return $this->renderer->renderTemplate('admin/changePasswordAdmin.php');
+        return $this->renderer->renderTemplateAdmin('admin/changePasswordAdmin.php');
     }
 
     public function changePasswordPostAction($params){
@@ -209,7 +209,7 @@ class AdminController extends Controller
             'ticketsOpen' => $ticketsOpen,
             'ticketsClose' => $ticketsClose,
         ];
-        return $this->renderer->renderTemplate('templates/admin/ticketadmin.php', $data);
+        return $this->renderer->renderTemplateAdmin('templates/admin/ticketadmin.php', $data);
     }
 
     public function viewTicketAdminAction($params){
@@ -248,7 +248,7 @@ class AdminController extends Controller
                 'date' => $date
             ];
         }
-        return $this->renderer->renderTemplate('templates/admin/viewticketadmin.php', $data);
+        return $this->renderer->renderTemplateAdmin('templates/admin/viewticketadmin.php', $data);
     }
 
 
