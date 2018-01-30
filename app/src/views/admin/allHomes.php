@@ -52,27 +52,8 @@
 
 
     </div>
+</div>
 
-
-
-<!-- </div>
-
- <div class="card" id="adminTicket">
-    <div>
-        <h2> Tickets </h2>
-        <?php /*
-
-        $tr = "<table>";
-        foreach ($data['dataTicket'] as $ticket){
-            $tr .= "<tr class='linkSubject' onclick='openTicket(". $ticket['id'] .")'><td >".$ticket['userId']."</td><td>".$ticket['creationDate']."</td><td>".$ticket['subject']."</td></tr>";
-        }
-        $tr.="</table>";
-        echo $tr; */
-
-        ?>
-    </div>
-
-</div> -->
 
 
 
