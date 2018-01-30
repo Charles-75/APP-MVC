@@ -44,7 +44,7 @@
         </div>
         <div class="card" id="card-ordre">
             <h1 class="titre "  style="color:rgb(78, 196, 196)" >Mes Ordres </h1>
-            Ajouter un ordre </h3><a href="#">  <img class="ajout" src="/img/ajout.png" width="16" height="16"> </a>
+            <a href="#" class="bouton">  Aujouter un ordre </a>
 
             <div id="contenuOrdre">
                 <div> je t'ordronne d'allumer une lampe<button id="ouv_ordre" onclick="opencity('#ouv_ordre','#ordre')">Afficher plus</button></div>

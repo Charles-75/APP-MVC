@@ -107,4 +107,17 @@ class Sensors
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
+
+
+    public function getSensorId($sensorName) {
+
+        $req = $this->bdd->prepare("SELECT id FROM sensor WHERE reference = :reference");
+        $req->execute([
+            "reference" => $sensorName
+        ]);
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        if (sizeof($res) == 1){ return $res[0];};
+
+    }
+
 }

@@ -240,15 +240,15 @@ class HomeController extends Controller
     public function addSensorOrActuatorPostAction($params)
     {
         $apartmentId = $params['id'];
-        if (!empty($_POST['type']) AND $_POST['stuff'] == 'sensors' AND !empty($_POST['cemac_id']) AND !empty($_POST['reference'])) {
-            $sensorType = $_POST['type'];
+        if (!empty($_POST['Id']) AND $_POST['stuff'] == 'sensors' AND !empty($_POST['cemac_id']) AND !empty($_POST['reference'])) {
+            $sensorType = $_POST['typeId'];
             $sensorReference = $_POST['reference'];
             $cemacId = $_POST['cemac_id'];
             $this->sensors->addSensors($sensorType, $sensorReference, $cemacId);
             header('Location: /addgear/'.$apartmentId);
         }
-        if (!empty($_POST['type']) AND ($_POST['stuff'] == 'actuators') AND !empty($_POST['cemac_id']) AND !empty($_POST['reference'])) {
-            $actuatorType = $_POST['type'];
+        if (!empty($_POST['typeId']) AND ($_POST['stuff'] == 'actuators') AND !empty($_POST['cemac_id']) AND !empty($_POST['reference'])) {
+            $actuatorType = $_POST['typeId'];
             $actuatorReference = $_POST['reference'];
             $cemacId = $_POST['cemac_id'];
             $this->actuators->addActuator($actuatorType, $actuatorReference, $cemacId);

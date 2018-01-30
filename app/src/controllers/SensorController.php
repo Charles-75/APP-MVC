@@ -25,6 +25,19 @@ class SensorController
 
 
 
+    public function panneSimulationAction($params) {
+
+
+        $this->sensor->updateSensorPanne($this->sensor->getSensorId($params['name']));
+
+
+
+    }
+
+
+
+
+
 
 
 }

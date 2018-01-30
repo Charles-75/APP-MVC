@@ -25,29 +25,9 @@
 
 
 
-    <div class="datas"><!graphique des valeurs du capteur ?>
+    <div class="datas"></div>
 
-        <sectionTitle>Statistiques</sectionTitle>
-
-        <div class="diagram">
-
-            <div class='icone'>
-
-                <img src='' alt='diagramme 1'>
-
-            </div>
-
-            <div class='icone'>
-
-                <img src='' alt='diagramme 2'>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <a href="panneSimulation(<?php echo $value['id']?>)">Simuler une panne</a>
+    <a href="panneSimulation(<?php echo $data['reference']?>)">Simuler une panne</a>
 
 </div>
 
