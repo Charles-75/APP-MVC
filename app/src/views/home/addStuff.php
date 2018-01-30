@@ -29,7 +29,7 @@
 
 
  </div>
- <div class="capteurs minibox card" style="display: none;">
+ <div class="capteurs minibox card"  id="actuator" style="display: none;">
     <h1> Ajouter des capteurs et actionneurs </h1>
     <form action="/addsensororactuatorpost/<?php echo $data['apartmentId']; ?>" method="POST">
 
@@ -44,7 +44,7 @@
                 <option value="<?php echo $value['id']; ?>" ><?php echo $value['name']; ?></option>
             <?php endforeach; ?>
         </select>
-        <input type="text" value ="reference de l'equipement" name="reference" class ="reference_cemac" style="display: none;" >
+        <input type="text" placeholder="reference de l'equipement" name="reference" class ="reference_cemac" style="display: none;" >
         <input type="submit"  class="reference_cemac" value="confirmer" style="display: none;">
 
     </form>
@@ -59,12 +59,12 @@
     var selector = document.getElementById('selectStuff');
     var typeSelector = document.getElementById('typeSelector');
 
-    if (test[0] != null){
+    if (test[0] != undefined){
 
         actuator.style.display= "inline";
 
     }
-    if (test[0]== null) {
+    if (test[0]== undefined) {
         alert("Pour ajouter un capteur ou un actionneur , il faut d'abord ajouter un Cemac" );
         actuator.style.display= "none";
     }
