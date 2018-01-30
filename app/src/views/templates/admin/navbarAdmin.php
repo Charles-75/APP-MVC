@@ -9,6 +9,12 @@
     <div id="navbar-icons">
 
         <div class="navbar-lien">
+            <a href="/ticketadmin">
+                <img class="image" src="/img/ticket.png" >
+            </a>
+        </div>
+
+        <div class="navbar-lien">
             <a href='/profileadmin'>
                 <img class='image' src="/img/profil.png">
             </a>
