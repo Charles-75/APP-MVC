@@ -69,12 +69,12 @@ class Users {
      * @param string $password
      * @return User
      */
-    public function getUserByCredentials($email, $password) {
+    public function getUserByCredentials($email, $password, $passwordHashed=false) {
         try {
             $req = $this->bdd->prepare("SELECT * FROM user WHERE email = :email AND password = :password");
             $req->execute(([
                 ':email' => $email,
-                ':password' => $password
+                ':password' => !$passwordHashed ? hash("sha256",$password) : $password
             ]));
             $res = $req->fetchAll(PDO::FETCH_ASSOC);
             if(sizeof($res) == 1) return $res[0];

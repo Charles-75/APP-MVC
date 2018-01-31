@@ -138,7 +138,7 @@ class UserController extends Controller
             if (strlen($_POST['password1']) > 6){
                 if ($_POST['password1'] == $_POST['password2']){
                     $this->users->updateUserPasswordById(hash("sha256", $_POST['password1']), $_SESSION['id']);
-                    $_SESSION['password'] = $_POST['password1'];
+                    $_SESSION['password'] = hash("sha356", $_POST['password1']);
                     header('Location: /profile');
                 }
                 else{

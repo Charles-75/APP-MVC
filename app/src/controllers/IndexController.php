@@ -28,7 +28,7 @@ class IndexController extends Controller
         // Si l'utilisateur a des identifiants en session
         $email = $_SESSION['email'];
         $password = $_SESSION['password'];
-        $user = $this->users->getUserByCredentials($email, $password);
+        $user = $this->users->getUserByCredentials($email, $password, true);
 
         if($user == null) {
             // Le combo email / mdp stocké en session est faux

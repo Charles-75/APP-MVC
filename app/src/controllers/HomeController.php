@@ -10,7 +10,7 @@ use Src\Model\Users;
 use Src\Model\Rooms;
 use Src\Model\Cemac;
 use Src\Model\Actuators;
-use Scr\Model\Orders;
+use Src\Model\Orders;
 use Vendors\Renderer\Renderer;
 
 class HomeController extends Controller
@@ -155,16 +155,6 @@ class HomeController extends Controller
         $apartmentId = $params['id'];
         if (!empty($_POST['name'])){
             $name = $_POST['name'];
-            /*$rooms = $this->rooms->getRoomsByHomeId($apartmentId);
-            foreach ($rooms as $room){
-                if (strtolower($room['name']) === strtolower($name)){
-                    $data = [
-                        'apartmentId' => $apartmentId,
-                        'warning' => "Vous ne pouvez pas rentrer deux pièces de même nom"
-                    ];
-                    return $this->renderer->renderTemplate('home/addRoom.php', $data);  //marche pas avec un header vers /addroom
-                }
-            }*/
             $this->rooms->addRoom($name, $apartmentId);
             header('Location: /home/'.$apartmentId);
         }
@@ -208,11 +198,9 @@ class HomeController extends Controller
         return $this->renderer->renderTemplate('home/addStuff.php', $data);
     }
     public function roomAction($params){
-        $apartmentId = $params['id'];
         $roomId = $params['id'];
         //$roomId = $this->rooms->getRoomIdByName($roomName);
         $data = [
-            'apartmentId' => $apartmentId,
             'sensor' => $this->sensors->getSensorsByRooms($roomId),
             'actuator' => $this ->actuators->getActuatorsByRooms($roomId),
             'roomId' => $roomId
