@@ -267,6 +267,13 @@ class HomeController extends Controller
         return $this->renderer->renderTemplate('home/test.php', $data);
 
     }
+    public function testSimulationPostAction($params){
+        $apartmentId = $_SESSION['apartmentId'];
+        $sensorId = $_POST['sensorId'];
+        $value=$_POST['number'];
+        $this->sensors->updateSensorValue($sensorId,$value);
+        header('Location: /order/'.$apartmentId);
+    }
     public function orderPostAction($params){
         $apartmentId = $params['id'];
         if (!empty($_POST['title'])){
