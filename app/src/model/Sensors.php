@@ -119,5 +119,24 @@ class Sensors
         if (sizeof($res) == 1){ return $res[0];};
 
     }
+     public function getSensorsByRooms($roomId){
+        $req = $this->bdd->prepare("SELECT sensor.* FROM sensor INNER JOIN cemac ON sensor.cemacId = cemac.id
+                                              WHERE cemac.roomId = :roomId ");
+        $req->execute([
+            ':roomId' => $roomId
+        ]);
+
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+    public function getSensorByApartmentId($apartmentId){
+        $req=$this->bdd->query("SELECT sensor.id as sensorId,sensor.typeId,room.id,sensor.reference FROM sensor  
+                                        INNER JOIN cemac ON sensor.cemacId =cemac.id
+                                        INNER JOIN room ON room.id=cemac.roomId");
+
+        $res= $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+
+    }
 
 }
