@@ -34,19 +34,6 @@ class Sensors
         return $res;
     }
 
-    public function getSensorsByRooms($roomId){
-        $req = $this->bdd->prepare("SELECT sensor.* FROM sensor INNER JOIN cemac ON sensor.cemacId = cemac.id
-                                              WHERE cemac.roomId = :roomId ");
-        $req->execute([
-            ':roomId' => $roomId
-        ]);
-
-        $res = $req->fetchAll(PDO::FETCH_ASSOC);
-        return $res;
-    }
-
-
-
 
     public function getSensorsValue($sensorId){
         $req = $this->bdd->prepare("SELECT id,sensor,value,date FROM value WHERE sensorId = :sensorId ");
