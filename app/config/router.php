@@ -12,6 +12,8 @@ $routes = [
 
     ['/\/cgu/', ['\Src\Controllers\IndexController', 'cgu']],
 
+    ['/\/newsletter/', ['\Src\Controllers\IndexController', 'newsletter']],    
+
     ['/\/member\/(?<id>[0-9]+)/', ['\Src\Controllers\IndexController', 'member']],
 
     ['/\/login/', ['\Src\Controllers\UserController', 'login']],

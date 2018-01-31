@@ -7,7 +7,7 @@ if (!empty($_SESSION['id'])) {
                 <div><a href="/faq" class="footerLinks">FAQ</a></div>
                 <div><a href="/contact"  class="footerLinks">Contact</a></div>
                 <div><a href="/about"  class="footerLinks">À propos de Domisep</a></div>
-                <div><a href="#"  class="footerLinks">S\'inscrire à la Newsletter</a></div>
+                <div><a href="/newsletter"  class="footerLinks">S\'inscrire à la Newsletter</a></div>
             </div>
           </footer>';
     }

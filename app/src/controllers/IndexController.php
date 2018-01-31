@@ -56,6 +56,11 @@ class IndexController extends Controller
         return $this->renderer->renderTemplate('general/about.php');
     }
 
+    public function newsletterAction($params){
+        return $this->renderer->renderTemplate('general/newsletter.php');
+    }
+
+
     public function memberAction($params) {
         $user = $this->users->getUserById(intval($params['id']));
         return "<pre>".var_dump($user)."</pre>";
