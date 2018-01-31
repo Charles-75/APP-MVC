@@ -48,12 +48,12 @@
 
             <div id="contenuOrdre">
                 <?php  foreach ($data['order'] as $order){ ?>
-                    <div> <?php  echo $order['title']; ?><button id="ouv_ordre" onclick="opencity('#ouv_<?php echo $order['id']?>','#<?php echo $order['id']?>')">Afficher plus</button></div>
+                    <div> <?php  echo $order['title']; ?><button id="ouv_ordre"  class="bouton" onclick="opencity('#ouv_<?php echo $order['id']?>','#<?php echo $order['id']?>')">Afficher plus</button></div>
                     <div id="<?php echo $order['id']; ?>" style="display:none">
                         <div class="petit">  heure de début :<?php  echo $order['hourStart'];?></div>
                         <div class="petit">  jour de fin  :<?php  echo $order['dateEnd'];?></div>
 
-                        <button id="ferm_<?php echo $order['id']; ?>" onclick="closecity('#<?php echo $order['id']?>','#ouv_<?php echo $order['id']?>')">Afficher moins</button>
+                        <button class="bouton" id="ferm_<?php echo $order['id']; ?>" onclick="closecity('#<?php echo $order['id']?>','#ouv_<?php echo $order['id']?>')">Afficher moins</button>
                     </div>
                 <?php } ?>
 
