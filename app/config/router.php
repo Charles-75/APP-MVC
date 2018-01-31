@@ -116,9 +116,9 @@ $routes = [
 
     ['/\/orderpost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'orderPost']],
 
-    ['/\/pannesimulation\/(?<id>[0-9]+)\/(?<id1>[0-9]+)/', ['\Src\Controllers\SensorController', 'panneSimulation']],
+    ['/\/simulationcapteurs\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'testSimulation']],
 
-    ['/\/test\/(?<id>[0-9]+)/', ['\Src\Controllers\SensorController', 'test']],
+   
     
     ['/\/deleteorder\/(?<id>[0-9]+)\/(?<idordre>[0-9]+)/', ['\Src\Controllers\HomeController', 'deleteOrder']],
     
