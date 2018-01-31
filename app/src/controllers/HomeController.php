@@ -10,6 +10,7 @@ use Src\Model\Users;
 use Src\Model\Rooms;
 use Src\Model\Cemac;
 use Src\Model\Actuators;
+use Scr\Model\Orders;
 use Vendors\Renderer\Renderer;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
     private $cemac;
     private $actuators;
     private $notifications;
+    private $orders;
 
     public function __construct()
     {
@@ -34,6 +36,7 @@ class HomeController extends Controller
         $this->cemac = new Cemac();
         $this->actuators = new Actuators();
         $this->notifications = new Notifications();
+        $this->orders = new Orders();
     }
 
     public function myHomesAction($params) {
@@ -256,15 +259,32 @@ class HomeController extends Controller
             header('Location: /addgear/'.$apartmentId);
         }
     }
-    public function orderAction($params){
-        $apartmentId=$params['id'];
-        $data=[
-            'apartmentId' => $apartmentId,
-            'roomName' => $this->rooms->getRoomsByHomeId($apartmentId),
-        ];
-        return $this->renderer->renderTemplate('home/order.php',$data);
-    }
+     public function orderAction($params){
+    $apartmentId=$params['id'];
+    $data=[
+        'apartmentId' => $apartmentId,
+        'room' => $this->rooms->getRoomIdAndNameByHomeId($apartmentId),
+    ];
+    return $this->renderer->renderTemplate('home/order.php',$data);
+}
+    public function orderPostAction($params){
+        $apartmentId = $params['id'];
+        if (!empty($_POST['title'])){
+            $title = $_POST['title'];
+            $dateStart = $_POST['dateStart'];
+            $hourStart = $_POST['hourStart'];
+            $dateEnd = $_POST['dateEnd'];
+            $repetition= $_POST['day'];
+            $roomActionId = $_POST['roomActionId'];
 
+            $this->orders->createOrder($title,$roomActionId,$dateStart,$hourStart,$dateEnd,$repetition);
+            header( 'Location: /order/'.$apartmentId);
+        }
+        else {
+            header('Location: /order/'.$apartmentId);
+        }
+
+    }
     public function deleteCemacAction($params){
         $apartmentId = $params['id'];
         $rooms = $this->rooms->getRoomIdAndNameByHomeId($apartmentId);
