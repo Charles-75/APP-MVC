@@ -139,7 +139,8 @@ class HomeController extends Controller
             'apartmentId' => $apartmentId, // Pour le header
             'sensorsData' => $this->homes->getLatestAverageSensorsData($apartmentId), // Colonne de gauche
             'rooms' => $this->rooms->getRoomsByHomeId($apartmentId),
-            'dataNotif' => $this->notifications->getNotification()
+            'dataNotif' => $this->notifications->getNotification(),
+             'order' => $this->orders->getOrdersByApartmentId($apartmentId),
         ];
 
         return $this->renderer->renderTemplate('home/mainPage.php', $data);
