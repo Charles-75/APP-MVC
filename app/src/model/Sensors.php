@@ -107,7 +107,9 @@ class Sensors
 
     }
      public function getSensorsByRooms($roomId){
-        $req = $this->bdd->prepare("SELECT sensor.* FROM sensor INNER JOIN cemac ON sensor.cemacId = cemac.id
+        $req = $this->bdd->prepare("SELECT sensor.*, sensortype.name AS type FROM sensor
+                                              INNER JOIN cemac ON sensor.cemacId = cemac.id
+                                              INNER JOIN sensortype ON sensor.typeId = sensortype.id
                                               WHERE cemac.roomId = :roomId ");
         $req->execute([
             ':roomId' => $roomId
@@ -116,6 +118,23 @@ class Sensors
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
+
+
+    public function getSensorsLastValuesByRoom($roomId) {
+         $req = $this->bdd->prepare("SELECT sensor.*, `value`.value, sensortype.displayname AS type FROM sensor
+                                               INNER JOIN cemac ON sensor.cemacId = cemac.id
+                                               INNER JOIN sensortype ON sensor.typeId = sensortype.id
+                                               INNER JOIN `value` ON `value`.sensorId = sensor.id
+                                               WHERE value.id IN (
+                                                  SELECT MAX(value.id)
+                                                    FROM value
+                                                    GROUP BY value.sensorId
+                                                  )
+                                               AND cemac.roomId = :roomId");
+         $req->execute(['roomId' => $roomId]);
+         return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getSensorByApartmentId($apartmentId){
         $req=$this->bdd->query("SELECT sensor.id as sensorId,sensor.typeId,room.id,sensor.reference FROM sensor  
                                         INNER JOIN cemac ON sensor.cemacId =cemac.id
@@ -126,9 +145,9 @@ class Sensors
 
     }
     public function updateSensorValue($sensorId,$value){
-        $req = $this->bdd->prepare("UPDATE `value` SET `value` =:value WHERE sensorId=:sensorId ");
+        $req = $this->bdd->prepare("INSERT INTO `value` (value, date, sensorId) VALUES(:val, NOW(), :sensorId) ");
         $req->execute([
-            ':value' => $value,
+            ':val' => $value,
             ':sensorId' => $sensorId,
         ]);
     }

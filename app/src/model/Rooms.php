@@ -137,6 +137,14 @@ class Rooms {
         }
     }
 
+    public function getRoomById($roomId) {
+        $req = $this->bdd->prepare("SELECT * FROM room WHERE id = :id");
+        $req->execute([
+            'id' => $roomId
+        ]);
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
 
 }

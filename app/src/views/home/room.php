@@ -10,25 +10,21 @@
     <div class="card">
         <div class="all_sensors">
             <h1> Capteurs</h1>
-            <?php foreach ($data['sensor'] as $value): ?>
-                <div class="sensor"><?php echo $value['reference']; ?>  <a href="sensor/<?php $value['id']; ?>">Détails</a></div>
+            <ul>
+            <?php foreach ($data['sensors'] as $sensor): ?>
+                <li><?php echo $sensor['type'] . ' : ' . $sensor['value'] ?></li>
             <?php endforeach; ?>
-
+            </ul>
         </div>
         <div class="all_actuators">
             <h1>Actionneurs</h1>
-            <div class="actuator">
-                <?php foreach ($data['actuator'] as $value): ?>
-                    <div class="actuator"><?php echo $value['reference']; ?></div>
+            <ul>
+                <?php foreach ($data['actuators'] as $actuator): ?>
+                    <li><?php echo $actuator['type'] . ' : ' . $actuator['state'] ?></li>
                 <?php endforeach; ?>
-            </div>
-
+            </ul>
         </div>
     </div>
-
-
-
-
 
 
 </div>

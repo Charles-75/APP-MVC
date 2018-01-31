@@ -69,7 +69,7 @@ class Homes
 
     public function getLatestAverageSensorsData($homeId) {
         $req = $this->bdd->prepare("
-          SELECT sensor.typeId, sensortype.name AS typeName, FLOOR(AVG(value.value)) AS averageValue, sensortype.image AS image
+          SELECT sensor.typeId, sensortype.name AS typeName, sensortype.displayname AS displayName, FLOOR(AVG(value.value)) AS averageValue, sensortype.image AS image
           FROM value
           INNER JOIN sensor ON sensor.id = value.sensorId
           INNER JOIN sensortype ON sensortype.id = sensor.typeId
@@ -229,6 +229,15 @@ class Homes
         } catch (\Exception $e) {
             return null;
         }
+    }
+
+    public function getSensorsByHomeId($homeId) {
+        $req = $this->bdd->prepare("SELECT sensor.*, room.id AS roomId FROM sensor
+                                              INNER JOIN cemac ON sensor.cemacId = cemac.id
+                                              INNER JOIN room ON cemac.roomId = room.id
+                                              WHERE room.apartmentId = :homeId");
+        $req->execute(['homeId' => $homeId]);
+        return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
 

@@ -29,6 +29,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->renderer = new Renderer();
+        $this->rooms = new Rooms();
         $this->users = new Users();
         $this->homes = new Homes();
         $this->rooms = new Rooms();
@@ -198,16 +199,18 @@ class HomeController extends Controller
         ];
         return $this->renderer->renderTemplate('home/addStuff.php', $data);
     }
+
     public function roomAction($params){
         $roomId = $params['id'];
-        //$roomId = $this->rooms->getRoomIdByName($roomName);
+        $room = $this->rooms->getRoomById($roomId);
         $data = [
-            'sensor' => $this->sensors->getSensorsByRooms($roomId),
-            'actuator' => $this ->actuators->getActuatorsByRooms($roomId),
-            'roomId' => $roomId
+            'sensors' => $this->sensors->getSensorsLastValuesByRoom($roomId),
+            'actuators' => $this->actuators->getActuatorsByRooms($roomId),
+            'room' => $room
         ];
         return $this -> renderer->renderTemplate( 'home/room.php',$data);
     }
+
     public function sensorDetailAction($params){
         $apartmentId = $params['id'];
 
@@ -216,6 +219,7 @@ class HomeController extends Controller
         ];
         return $this-> renderer->renderTemplate( 'home/sensordetail.php',$data);
     }
+
     public function addCemacPostAction($params){
         $apartmentId = $params['id'];
         if (!empty($_POST['reference_cemac']) AND !empty($_POST['piece'])){
@@ -228,11 +232,11 @@ class HomeController extends Controller
             header('Location: /addgear/'.$apartmentId);
         }
     }
-    public function addSensorOrActuatorPostAction($params)
-    {
+
+    public function addSensorOrActuatorPostAction($params){
         $apartmentId = $params['id'];
-        if (!empty($_POST['Id']) AND $_POST['stuff'] == 'sensors' AND !empty($_POST['cemac_id']) AND !empty($_POST['reference'])) {
-            $sensorType = $_POST['typeId'];
+        if (!empty($_POST['type']) AND $_POST['stuff'] == 'sensors' AND !empty($_POST['cemac_id']) AND !empty($_POST['reference'])) {
+            $sensorType = $_POST['type'];
             $sensorReference = $_POST['reference'];
             $cemacId = $_POST['cemac_id'];
             $this->sensors->addSensors($sensorType, $sensorReference, $cemacId);
@@ -248,14 +252,16 @@ class HomeController extends Controller
             header('Location: /addgear/'.$apartmentId);
         }
     }
-     public function orderAction($params){
-    $apartmentId=$params['id'];
-    $data=[
-        'apartmentId' => $apartmentId,
-        'room' => $this->rooms->getRoomIdAndNameByHomeId($apartmentId),
-    ];
-    return $this->renderer->renderTemplate('home/order.php',$data);
-}
+
+    public function orderAction($params){
+        $apartmentId=$params['id'];
+        $data=[
+            'apartmentId' => $apartmentId,
+            'room' => $this->rooms->getRoomIdAndNameByHomeId($apartmentId),
+        ];
+        return $this->renderer->renderTemplate('home/order.php',$data);
+    }
+
     public function testSimulationAction($params)
     {
         $apartmentId = $params['id'];
@@ -263,6 +269,7 @@ class HomeController extends Controller
             'apartmentId' => $apartmentId,
             'sensor' => $this->sensors->getSensorByApartmentId($apartmentId),
             'room'=>$this->rooms->getRoomIdAndNameByHomeId($apartmentId),
+            'sensors' => $this->homes->getSensorsByHomeId($apartmentId)
         ];
         return $this->renderer->renderTemplate('home/test.php', $data);
 
@@ -272,7 +279,7 @@ class HomeController extends Controller
         $sensorId = $_POST['sensorId'];
         $value=$_POST['number'];
         $this->sensors->updateSensorValue($sensorId,$value);
-        header('Location: /order/'.$apartmentId);
+        header('Location: /simulationcapteurs/'.$apartmentId);
     }
     public function orderPostAction($params){
         $apartmentId = $params['id'];

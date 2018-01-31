@@ -18,11 +18,6 @@
         </div>
         <input type="submit" value="Connexion" id="submit" class="bouton">
 
-            <div class="liens">
-                <a href="/resetpassword">Mot de passe oublié?</a>
-                <a href="/register" style="display: inline-block; margin-left: 10%">Inscription</a>
-            </div>
-
         </form>
 
     </div>

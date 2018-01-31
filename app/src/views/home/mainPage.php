@@ -7,7 +7,7 @@
 
         <?php foreach ($data['sensorsData'] as $sensor): ?>
 
-        <p><?= $sensor['typeName'] . ' : ' . $sensor['averageValue'] ?></p>
+        <p><?= $sensor['displayName'] . ' : ' . $sensor['averageValue'] ?></p>
 
         <?php endforeach; ?>
 

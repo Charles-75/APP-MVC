@@ -4,10 +4,10 @@
 
 
     <div id="navbar-links">
-        <a href='/myhomes' >Mes maisons</a>
+        <a href='/myhomes'>Mes maisons</a>
         <?php  if (isset($_SESSION['apartmentId'])){
             $id = $_SESSION['apartmentId'];
-            echo "|  <a href='/home/$id'> Ma Page d'accueil </a> ";
+            echo "|  <a href='/home/$id'>Retour à la maison</a> ";
 
         }
         ?>
