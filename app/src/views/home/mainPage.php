@@ -44,7 +44,7 @@
         </div>
         <div class="card" id="card-ordre">
             <h1 class="titre "  style="color:rgb(78, 196, 196)" >Mes Ordres </h1>
-            <a href="#" class="bouton">  Aujouter un ordre </a>
+            <a href="/order/<?php echo $apartmentId; ?>" class="bouton">  Aujouter un ordre </a>
 
             <div id="contenuOrdre">
                 <?php  foreach ($data['order'] as $order){ ?>
