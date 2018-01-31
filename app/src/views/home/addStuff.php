@@ -45,7 +45,7 @@
             <?php endforeach; ?>
         </select>
         <input type="text" placeholder="reference de l'equipement" name="reference" class ="reference_cemac" style="display: none;" >
-        <input type="submit"  class="reference_cemac" value="confirmer" style="display: none;">
+        <input type="submit"  class="reference_cemac bouton" value="confirmer" style="display: none;">
 
     </form>
 
