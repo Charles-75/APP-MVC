@@ -41,6 +41,15 @@ class Orders
 
 
 }
+     public function  getOrdersByApartmentId($apartmentId){
+        $req = $this->bdd->prepare("SELECT * FROM `order` WHERE 	apartmentId= :apartmentId");
+        $req->execute(([
+            ':apartmentId'=> $apartmentId,
+        ]));
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+
+    }
 
     public function deleteOrder($orderId){
         $req = $this->bdd->prepare("DELETE FROM `order` WHERE id = :orderId ");
