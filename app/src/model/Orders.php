@@ -23,13 +23,23 @@ class Orders
     ####################
 
 
-    public function createOrder($content){
-        $req = $this->bdd->prepare("INSERT INTO order VALUE(:content)");
-        $req->execute([
-            ':content' => $content
-        ]);
-    }
+  
+    public function createOrder($title,$roomActionId,$dateStart,$hourStart,$dateEnd,$repetition)
+    {
 
+            $req = $this->bdd->prepare("INSERT INTO order(title,roomActionId,dateStart,hourStart,dateEnd,repetition) VALUE(:title,:roomActionId,:dateStart,:hourStart,:dateEnd,:repetition)");
+
+            $req->execute([
+                ':title' => $title,
+                ':roomActionId' => $roomActionId,
+                ':dateStart' => $dateStart,
+                ':hourStart' => $hourStart,
+                ':dateEnd' => $dateEnd,
+                ':repetition' => $repetition,
+            ]);
+
+
+}
 
     public function deleteOrder($orderId){
         $req = $this->bdd->prepare("DELETE FROM order WHERE id = :orderId ");
