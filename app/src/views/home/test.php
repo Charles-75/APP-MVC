@@ -1,6 +1,5 @@
 
-
-<div>
+<?php include(__DIR__."/../templates/main/navbar.php") ?><div>
     <form method="POST" action="/">
         <select id="selectStuff" name="stuff">
             <?php  foreach ($data['room'] as $room) {     ?>
