@@ -69,7 +69,7 @@ class UserController extends Controller
                         $firstname = $_POST['firstname'];
                         $surname = $_POST['surname'];
                         $email = $_POST['email'];
-                        $password = hash ("sha256", $_POST['password'], [bool $raw_output = false]);
+                        $password = hash ("sha256", $_POST['password']);
                         $phone = $_POST['phone'];
 
                         $this->users->insertUser($firstname, $surname, $email, $password, $phone);
@@ -137,7 +137,7 @@ class UserController extends Controller
         if ($user['password'] == $_POST['password']){
             if (strlen($_POST['password1']) > 6){
                 if ($_POST['password1'] == $_POST['password2']){
-                    $this->users->updateUserPasswordById(hash("sha256", $_POST['password1'], [bool $raw_output = false]);, $_SESSION['id']);
+                    $this->users->updateUserPasswordById(hash("sha256", $_POST['password1']), $_SESSION['id']);
                     $_SESSION['password'] = $_POST['password1'];
                     header('Location: /profile');
                 }
