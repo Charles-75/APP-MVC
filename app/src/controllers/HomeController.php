@@ -303,9 +303,8 @@ class HomeController extends Controller
         $apartmentId = $params['id'];
         $orderId = $params['idordre'];
         $this->orders->deleteOrder($orderId);
-        header('Location:'home/'.$apartmentId); 
-
-
+        header('Location: /home/' . $apartmentId);
+    }
 }
 
 

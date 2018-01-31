@@ -3,7 +3,7 @@
 
     <div class="card" id="card-capteurs">
         <h1>Ma maison</h1>
-        <a href="/addgear/<?php echo $data['apartmentId']; ?>" class="bouton">Ajouter un capteur</a>
+        <a href="/addgear/<?php echo $data['apartmentId']; ?>" class="bouton">Ajouter un équipement</a>
 
         <?php foreach ($data['sensorsData'] as $sensor): ?>
 
@@ -43,17 +43,21 @@
                 </div>
         </div>
         <div class="card" id="card-ordre">
-            <h1 class="titre "  style="color:rgb(78, 196, 196)" >Mes Ordres </h1>
-            <a href="/order/<?php echo $apartmentId; ?>" class="bouton">  Aujouter un ordre </a>
+            <h1 class="titre">Mes Ordres </h1>
+            <a href="/order/<?php echo $data['apartmentId']; ?>" class="bouton">  Aujouter un ordre </a>
 
             <div id="contenuOrdre">
                 <?php  foreach ($data['order'] as $order){ ?>
-                    <div> <?php  echo $order['title']; ?><button id="ouv_ordre" onclick="opencity('#ouv_<?php echo $order['id']?>','#<?php echo $order['id']?>')">Afficher plus</button></div>
+                    <div>
+                        <div><?php  echo $order['title']; ?></div>
+                        <button class="bouton" id="ouv_ordre" onclick="opencity('#ouv_<?php echo $order['id']?>','#<?php echo $order['id']?>')">Détails</button>
+                        <a class="bouton bouton-delete" href="/deleteorder/<?php echo $data['apartmentId'] . '/' . $order['id']; ?>">Supprimer</a>
+                    </div>
                     <div id="<?php echo $order['id']; ?>" style="display:none">
                         <div class="petit">  heure de début :<?php  echo $order['hourStart'];?></div>
                         <div class="petit">  jour de fin  :<?php  echo $order['dateEnd'];?></div>
 
-                        <button id="ferm_<?php echo $order['id']; ?>" onclick="closecity('#<?php echo $order['id']?>','#ouv_<?php echo $order['id']?>')">Afficher moins</button>
+                        <button class="bouton" id="ferm_<?php echo $order['id']; ?>" onclick="closecity('#<?php echo $order['id']?>','#ouv_<?php echo $order['id']?>')">Afficher moins</button>
                     </div>
                 <?php } ?>
 

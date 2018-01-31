@@ -134,11 +134,11 @@ class UserController extends Controller
 
     public function changePasswordPostAction($params){
         $user = $this->users->getUserById($_SESSION['id']);
-        if ($user['password'] == $_POST['password']){
+        if ($user['password'] == hash('sha256', $_POST['password'])){
             if (strlen($_POST['password1']) > 6){
                 if ($_POST['password1'] == $_POST['password2']){
                     $this->users->updateUserPasswordById(hash("sha256", $_POST['password1']), $_SESSION['id']);
-                    $_SESSION['password'] = hash("sha356", $_POST['password1']);
+                    $_SESSION['password'] = hash("sha256", $_POST['password1']);
                     header('Location: /profile');
                 }
                 else{

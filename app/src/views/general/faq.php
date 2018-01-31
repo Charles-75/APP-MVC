@@ -59,7 +59,7 @@
 
 				<details><summary class="cd-faq-trigger">Comment ajouter un capteur ?</summary>
 				  <div class="cd-faq-content">
-					  Rendez-vous sur la page d'accueil de l'appartement auquel vous souhaitez ajouter un capteur et cliquez sur le boutton "Ajouter un capteur" dans la colonne de gauche.
+					  Rendez-vous sur la page d'accueil de l'appartement auquel vous souhaitez ajouter un capteur et cliquez sur le boutton "Ajouter un équipement" dans la colonne de gauche.
 				  </div>
 				</details>
 
@@ -100,7 +100,7 @@
 
 				<details><summary class="cd-faq-trigger">Comment ajouter un actionneur ?</summary>
 				  <div class="cd-faq-content">
-					   Rendez-vous sur la page de votre appartement et cliquez sur le boutton "Ajouter un capteur".
+					   Rendez-vous sur la page de votre appartement et cliquez sur le boutton "Ajouter un équipement".
 				  </div>
 				</details>
 		</ul>

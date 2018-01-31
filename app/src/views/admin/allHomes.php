@@ -40,7 +40,7 @@
 
                 $tr = "<table>";
                 foreach ($data['dataNotif'] as $notif){
-                    $tr .= "<tr onclick='openNotif(". $notif['id'] .")'><td class='linkSubject'>".$notif['subject']."</td><td><button class='bouton-delete' onclick='deleteNotif(".$notif['id'].")'>Delete</button></td></tr>";
+                    $tr .= "<tr> <td onclick='openNotif(". $notif['id'] .")' class='linkSubject'>".$notif['subject']."</><td><button class='bouton-delete' onclick='deleteNotif(".$notif['id'].")'>Delete</button></td></tr>";
                 }
                 $tr.="</table>";
                 echo $tr;

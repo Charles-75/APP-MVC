@@ -127,7 +127,7 @@ label {
     -ms-transition: background-color 0.30s ease-in-out;
     -o-transition: background-color 0.30s ease-in-out;
 }
-.bouton-delete{
+.bouton-delete, a.bouton-delete, a.bouton-delete:visited{
     background-color: #DC1114;
     border: 1px solid #C81113;
 }

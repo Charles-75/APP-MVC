@@ -94,7 +94,7 @@
         else if(choice == 'actuators') var choices = actuatorTypes;
 
         choices.forEach(function(type) {
-            typeSelector.appendChild(new Option(type['name'], type['id']));
+            typeSelector.appendChild(new Option(type['displayname'], type['id']));
         });
 
    }
