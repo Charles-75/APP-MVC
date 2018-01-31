@@ -256,6 +256,17 @@ class HomeController extends Controller
     ];
     return $this->renderer->renderTemplate('home/order.php',$data);
 }
+    public function testSimulationAction($params)
+    {
+        $apartmentId = $params['id'];
+        $data = [
+            'apartmentId' => $apartmentId,
+            'sensor' => $this->sensors->getSensorByApartmentId($apartmentId),
+            'room'=>$this->rooms->getRoomIdAndNameByHomeId($apartmentId),
+        ];
+        return $this->renderer->renderTemplate('home/test.php', $data);
+
+    }
     public function orderPostAction($params){
         $apartmentId = $params['id'];
         if (!empty($_POST['title'])){
@@ -307,6 +318,7 @@ class HomeController extends Controller
 
 
 }
+
 
 
 
