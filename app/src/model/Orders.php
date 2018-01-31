@@ -1,7 +1,7 @@
 <?php
 
 namespace Src\Model;
-
+use \PDO;
 
 class Orders
 {
