@@ -1,22 +1,30 @@
 
-<?php include(__DIR__."/../templates/main/navbar.php") ?><div>
+<style>
+ .choice{
+     margin-bottom: 10%;
+ }
+</style>
+<div class="box container">
+   <div class="card ">
+       <h1>Simuler de nouvelles données pour des capteurs</h1>
     <form method="POST" action="/">
-        <select id="selectStuff" name="stuff">
+        <div class="choice"><label>Choississer une pièce </label><select id="selectStuff" name="room">
             <?php  foreach ($data['room'] as $room) {     ?>
 
                 <option <?php  echo $room['id']; ?>><?php echo $room['name'] ?></option>
         <?php } ?>
         </select>
-        <select name="type" id="typeSelector"  ></select>
 
-
-        <input type="submit" value="simuler de nouvelles données">
+        <label> Choississer le capteur à modifier</label><select name="type" id="typeSelector"  ></select>
+        </div>
+        <label>Entrer la nouvelle valeur du capteur</label><input   type="number" >
+        <input type="submit" class="bouton" value="simuler de nouvelles données">
 
     </form>
 
 
 
-
+   </div>
 </div>
 <script>
 
