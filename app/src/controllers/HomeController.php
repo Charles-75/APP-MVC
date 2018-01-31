@@ -277,7 +277,7 @@ class HomeController extends Controller
             $repetition= $_POST['day'];
             $roomActionId = $_POST['roomActionId'];
 
-            $this->orders->createOrder($title,$roomActionId,$dateStart,$hourStart,$dateEnd,$repetition);
+            $this->orders->createOrder($title,$roomActionId,$dateStart,$hourStart,$dateEnd,$repetition,$apartmentId);
             header( 'Location: /order/'.$apartmentId);
         }
         else {
