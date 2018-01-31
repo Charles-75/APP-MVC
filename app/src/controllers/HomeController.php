@@ -192,7 +192,7 @@ class HomeController extends Controller
         $data = [
             'apartmentId' => $apartmentId,
             'apartmentData' => $this->rooms->getRoomIdAndNameByHomeId($apartmentId),
-            'cemacData' => $this->cemac->getCemacIdAndNameAndRoomIdByApartmentId($apartmentId),
+            'cemacData' => $this->cemac->getCemacByApartmentId($apartmentId),
             'sensorTypes' => $this->sensors->getAllSensorTypes()
         ];
         return $this->renderer->renderTemplate('home/addStuff.php', $data);
@@ -276,7 +276,7 @@ class HomeController extends Controller
     public function deleteCemacAction($params){
         $apartmentId = $params['id'];
         $rooms = $this->rooms->getRoomIdAndNameByHomeId($apartmentId);
-        $cemacs = $this->cemac->getCemacIdAndNameAndRoomIdByApartmentId($apartmentId);
+        $cemacs = $this->cemac->getCemacByApartmentId($apartmentId);
         $data = [
             'apartmentId' => $apartmentId,
             'rooms' => $rooms,
@@ -287,7 +287,7 @@ class HomeController extends Controller
 
     public function deleteCemacPostAction($params){
         $apartmentId = $params['id'];
-        $cemacs = $this->cemac->getCemacIdAndNameAndRoomIdByApartmentId($apartmentId);
+        $cemacs = $this->cemac->getCemacByApartmentId($apartmentId);
         foreach ($cemacs as $cemac){
             $cemacId = $cemac['id'];
             if (isset($_POST['check'.$cemacId.''])){
