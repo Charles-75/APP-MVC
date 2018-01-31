@@ -1,3 +1,7 @@
+<div class="info card">
+    <h1>Bievenue sur le site de domotique  HOME'ISEP, un produit de DOMISEP</h1>
+    <div class="text"><a class="content">C'est le site de gestion de votre   maison ! Où que vous soyez  contrôler vos  équipements grâce a HOME'ISEP! </a>     </div>
+</div>
 <div class="container align-box narrow-container">
 
     <img src="/img/Domisep.png" class="img-responsive" id="login-logo">
