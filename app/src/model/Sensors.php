@@ -125,5 +125,12 @@ class Sensors
         return $res;
 
     }
+    public function updateSensorValue($sensorId,$value){
+        $req = $this->bdd->prepare("UPDATE `value` SET `value` =:value WHERE sensorId=:sensorId ");
+        $req->execute([
+            ':value' => $value,
+            ':sensorId' => $sensorId,
+        ]);
+    }
 
 }
