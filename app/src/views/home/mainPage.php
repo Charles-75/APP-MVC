@@ -47,13 +47,15 @@
             <a href="#" class="bouton">  Aujouter un ordre </a>
 
             <div id="contenuOrdre">
-                <div> je t'ordronne d'allumer une lampe<button id="ouv_ordre" onclick="opencity('#ouv_ordre','#ordre')">Afficher plus</button></div>
-                <div id="ordre" style="display:none">
-                    <div class="petit"> info sur le temps</div>
-                    <div class="petit"> info sur les capteurs</div>
-                    <div class="petit">info sur les pièces</div>
-                    <button id="ferm_ordre" onclick="closecity('#ordre','#ouv_ordre')">Afficher moins</button>
-                </div>
+                <?php  foreach ($data['order'] as $order){ ?>
+                    <div> <?php  echo $order['title']; ?><button id="ouv_ordre" onclick="opencity('#ouv_<?php echo $order['id']?>','#<?php echo $order['id']?>')">Afficher plus</button></div>
+                    <div id="<?php echo $order['id']; ?>" style="display:none">
+                        <div class="petit">  heure de début :<?php  echo $order['hourStart'];?></div>
+                        <div class="petit">  jour de fin  :<?php  echo $order['dateEnd'];?></div>
+
+                        <button id="ferm_<?php echo $order['id']; ?>" onclick="closecity('#<?php echo $order['id']?>','#ouv_<?php echo $order['id']?>')">Afficher moins</button>
+                    </div>
+                <?php } ?>
 
             </div>
 
