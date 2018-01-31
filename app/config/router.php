@@ -47,7 +47,7 @@ $routes = [
     ['/\/changepasswordadminpost/', ['\Src\Controllers\AdminController', 'changePasswordPost']],
 
     ['/\/updateadmin/', ['\Src\Controllers\AdminController', 'updateAdmin']],
-
+    
     ['/\/updateprofilepost/', ['\Src\Controllers\UserController', 'updateprofilepost']],
 
     ['/\/updateadminpost/', ['\Src\Controllers\AdminController', 'updateAdminPost']], //admin
@@ -112,6 +112,9 @@ $routes = [
 
     ['/\/room\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'room']],
 
+    ['/\/order\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'order']],
+
+    ['/\/orderpost\/(?<id>[0-9]+)/', ['\Src\Controllers\HomeController', 'orderPost']],
 
     ['/\/pannesimulation\/(?<id>[0-9]+)\/(?<id1>[0-9]+)/', ['\Src\Controllers\SensorController', 'panneSimulation']],
 
