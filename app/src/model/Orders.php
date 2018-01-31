@@ -24,10 +24,10 @@ class Orders
 
 
   
-    public function createOrder($title,$roomActionId,$dateStart,$hourStart,$dateEnd,$repetition)
+    public function createOrder($title,$roomActionId,$dateStart,$hourStart,$dateEnd,$repetition,$apartmentId)
     {
 
-            $req = $this->bdd->prepare("INSERT INTO order(title,roomActionId,dateStart,hourStart,dateEnd,repetition) VALUE(:title,:roomActionId,:dateStart,:hourStart,:dateEnd,:repetition)");
+            $req = $this->bdd->prepare("INSERT INTO order(title,roomActionId,dateStart,hourStart,dateEnd,repetition,apartmentId) VALUES(:title,:roomActionId,:dateStart,:hourStart,:dateEnd,:repetition,:apartmentId)");
 
             $req->execute([
                 ':title' => $title,
@@ -36,6 +36,7 @@ class Orders
                 ':hourStart' => $hourStart,
                 ':dateEnd' => $dateEnd,
                 ':repetition' => $repetition,
+                ':apartmentId' => $apartmentId
             ]);
 
 
