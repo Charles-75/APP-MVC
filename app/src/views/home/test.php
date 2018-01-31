@@ -7,7 +7,7 @@
 <div class="box container">
    <div class="card ">
        <h1>Simuler de nouvelles données pour des capteurs</h1>
-    <form method="POST" action="/">
+    <form method="POST" action="/simulationcapteurspost">
         <div class="choice"><label>Choississer une pièce </label><select id="selectStuff" name="room">
             <?php  foreach ($data['room'] as $room) {     ?>
 
@@ -15,9 +15,9 @@
         <?php } ?>
         </select>
 
-        <label> Choississer le capteur à modifier</label><select name="type" id="typeSelector"  ></select>
+        <label> Choississer le capteur à modifier</label><select name="sensorId" id="typeSelector"  ></select>
         </div>
-        <label>Entrer la nouvelle valeur du capteur</label><input   type="number" >
+        <label>Entrer la nouvelle valeur du capteur</label><input name="number"  type="number" >
         <input type="submit" class="bouton" value="simuler de nouvelles données">
 
     </form>
