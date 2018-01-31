@@ -299,6 +299,10 @@ class HomeController extends Controller
         }
         header('Location: /home/'.$apartmentId);
     }
+    public function deleteOrderAction($orderId){
+        $apartmentId = $params['id'];
+        $this->orders->deleteOrder($orderId);
+        header('Location:'home/'.$apartmentId); 
 
 
 }
