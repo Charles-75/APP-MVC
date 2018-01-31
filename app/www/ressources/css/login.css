@@ -1,3 +1,4 @@
+
 *{
     font-size: 102%;
     font-family: Arial, sans-serif;
@@ -63,3 +64,9 @@ footer
 	margin-bottom: 1%;
 	margin-left: 1.5%;
 }
+.content{
+        font-size: 1.5em;
+    }
+    .text{
+        text-align: center;
+    }
