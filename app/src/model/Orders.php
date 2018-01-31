@@ -27,7 +27,7 @@ class Orders
     public function createOrder($title,$roomActionId,$dateStart,$hourStart,$dateEnd,$repetition,$apartmentId)
     {
 
-            $req = $this->bdd->prepare("INSERT INTO order(title,roomActionId,dateStart,hourStart,dateEnd,repetition,apartmentId) VALUES(:title,:roomActionId,:dateStart,:hourStart,:dateEnd,:repetition,:apartmentId)");
+            $req = $this->bdd->prepare("INSERT INTO `order`(title,roomActionId,dateStart,hourStart,dateEnd,repetition,apartmentId) VALUES(:title,:roomActionId,:dateStart,:hourStart,:dateEnd,:repetition,:apartmentId)");
 
             $req->execute([
                 ':title' => $title,
@@ -43,7 +43,7 @@ class Orders
 }
 
     public function deleteOrder($orderId){
-        $req = $this->bdd->prepare("DELETE FROM order WHERE id = :orderId ");
+        $req = $this->bdd->prepare("DELETE FROM `order` WHERE id = :orderId ");
         $req->execute([
             ':orderId' => $orderId
         ]);
