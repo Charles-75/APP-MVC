@@ -1,7 +1,7 @@
 
 <style>
  .choice{
-     margin-bottom: 10%;
+     margin-bottom: 6%;
  }
 </style>
 <div class="box container">
