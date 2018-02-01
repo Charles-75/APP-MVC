@@ -55,7 +55,7 @@
     var actuator=document.getElementById('actuator');
     var test = JSON.parse (" <?php echo addslashes(json_encode($data['cemacData'])); ?>");
     var sensorTypes = JSON.parse("<?php echo addslashes(json_encode($data['sensorTypes'])); ?>");
-    var actuatorTypes = JSON.parse("[{\"id\":\"volet\",\"name\":\"volet\"},{\"id\":\"lumiere\",\"name\":\"lumiere\"}]");
+    var actuatorTypes = JSON.parse("[{\"displayname\":\"volet\",\"name\":\"volet\"},{\"displayname\":\"lumiere\",\"name\":\"lumiere\"}]");
     var selector = document.getElementById('selectStuff');
     var typeSelector = document.getElementById('typeSelector');
 
