@@ -150,6 +150,16 @@ class Homes
         }
     }
 
+    public function isUserGuestOfHome($userId, $homeId) {
+        $req = $this->bdd->prepare("SELECT COUNT(*) AS count FROM guestship WHERE userId = :userId AND apartmentId = :homeId");
+        $req->execute([
+            'userId' => $userId,
+            'apartmentId' => $homeId
+        ]);
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $res['count'] == 1;
+    }
+
     public function getAllGuests($apartmentId){
         $req = $this->bdd->prepare("SELECT user.* FROM user INNER JOIN guestship ON guestship.userId = user.id WHERE guestship.apartmentId = :apartmentId");
         $req->execute([
