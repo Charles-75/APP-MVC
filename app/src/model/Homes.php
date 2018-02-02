@@ -37,6 +37,12 @@ class Homes
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getHomeById($homeId) {
+        $req = $this->bdd->prepare("SELECT * FROM apartment WHERE id = :id");
+        $req->execute(['id' => $homeId]);
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
 
 
