@@ -50,8 +50,7 @@ class Tickets
 
 
     public function getTicketOrderedByUserId(){
-        $req = $this->bdd->query("SELECT ticket.*, user.firstName as firstName, user.surname as surname FROM ticket ORDER BY userId
-                                            INNER JOIN user ON user.id = ticket.userId");
+        $req = $this->bdd->query("SELECT * FROM ticket ORDER BY userId");
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
@@ -84,14 +83,18 @@ class Tickets
     }
 
     public function getAllTicketsStillOpenAdmin(){
-        $req = $this->bdd->query("SELECT * FROM ticket WHERE closeDate IS NULL ORDER BY creationDate DESC");
+        $req = $this->bdd->query("SELECT ticket.*, user.firstName, user.surname FROM ticket
+                                            INNER JOIN user ON user.id = ticket.userId
+                                            WHERE closeDate IS NULL ORDER BY creationDate DESC");
 
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
 
     public function getAllTicketsClosedAdmin(){
-        $req = $this->bdd->query("SELECT * FROM ticket WHERE closeDate IS NOT NULL ORDER BY creationDate DESC ");
+        $req = $this->bdd->query("SELECT ticket.*, user.firstName, user.surname FROM ticket
+                                            INNER JOIN user ON user.id = ticket.userId
+                                            WHERE closeDate IS NOT NULL ORDER BY creationDate DESC ");
 
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
