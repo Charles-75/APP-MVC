@@ -1,3 +1,4 @@
+
 <?php
 
 namespace Src\Controllers;
@@ -41,6 +42,10 @@ class HomeController extends Controller
     }
 
     public function myHomesAction($params) {
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         $idUser = $_SESSION['id'];
         $homes = $this->homes->getUserHomes($idUser);
         $homesGuests = $this->homes->getGuestApartmentsId($idUser);
@@ -59,11 +64,19 @@ class HomeController extends Controller
     }
 
     public function addHomeAction($params){
-       
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
+        
         return $this->renderer->renderTemplate('home/addHome.php');
     }
 
     public function addHomePostAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
        
         if (!empty($_POST['town']) && !empty($_POST['street']) && !empty($_POST['number']) && !empty($_POST['zipCode'])){
             if ($_POST['number'] >= 1){
@@ -84,12 +97,20 @@ class HomeController extends Controller
     }
 
     public function addGuestAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         $apartmentId = $params['id'];
         $data = ['apartmentId' => $apartmentId];
         return $this->renderer->renderTemplate('home/addGuest.php', $data);
     }
 
     public function addGuestPostAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         $apartmentId = $params['id'];
         $email = $_POST['email'];
         $user = $this->users->getUserByEmail($email);
@@ -99,6 +120,10 @@ class HomeController extends Controller
     }
 
     public function deleteGuestAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         $apartmentId = $params['id'];
         $guests = $this->homes->getAllGuests($apartmentId);
         $data = [
@@ -109,6 +134,10 @@ class HomeController extends Controller
     }
 
     public function deleteGuestPostAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         $apartmentId = $params['id'];
         $guests = $this->homes->getAllGuests($apartmentId);   //selectionne les users invités
         foreach ($guests as $guest){
@@ -125,6 +154,10 @@ class HomeController extends Controller
     }
 
     public function deleteHomeAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         $apartmentId = $params['id'];
         $this->homes->deleteHome($apartmentId);
         $this->homes->deleteAllGuests($apartmentId);
@@ -132,7 +165,15 @@ class HomeController extends Controller
     }
 
     public function homeAction($params){
-
+        
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         $_SESSION['apartmentId'] = $apartmentId;
 
@@ -148,12 +189,28 @@ class HomeController extends Controller
     }
 
     public function addRoomAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         $data = ['apartmentId' => $apartmentId];
         return $this->renderer->renderTemplate('home/addRoom.php', $data);
     }
 
     public function addRoomPostAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         if (!empty($_POST['name'])){
             $name = $_POST['name'];
@@ -166,6 +223,14 @@ class HomeController extends Controller
     }
 
     public function deleteRoomAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         $rooms = $this->rooms->getRoomIdAndNameByHomeId($apartmentId);
         $data = [
@@ -176,6 +241,14 @@ class HomeController extends Controller
     }
 
     public function deleteRoomPostAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         $rooms = $this->rooms->getRoomIdAndNameByHomeId($apartmentId);
         foreach ($rooms as $room){
@@ -189,6 +262,14 @@ class HomeController extends Controller
     }
 
     public function addStuffAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         $_SESSION['apartmentId'] = $apartmentId;
         $data = [
@@ -201,6 +282,14 @@ class HomeController extends Controller
     }
 
     public function roomAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $roomId = $params['id'];
         $room = $this->rooms->getRoomById($roomId);
         $data = [
@@ -212,6 +301,14 @@ class HomeController extends Controller
     }
 
     public function sensorDetailAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
 
         $data = [
@@ -221,6 +318,14 @@ class HomeController extends Controller
     }
 
     public function addCemacPostAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         if (!empty($_POST['reference_cemac']) AND !empty($_POST['piece'])){
             $name = $_POST['reference_cemac'];
@@ -234,6 +339,14 @@ class HomeController extends Controller
     }
 
     public function addSensorOrActuatorPostAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         if (!empty($_POST['type']) AND $_POST['stuff'] == 'sensors' AND !empty($_POST['cemac_id']) AND !empty($_POST['reference'])) {
             $sensorType = $_POST['type'];
@@ -254,6 +367,14 @@ class HomeController extends Controller
     }
 
     public function orderAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId=$params['id'];
         $data=[
             'apartmentId' => $apartmentId,
@@ -264,6 +385,14 @@ class HomeController extends Controller
 
     public function testSimulationAction($params)
     {
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         $data = [
             'apartmentId' => $apartmentId,
@@ -275,6 +404,14 @@ class HomeController extends Controller
 
     }
     public function testSimulationPostAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $_SESSION['apartmentId'];
         $sensorId = $_POST['sensorId'];
         $value=$_POST['number'];
@@ -282,6 +419,14 @@ class HomeController extends Controller
         header('Location: /simulationcapteurs/'.$apartmentId);
     }
     public function orderPostAction($params){
+       if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         if (!empty($_POST['title'])){
             $title = $_POST['title'];
@@ -300,6 +445,14 @@ class HomeController extends Controller
 
     }
     public function deleteCemacAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         $rooms = $this->rooms->getRoomIdAndNameByHomeId($apartmentId);
         $cemacs = $this->cemac->getCemacByApartmentId($apartmentId);
@@ -312,6 +465,14 @@ class HomeController extends Controller
     }
 
     public function deleteCemacPostAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         $cemacs = $this->cemac->getCemacByApartmentId($apartmentId);
         foreach ($cemacs as $cemac){
@@ -325,6 +486,14 @@ class HomeController extends Controller
         header('Location: /home/'.$apartmentId);
     }
     public function deleteOrderAction($params){
+        if (!isset($_SESSION['id']) ) {
+            header('Location: /login');
+            die();
+        }
+        if ($_SESSION['apartmentId'] != $params['id']){
+            header('Location: /myhomes');
+            die(); 
+        }
         $apartmentId = $params['id'];
         $orderId = $params['idordre'];
         $this->orders->deleteOrder($orderId);
