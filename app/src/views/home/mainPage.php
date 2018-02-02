@@ -11,6 +11,8 @@
 
         <?php endforeach; ?>
 
+        <a href="/simulationcapteurs/<?php echo $data['apartmentId']; ?>">Simuler capteur</a>
+
     </div>
 
     <div class="card" id="card-rooms">

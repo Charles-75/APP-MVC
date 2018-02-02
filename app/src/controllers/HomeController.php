@@ -483,6 +483,8 @@ class HomeController extends Controller
         foreach ($cemacs as $cemac){
             $cemacId = $cemac['id'];
             if (isset($_POST['check'.$cemacId.''])){
+                $sensor = $this->sensors->getSensorByCemacId($cemacId);
+                $this->sensors->deleteValues($sensor['id']);
                 $this->cemac->deleteCemac($cemacId);
                 $this->sensors->deleteAllSensors($cemacId);
                 $this->actuators->deleteAllActuators($cemacId);

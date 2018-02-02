@@ -25,6 +25,7 @@
             <?php endforeach; ?>
         </select>
         <div class="center"><input type="submit" value="confirmer" class="bouton" style="margin-top: 5%"></div>
+        <a href="/deletecemac/<?php echo $data['apartmentId']; ?>" class="bouton-delete bouton" style="color: white">Supprimer Cemac(s)</a>
     </form>
 
 

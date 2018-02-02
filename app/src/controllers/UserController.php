@@ -110,10 +110,8 @@ class UserController extends Controller
         
         $idUser = $_SESSION['id'];
         $user = $this->users->getUserById($idUser);
-        $password = substr($user['password'], 0, 3);
         $data = [
             'user' => $user,
-            'password' => $password
         ];
         return $this->renderer->renderTemplate('user/profile.php', $data);
     }

@@ -106,6 +106,18 @@ class Sensors
         if (sizeof($res) == 1){ return $res[0];};
 
     }
+
+    public function getSensorByCemacId($cemacId) {
+
+        $req = $this->bdd->prepare("SELECT sensor.* FROM sensor INNER JOIN cemac ON sensor.cemacId = cemac.id WHERE cemac.id = :cemacId");
+        $req->execute([
+            ':cemacId' => $cemacId
+        ]);
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        if (sizeof($res) == 1){ return $res[0];};
+
+    }
+
      public function getSensorsByRooms($roomId){
         $req = $this->bdd->prepare("SELECT sensor.*, sensortype.name AS type FROM sensor
                                               INNER JOIN cemac ON sensor.cemacId = cemac.id
@@ -150,6 +162,21 @@ class Sensors
             ':val' => $value,
             ':sensorId' => $sensorId,
         ]);
+    }
+
+    public function deleteValues($sensorId){
+        try{
+            $req = $this->bdd->prepare("DELETE FROM value WHERE sensorId = :id");
+            $req->execute([
+                ':id' => $sensorId
+            ]);
+        }
+        catch (\PDOException $e){
+            return null;
+        }
+        catch (\Exception $e){
+            return null;
+        }
     }
 
 }
