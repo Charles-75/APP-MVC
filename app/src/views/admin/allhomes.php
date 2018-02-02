@@ -136,7 +136,7 @@
 
             var trHTML = '<tr><td class="infoUser"> Prénom </td> <td class="infoUser"> Nom de famille </td> <td class="infoUser"> Adresse email </td> <td class="goToHomes"> Homes </td>';
             $.each(users, function (i, item) {
-                trHTML += '<tr><td class="infoUser">' + item.firstName + '</td><td class="infoUser">' + item.surname + '</td><td class="infoUser">' + item.email + '</td><td class="goToHomes">' + '<formn><input type="button" value="click"></formn>' + '</td></tr>'  ;
+                trHTML += '<tr><td class="infoUser">' + item.firstName + '</td><td class="infoUser">' + item.surname + '</td><td class="infoUser">' + item.email + '</td><td class="goToHomes">' + '<a href="#" class="bouton">Gérer</a>' + '</td></tr>'  ;
             });
             $('#users').append(trHTML);
         });
