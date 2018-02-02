@@ -174,7 +174,7 @@ class HomeController extends Controller
 
         $home = $this->homes->getHomeById($homeId);
 
-        echo !$this->homes->isUserGuestOfHome($_SESSION['id'], $homeId;
+        echo !$this->homes->isUserGuestOfHome($_SESSION['id'], $homeId);
 
         if($home['idUser'] != $_SESSION['id'] || !$this->homes->isUserGuestOfHome($_SESSION['id'], $homeId)) {
             header('Location: /myhomes');
