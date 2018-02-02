@@ -291,10 +291,6 @@ class HomeController extends Controller
             header('Location: /login');
             die();
         }
-        if ($_SESSION['apartmentId'] != $params['id']){
-            header('Location: /myhomes');
-            die(); 
-        }
         $roomId = $params['id'];
         $room = $this->rooms->getRoomById($roomId);
         $data = [
