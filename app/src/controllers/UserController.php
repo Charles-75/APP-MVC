@@ -102,7 +102,12 @@ class UserController extends Controller
     }
 
     public function profileAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         unset($_SESSION['warning']);
+        
         $idUser = $_SESSION['id'];
         $user = $this->users->getUserById($idUser);
         $password = substr($user['password'], 0, 3);
@@ -114,6 +119,10 @@ class UserController extends Controller
     }
 
     public function updateProfileAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         unset($_SESSION['warning']);
         $idUser = $_SESSION['id'];
         $data = $this->users->getUserById($idUser);
@@ -121,6 +130,10 @@ class UserController extends Controller
     }
 
     public function updateProfilePostAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         if (!empty($_POST['firstname']) && !empty($_POST['surname']) && !empty($_POST['email'])&& !empty($_POST['phone'])){
 
             $this->users->updateUserById($_POST['firstname'], $_POST['surname'], $_POST['email'], $_POST['phone'], $_SESSION['id']);
@@ -129,10 +142,18 @@ class UserController extends Controller
     }
 
     public function changePasswordAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         return $this->renderer->renderTemplate('user/changePassword.php');
     }
 
     public function changePasswordPostAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         $user = $this->users->getUserById($_SESSION['id']);
         if ($user['password'] == hash('sha256', $_POST['password'])){
             if (strlen($_POST['password1']) > 6){
@@ -158,10 +179,18 @@ class UserController extends Controller
     }
 
     public function addTicketAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         return $this->renderer->renderTemplate('user/addticket.php');
     }
 
     public function addTicketPostAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         $userId = $_SESSION['id'];
         $content = $_POST['content'];
         $subject = $_POST['subject'];
@@ -170,6 +199,10 @@ class UserController extends Controller
     }
 
     public function ticketHistoricAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         $userId = $_SESSION['id'];
         $ticketsOpen = $this->tickets->getAllTicketsStillOpen($userId);
         $ticketsClose = $this->tickets->getAllTicketsClosed($userId);
@@ -212,6 +245,10 @@ class UserController extends Controller
         return $this->renderer->renderTemplate('user/ticketHistoric.php', $data);
     }
     public function viewTicketAction($params){
+        if (!isset($_SESSION['id'])) {
+            header('Location: /login');
+            die();
+        }
         $ticketId = $params['id'];
         $ticket = $this->tickets->getTicket($ticketId);
         $months = ["janvier", "février", "mars", "avril", "mai", "juin",
