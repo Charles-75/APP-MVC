@@ -174,7 +174,8 @@ class HomeController extends Controller
 
         $home = $this->homes->getHomeById($homeId);
 
-        var_dump($home['idUser'] != $_SESSION['id'] || !$this->homes->isUserGuestOfHome($_SESSION['id'], $homeId));
+        var_dump($home['idUser'] != $_SESSION['id']);
+        var_dump(!$this->homes->isUserGuestOfHome($_SESSION['id'], $homeId));
         die();
 
         if($home['idUser'] != $_SESSION['id'] || !$this->homes->isUserGuestOfHome($_SESSION['id'], $homeId)) {
