@@ -8,7 +8,7 @@
             <?php foreach ($data['ticketsOpen'] as $ticket): ?>
                 <ul style="margin-top: 5%">
 
-                    <p><?php echo $ticket['userId']; ?></p>
+                    <p><?php echo $ticket['firstName'] . ' ' . $ticket['surname']; ?></p>
                     <i style="font-size: 80%">Soumis le <?php echo $ticket['openDate']; ?></i><br>
                     <a href="/viewticketadmin/<?php echo $ticket['id']; ?>/" ><?php echo $ticket['subject']; ?></a>
                 </ul>
