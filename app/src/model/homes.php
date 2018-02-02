@@ -157,7 +157,7 @@ class Homes
             'homeId' => $homeId
         ]);
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
-        return $res['count'] == 1;
+        return $res[0]['count'] == 1;
     }
 
     public function getAllGuests($apartmentId){
