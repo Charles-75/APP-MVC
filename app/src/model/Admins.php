@@ -28,12 +28,12 @@ class Admins
     ###################
 
 
-    public function getAdminByCredentials($email, $password) {
+    public function getAdminByCredentials($email, $password, $passwordHashed=false) {
         try {
             $req = $this->bdd->prepare("SELECT * FROM admin WHERE email = :email AND password = :password");
             $req->execute(([
                 ':email' => $email,
-                ':password' => $password
+                ':password' => !$passwordHashed ? hash('sha256', $password) : $password
             ]));
             $res = $req->fetchAll(PDO::FETCH_ASSOC);
             if(sizeof($res) == 1) return $res[0];
@@ -88,7 +88,7 @@ class Admins
         try{
             $req = $this->bdd->prepare("UPDATE admin SET password = :password WHERE id = :id");
             $req->execute([
-                'password' => $password,
+                'password' => hash('sha256', $password),
                 'id' => $id
             ]);
         }

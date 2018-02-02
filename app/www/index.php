@@ -15,6 +15,7 @@ require_once('../config/router.php');
 function __autoload($classname)
 {
     $path = '../' . str_replace('\\', DIRECTORY_SEPARATOR, $classname) . '.php';
+    $path = strtolower($path);
     if (!file_exists($path)) {
         throw new Error("File does not exist : $path");
     }

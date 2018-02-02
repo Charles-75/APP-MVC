@@ -129,11 +129,11 @@ class AdminController extends Controller
 
     public function changePasswordPostAction($params){
         $admin = $this->admins->getAdminById($_SESSION['adminId']);
-        if ($admin['password'] == $_POST['password']){
+        if ($admin['password'] == hash('sha256', $_POST['password'])){
             if (strlen($_POST['password1']) > 6){
                 if ($_POST['password1'] == $_POST['password2']){
                     $this->admins->updateAdminPasswordById($_POST['password1'], $_SESSION['adminId']);
-                    $_SESSION['password'] = $_POST['password1'];
+                    $_SESSION['password'] = hash('sha256', $_POST['password1']);
                     header('Location: /profileadmin');
                 }
                 else{
