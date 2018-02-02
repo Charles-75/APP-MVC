@@ -53,13 +53,13 @@
 
 				<details><summary class="cd-faq-trigger">Comment ajouter une pièce ?</summary>
 				  <div class="cd-faq-content">
-					  Rendez-vous sur la page d'accueil de l'appartement auquel vous souhaitez ajouter une pièce et cliquez sur le boutton "Ajouter une pièce" dans la colonne centrale.
+					  Rendez-vous sur la page d'accueil de l'appartement auquel vous souhaitez ajouter une pièce et cliquez sur le bouton "Ajouter une pièce" dans la colonne centrale.
 				  </div>
 				</details>
 
 				<details><summary class="cd-faq-trigger">Comment ajouter un capteur ?</summary>
 				  <div class="cd-faq-content">
-					  Rendez-vous sur la page d'accueil de l'appartement auquel vous souhaitez ajouter un capteur et cliquez sur le boutton "Ajouter un équipement" dans la colonne de gauche.
+					  Rendez-vous sur la page d'accueil de l'appartement auquel vous souhaitez ajouter un capteur et cliquez sur le bouton "Ajouter un équipement" dans la colonne de gauche.
 				  </div>
 				</details>
 
@@ -88,7 +88,7 @@
 			<h2 class="cd-faq-title">F.A.Q. Avancée</h2>
         <details><summary class="cd-faq-trigger">Comment créer un ordre ?</summary>
           <div class="cd-faq-content">
-            Rendez-vous sur la page de votre appartement et cliquez sur le boutton "Ajouter un ordre".
+            Rendez-vous sur la page de votre appartement et cliquez sur le bouton "Ajouter un ordre".
           </div>
         </details>
 
@@ -100,7 +100,7 @@
 
 				<details><summary class="cd-faq-trigger">Comment ajouter un actionneur ?</summary>
 				  <div class="cd-faq-content">
-					   Rendez-vous sur la page de votre appartement et cliquez sur le boutton "Ajouter un équipement".
+					   Rendez-vous sur la page de votre appartement et cliquez sur le bouton "Ajouter un équipement".
 				  </div>
 				</details>
 		</ul>
