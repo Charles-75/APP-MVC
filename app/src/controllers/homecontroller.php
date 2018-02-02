@@ -413,10 +413,6 @@ class HomeController extends Controller
             header('Location: /login');
             die();
         }
-        if ($_SESSION['apartmentId'] != $params['id']){
-            header('Location: /myhomes');
-            die(); 
-        }
         $apartmentId = $_SESSION['apartmentId'];
         $sensorId = $_POST['sensorId'];
         $value=$_POST['number'];
