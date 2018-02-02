@@ -50,7 +50,7 @@ class Tickets
 
 
     public function getTicketOrderedByUserId(){
-        $req = $this->bdd->query("SELECT ticket.*, user.firstName, user.surname FROM ticket ORDER BY userId
+        $req = $this->bdd->query("SELECT ticket.*, user.firstName as firstName, user.surname as surname FROM ticket ORDER BY userId
                                             INNER JOIN user ON user.id = ticket.userId");
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
