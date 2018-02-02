@@ -154,7 +154,7 @@ class Homes
         $req = $this->bdd->prepare("SELECT COUNT(*) AS count FROM guestship WHERE userId = :userId AND apartmentId = :homeId");
         $req->execute([
             'userId' => $userId,
-            'apartmentId' => $homeId
+            'homeId' => $homeId
         ]);
         $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res['count'] == 1;
