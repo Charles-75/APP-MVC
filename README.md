@@ -1,23 +1,22 @@
 APP MCV
 =======
 
-Framework MVC PHP pour notre APP informatique à l'ISEP année 2017-2018
+Handmade PHP MVC Framework for our ISEP web development course (2017). 
 
-
-Développement
+Development
 -------------
 
-Pour commencer à développer avec ce framework, servez le dossier `app` avec un serveur web, ou utilisez Docker
+To start developing with this framework, serve the `app` folder with a web server, or simply use Docker. 
 
-### Développer avec Docker
+### Development with Docker
 
-Pour développer avec Docker, vous devez installer Docker et Docker-Compose
-Ensuite, utiliser `docker-compose up`.
+To develop with Docker, you need to install Docker and Docker-Compose. 
+Then use `docker-compose up` to run docker containers all together.
 
-Le site sera servi sur le port 8080.
+The site will be served on port 8080.
 
-### Développer avec Wamp
+### Development with Wamp
 
-Aller dans le system tray, et naviguez dans le menu Wamp -> Apache -> httpd-vhosts.conf
-Remplacer en lignes 6 et 7 `/www` par `/www/APPMVC/app/www`
-Enregistrer, redémarrer le service Apache et se rendre à l'adresse `http://localhost:8080`
+Go to the system tray, and navigate in the Wamp menu -> Apache -> httpd-vhosts.conf
+Replace lines 6 and 7 `/ www` by` / www / APPMVC / app / www`
+Save, restart Apache service and go to the address `http: // localhost: 8080`
